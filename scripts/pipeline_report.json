@@ -1,0 +1,772 @@
+{
+  "total_added": 149,
+  "category_counts": {
+    "Microcontrollers & Boards": 23,
+    "Robotics & Motors": 6,
+    "Sensors & Displays": 30,
+    "Power & Converters": 90
+  },
+  "flagged_images_count": 94,
+  "flagged_images": [
+    {
+      "id": "15469000000000",
+      "title": "1.8 Inch TFT SPI LCD Display Module ST7735S 128\u00d7160 with SD Card Slot | Arduino & ESP32",
+      "image": "/products/product-15469000000000.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (54519 px)"
+      ]
+    },
+    {
+      "id": "15469000000001",
+      "title": "Arduino UNO R4 ESP32 S3 MINI WIFI Bluetooth Chip",
+      "image": "/products/product-15469000000001.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (19085 px)"
+      ]
+    },
+    {
+      "id": "15469000000002",
+      "title": "3.5 inch TFT Touch Screen LCD Display Shield with SD Card Socket Compatible",
+      "image": "/products/product-15469000000002.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (436 px)"
+      ]
+    },
+    {
+      "id": "15469000000004",
+      "title": "Arduino Mega 2560 Rev3 Board ATmega2560 ATMEGA16U2",
+      "image": "/products/product-15469000000004.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (83708 px)"
+      ]
+    },
+    {
+      "id": "15469000000005",
+      "title": "Arduino Nano V3 ATmega328P",
+      "image": "/products/product-15469000000005.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (33395 px)"
+      ]
+    },
+    {
+      "id": "15469000000006",
+      "title": "ARDUINO UNO R3 DIP Board Without Logo",
+      "image": "/products/product-15469000000006.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (36382 px)"
+      ]
+    },
+    {
+      "id": "15469000000007",
+      "title": "Arduino UNO R3 DIP Version | ATmega328P Development Board",
+      "image": "/products/product-15469000000007.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (34455 px)"
+      ]
+    },
+    {
+      "id": "15469000000009",
+      "title": "Arduino MEGA 2560 R3 Board ATmega2560 CH340",
+      "image": "/products/product-15469000000009.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (16215 px)"
+      ]
+    },
+    {
+      "id": "15469000000011",
+      "title": "Arduino Mini Pro 5V 16M",
+      "image": "/products/product-15469000000011.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (26009 px)"
+      ]
+    },
+    {
+      "id": "15469000000012",
+      "title": "USB Cable for Arduino UNO & Arduino MEGA",
+      "image": "/products/product-15469000000012.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (14452 px)"
+      ]
+    },
+    {
+      "id": "15469000000014",
+      "title": "ARDUINO UNO R3 SMD Board",
+      "image": "/products/product-15469000000014.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (66753 px)"
+      ]
+    },
+    {
+      "id": "15469000000015",
+      "title": "Pro Mini ATmega328P 3.3V 8M Module Board",
+      "image": "/products/product-15469000000015.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (26009 px)"
+      ]
+    },
+    {
+      "id": "15469000000016",
+      "title": "Arduino Leonardo 32u4",
+      "image": "/products/product-15469000000016.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (73761 px)"
+      ]
+    },
+    {
+      "id": "15469000000017",
+      "title": "Arduino Nano V3.0 ATMEGA328 FT232RL",
+      "image": "/products/product-15469000000017.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (50772 px)"
+      ]
+    },
+    {
+      "id": "15469000000018",
+      "title": "Arduino DUE Development Board | ARM Cortex-M3",
+      "image": "/products/product-15469000000018.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (45189 px)"
+      ]
+    },
+    {
+      "id": "15469000000019",
+      "title": "Arduino Pro Micro ATmega32U4 5V/16MHz",
+      "image": "/products/product-15469000000019.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (2318 px)"
+      ]
+    },
+    {
+      "id": "15469000000020",
+      "title": "ARDUINO UNO R3 Board With Cable",
+      "image": "/products/product-15469000000020.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (42230 px)"
+      ]
+    },
+    {
+      "id": "15469000000022",
+      "title": "Wemos D1 WiFi Esp8266 Development Board",
+      "image": "/products/product-15469000000022.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (61645 px)"
+      ]
+    },
+    {
+      "id": "15469000000027",
+      "title": "STC1000 Temperature Controller 220V Digital Thermostat",
+      "image": "/products/product-15469000000027.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (31074 px)"
+      ]
+    },
+    {
+      "id": "15469000000028",
+      "title": "NE555 DC 12V Delay Timer Switch Adjustable Module 0 to 10 Second",
+      "image": "/products/product-15469000000028.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (11722 px)"
+      ]
+    },
+    {
+      "id": "15469000000029",
+      "title": "W3230 DC 12V Digital Thermostat & Temperature Controller",
+      "image": "/products/product-15469000000029.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (2854 px)"
+      ]
+    },
+    {
+      "id": "15469000000030",
+      "title": "STC-3028 Temperature Controller 12V Temperature and Humidity Controller",
+      "image": "/products/product-15469000000030.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (920 px)"
+      ]
+    },
+    {
+      "id": "15469000000031",
+      "title": "Temperature Controller XH-W3001 Temperature Controller 12V DC",
+      "image": "/products/product-15469000000031.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (4660 px)"
+      ]
+    },
+    {
+      "id": "15469000000032",
+      "title": "Desktop USB Humidifier USB Humidifier With Colorful Light",
+      "image": "/products/product-15469000000032.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (1395 px)"
+      ]
+    },
+    {
+      "id": "15469000000035",
+      "title": "HTC-2 Thermometer Clock Temperature Humidity Meter Clock",
+      "image": "/products/product-15469000000035.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (1814 px)"
+      ]
+    },
+    {
+      "id": "15469000000036",
+      "title": "Mist Maker 24v DC Humidifier",
+      "image": "/products/product-15469000000036.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (3692 px)"
+      ]
+    },
+    {
+      "id": "15469000000038",
+      "title": "XM-18SW Full Automatic Egg Incubator Controller WiFi Remote",
+      "image": "/products/product-15469000000038.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (18439 px)"
+      ]
+    },
+    {
+      "id": "15469000000039",
+      "title": "Mist Maker 24v DC Humidifier Steel With 24V Adaptor Supply",
+      "image": "/products/product-15469000000039.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (2535 px)"
+      ]
+    },
+    {
+      "id": "15469000000042",
+      "title": "Donuts Shape Mini USB Humidifier or Mist Maker",
+      "image": "/products/product-15469000000042.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (90492 px)"
+      ]
+    },
+    {
+      "id": "15469000000043",
+      "title": "XM-26 Digital Controller for Automatic Egg Incubator",
+      "image": "/products/product-15469000000043.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (6648 px)"
+      ]
+    },
+    {
+      "id": "15469000000044",
+      "title": "PTC Heating Element 12V 80 WATT Heater For Egg incubators",
+      "image": "/products/product-15469000000044.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (8622 px)"
+      ]
+    },
+    {
+      "id": "15469000000045",
+      "title": "FY-12 Temperature and Humidity HYGRO Meter",
+      "image": "/products/product-15469000000045.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (8960 px)"
+      ]
+    },
+    {
+      "id": "15469000000047",
+      "title": "HTC-1 Clock With HYGRO Meter",
+      "image": "/products/product-15469000000047.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (6076 px)"
+      ]
+    },
+    {
+      "id": "15469000000048",
+      "title": "XM-18D Automatic Egg Incubator Controller",
+      "image": "/products/product-15469000000048.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (29103 px)"
+      ]
+    },
+    {
+      "id": "15469000000050",
+      "title": "YYA3 Two Button Time Delay Module Timer Kit 2 Button 12v DC",
+      "image": "/products/product-15469000000050.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (47381 px)"
+      ]
+    },
+    {
+      "id": "15469000000051",
+      "title": "W3230 AC 220v 20A Digital Temperature Controller",
+      "image": "/products/product-15469000000051.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (917 px)"
+      ]
+    },
+    {
+      "id": "15469000000052",
+      "title": "XK-W1099 Temperature and Humidity Controller",
+      "image": "/products/product-15469000000052.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (6330 px)"
+      ]
+    },
+    {
+      "id": "15469000000054",
+      "title": "XH-M452 Digital Temperature Humidity Controller DC 12v",
+      "image": "/products/product-15469000000054.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (23789 px)"
+      ]
+    },
+    {
+      "id": "15469000000055",
+      "title": "XH-W3005 Digital Humidity Controller 220v AC",
+      "image": "/products/product-15469000000055.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (3075 px)"
+      ]
+    },
+    {
+      "id": "15469000000056",
+      "title": "W3001 Digital Temperature Controller 220V",
+      "image": "/products/product-15469000000056.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (4211 px)"
+      ]
+    },
+    {
+      "id": "15469000000057",
+      "title": "W2809 Digital Temperature Control Thermostat",
+      "image": "/products/product-15469000000057.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (5559 px)"
+      ]
+    },
+    {
+      "id": "15469000000060",
+      "title": "Time Delay Module Timer Controller JZ-501",
+      "image": "/products/product-15469000000060.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (70161 px)"
+      ]
+    },
+    {
+      "id": "15469000000061",
+      "title": "3.7V 18650 Rechargeable Battery 2000mAh 7.4Wh \u2013",
+      "image": "/products/product-15469000000061.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (9700 px)"
+      ]
+    },
+    {
+      "id": "15469000000062",
+      "title": "3.7V 1S 550mAh Rechargeable LiPo Battery",
+      "image": "/products/product-15469000000062.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (16081 px)"
+      ]
+    },
+    {
+      "id": "15469000000065",
+      "title": "LiPo battery 5200mAh 11.1V 50C 3S Li-Po 3 cell With XT60",
+      "image": "/products/product-15469000000065.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (7597 px)"
+      ]
+    },
+    {
+      "id": "15469000000068",
+      "title": "Double Charge AA 1.5V Battery | Rechargeable AA Battery",
+      "image": "/products/product-15469000000068.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (2780 px)"
+      ]
+    },
+    {
+      "id": "15469000000070",
+      "title": "LiPo Lithium Battery 3.7V 10000mAh | Rechargeable LiPo Battery",
+      "image": "/products/product-15469000000070.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (4949 px)"
+      ]
+    },
+    {
+      "id": "15469000000071",
+      "title": "21700 3.7V 5000mA Lithium Ion Cell Battery",
+      "image": "/products/product-15469000000071.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (20284 px)"
+      ]
+    },
+    {
+      "id": "15469000000074",
+      "title": "AMS1117-3.3 DC-DC Step-Down Power Module",
+      "image": "/products/product-15469000000074.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (6935 px)"
+      ]
+    },
+    {
+      "id": "15469000000077",
+      "title": "18650 Battery Charger 3S 4A 11.1 Type C Lithium Battery Charger Board",
+      "image": "/products/product-15469000000077.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (20928 px)"
+      ]
+    },
+    {
+      "id": "15469000000079",
+      "title": "600W 25A DC DC Step Down Buck Module",
+      "image": "/products/product-15469000000079.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (1070 px)"
+      ]
+    },
+    {
+      "id": "15469000000082",
+      "title": "Buck Converter 30A 800W DC-DC Voltage Regulator Module",
+      "image": "/products/product-15469000000082.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (13296 px)"
+      ]
+    },
+    {
+      "id": "15469000000084",
+      "title": "NEW 18650 Battery Charge Able 2.55 Mah 3.7v",
+      "image": "/products/product-15469000000084.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (231657 px)"
+      ]
+    },
+    {
+      "id": "15469000000086",
+      "title": "XH-M604 Battery Charger Controller DC 6-60V",
+      "image": "/products/product-15469000000086.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (31544 px)"
+      ]
+    },
+    {
+      "id": "15469000000089",
+      "title": "LM2596S DC-DC 24V/12V To 5V 5A Step Down Power Supply Buck Converter Charging Module For Mobile",
+      "image": "/products/product-15469000000089.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (17242 px)"
+      ]
+    },
+    {
+      "id": "15469000000090",
+      "title": "LM2596 HVS High Voltage DC-DC Adjustable Step Down Buck Converter Module",
+      "image": "/products/product-15469000000090.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (24397 px)"
+      ]
+    },
+    {
+      "id": "15469000000092",
+      "title": "XL4016 Step Down Buck Converter Module",
+      "image": "/products/product-15469000000092.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (29385 px)"
+      ]
+    },
+    {
+      "id": "15469000000093",
+      "title": "Boost Module 15A 400W Dc to Dc Step up Boost Converter Module",
+      "image": "/products/product-15469000000093.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (4511 px)"
+      ]
+    },
+    {
+      "id": "15469000000094",
+      "title": "XL6009 Auto Buck Boost DC to DC Converter Module",
+      "image": "/products/product-15469000000094.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (10312 px)"
+      ]
+    },
+    {
+      "id": "15469000000095",
+      "title": "LM2596 DC-DC Step-Down Adjustable CC/CV Power Supply Module",
+      "image": "/products/product-15469000000095.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (19417 px)"
+      ]
+    },
+    {
+      "id": "15469000000096",
+      "title": "M602 Digital Control Battery Charging Control Module AC 220V",
+      "image": "/products/product-15469000000096.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (84516 px)"
+      ]
+    },
+    {
+      "id": "15469000000097",
+      "title": "1800W 40A Voltage Step Up Converter CC CV Power Supply Module",
+      "image": "/products/product-15469000000097.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (4077 px)"
+      ]
+    },
+    {
+      "id": "15469000000103",
+      "title": "XL7015 DC-DC Converter Step Down Module 5V-80V Wide Voltage",
+      "image": "/products/product-15469000000103.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (16242 px)"
+      ]
+    },
+    {
+      "id": "15469000000104",
+      "title": "XL4015 Step Down CC CV Buck Charging Board DC 0.8-30V to 5-32V",
+      "image": "/products/product-15469000000104.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (30553 px)"
+      ]
+    },
+    {
+      "id": "15469000000105",
+      "title": "Wireless Charger Module PCB Circuit Board with Coil Charging 5W",
+      "image": "/products/product-15469000000105.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (16274 px)"
+      ]
+    },
+    {
+      "id": "15469000000106",
+      "title": "300W 20A Adjustable DC-DC Step Down Buck Converter",
+      "image": "/products/product-15469000000106.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (7385 px)"
+      ]
+    },
+    {
+      "id": "15469000000108",
+      "title": "High Voltage Generator DC 3V-6V,400KV",
+      "image": "/products/product-15469000000108.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (1203 px)"
+      ]
+    },
+    {
+      "id": "15469000000109",
+      "title": "XH-M603 Battery Charging Control & Protection Board",
+      "image": "/products/product-15469000000109.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (241849 px)"
+      ]
+    },
+    {
+      "id": "15469000000111",
+      "title": "TP4056 Lithium Battery Charging Board TYPE C 1A",
+      "image": "/products/product-15469000000111.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (45825 px)"
+      ]
+    },
+    {
+      "id": "15469000000113",
+      "title": "9A XL4016 300W Step Down Buck Converter Module",
+      "image": "/products/product-15469000000113.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (7200 px)"
+      ]
+    },
+    {
+      "id": "15469000000118",
+      "title": "ZB2L3 HW-586 Battery Capacity Tester Module For 18650 Battery",
+      "image": "/products/product-15469000000118.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (5867 px)"
+      ]
+    },
+    {
+      "id": "15469000000119",
+      "title": "5v 1/2.1a USB DC-DC Boost Converter Charging Step up Power Bank PCB Module",
+      "image": "/products/product-15469000000119.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (40041 px)"
+      ]
+    },
+    {
+      "id": "15469000000121",
+      "title": "Vehicle Battery Charger 3A Dual USB Output LM2596 Buck Converter",
+      "image": "/products/product-15469000000121.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (2805 px)"
+      ]
+    },
+    {
+      "id": "15469000000122",
+      "title": "LM2596 DC-DC Step-down Adjustable CC/CV",
+      "image": "/products/product-15469000000122.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (13045 px)"
+      ]
+    },
+    {
+      "id": "15469000000123",
+      "title": "J5019 Battery Charge Micro USB Lithium Lipo 18650",
+      "image": "/products/product-15469000000123.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (2205 px)"
+      ]
+    },
+    {
+      "id": "15469000000126",
+      "title": "18650 Battery Holder 1 Cell",
+      "image": "/products/product-15469000000126.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (9850 px)"
+      ]
+    },
+    {
+      "id": "15469000000127",
+      "title": "Battery Charge/Discharge Module",
+      "image": "/products/product-15469000000127.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (62440 px)"
+      ]
+    },
+    {
+      "id": "15469000000128",
+      "title": "Buck Boost Converter 4A With Display",
+      "image": "/products/product-15469000000128.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (36856 px)"
+      ]
+    },
+    {
+      "id": "15469000000129",
+      "title": "5V Boost Step Up Power Supply Module",
+      "image": "/products/product-15469000000129.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (10949 px)"
+      ]
+    },
+    {
+      "id": "15469000000131",
+      "title": "BMS 3S 10A 18650 Lithium Battery Board",
+      "image": "/products/product-15469000000131.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (29837 px)"
+      ]
+    },
+    {
+      "id": "15469000000132",
+      "title": "Mini DC Motor PWM Speed Controller 5A 5-24V DC",
+      "image": "/products/product-15469000000132.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (31481 px)"
+      ]
+    },
+    {
+      "id": "15469000000133",
+      "title": "BMS 2S 7.4V 8.4V 8A 18650 Protection Charger",
+      "image": "/products/product-15469000000133.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (17988 px)"
+      ]
+    },
+    {
+      "id": "15469000000135",
+      "title": "220v to 5v 700 mA DC power supply module",
+      "image": "/products/product-15469000000135.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (298 px)"
+      ]
+    },
+    {
+      "id": "15469000000136",
+      "title": "TP4056 Lithium Battery Charging Board 1A",
+      "image": "/products/product-15469000000136.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (19301 px)"
+      ]
+    },
+    {
+      "id": "15469000000137",
+      "title": "1200W DC-DC Constant Current Boost Converter",
+      "image": "/products/product-15469000000137.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (2935 px)"
+      ]
+    },
+    {
+      "id": "15469000000138",
+      "title": "MT3608 Step up Booster DC-DC",
+      "image": "/products/product-15469000000138.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (20370 px)"
+      ]
+    },
+    {
+      "id": "15469000000139",
+      "title": "150w DC To DC Boost Converter 10 32v To 12 35v 6A Step up Power Supply",
+      "image": "/products/product-15469000000139.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (6335 px)"
+      ]
+    },
+    {
+      "id": "15469000000140",
+      "title": "300W XL4016 DC to Dc Step Down 9A",
+      "image": "/products/product-15469000000140.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (2684 px)"
+      ]
+    },
+    {
+      "id": "15469000000141",
+      "title": "XL4015 5A DC to DC Step Down Converter Module",
+      "image": "/products/product-15469000000141.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (35367 px)"
+      ]
+    },
+    {
+      "id": "15469000000142",
+      "title": "XL6009 DC-DC Booster Converter Module",
+      "image": "/products/product-15469000000142.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (14750 px)"
+      ]
+    },
+    {
+      "id": "15469000000145",
+      "title": "LM2596 With Display Dc-Dc Step Down",
+      "image": "/products/product-15469000000145.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (28791 px)"
+      ]
+    },
+    {
+      "id": "15469000000146",
+      "title": "XL6009 DC to DC Step Up Booster Module With Voltmeter",
+      "image": "/products/product-15469000000146.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (67333 px)"
+      ]
+    },
+    {
+      "id": "15469000000147",
+      "title": "Boost Converter Step up DC to Dc Converter Module 100Watt",
+      "image": "/products/product-15469000000147.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (17703 px)"
+      ]
+    },
+    {
+      "id": "15469000000148",
+      "title": "LM2596 DC To DC Step Down Buck Converter",
+      "image": "/products/product-15469000000148.webp",
+      "reasons": [
+        "Diagonal watermark 'Mekatroniks.com' detected across central product body (27176 px)"
+      ]
+    }
+  ],
+  "skipped_products_count": 1,
+  "skipped_products": [
+    {
+      "id": "6331",
+      "name": "TP4056 Lithium Battery Charging Board 1A",
+      "reason": "Duplicate variant inside source feed"
+    }
+  ]
+}
