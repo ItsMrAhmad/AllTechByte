@@ -12,7 +12,7 @@ export default function NewsSection() {
       snippet: "Discover how the quad-core Arm Cortex-A76 processor and PCIe 2.0 interface enable on-device AI computer vision, robotics, and edge computing for Pakistani engineers.",
       category: "Single Board Computers",
       readTime: "4 min read",
-      image: "https://cdn.shopify.com/s/files/1/1019/7391/8062/files/raspberry-pi-5-16gb.jpg?v=1787697928&width=320",
+      image: "/news/news-raspberry-pi.webp",
       date: "November 2026"
     },
     {
@@ -20,7 +20,7 @@ export default function NewsSection() {
       snippet: "Why the ATmega328P remains the ideal board for university FYPs, sensor interfacing, robotic arms, and home automation prototypes.",
       category: "Microcontroller Guides",
       readTime: "3 min read",
-      image: "https://cdn.shopify.com/s/files/1/1019/7391/8062/files/Arduino-UNO-SMD-R3-Best-Price-in-Pakistan.webp?v=1788272705&width=320",
+      image: "/news/news-arduino-uno.webp",
       date: "October 2026"
     },
     {
@@ -28,7 +28,7 @@ export default function NewsSection() {
       snippet: "How to safely build custom lithium battery packs using NY-D01 spot welder controller boards and 0.15mm nickel strips for EV bikes and backup power.",
       category: "Battery & Power",
       readTime: "5 min read",
-      image: "https://cdn.shopify.com/s/files/1/1019/7391/8062/files/ChatGPTImageNov2_2026_03_06_44PM-7.png?v=1793622042",
+      image: "/news/news-spot-welder.webp",
       date: "October 2026"
     }
   ];

@@ -18,7 +18,7 @@ export default function CategoryGrid({ onSelectCategory, selectedCategory }: Cat
       subtitle: "Arduino, Raspberry Pi, ESP32, STM32",
       count: "14+ Models",
       icon: CircuitBoard,
-      image: "https://cdn.shopify.com/s/files/1/1019/7391/8062/files/Arduino-UNO-SMD-R3-Best-Price-in-Pakistan.webp?v=1788272705&width=320",
+      image: "/categories/category-boards.webp",
       accent: "from-blue-600 to-indigo-600"
     },
     {
@@ -27,7 +27,7 @@ export default function CategoryGrid({ onSelectCategory, selectedCategory }: Cat
       subtitle: "Touch LCDs, CO2 NDIR, Voltmeter, Temp",
       count: "10+ Types",
       icon: Activity,
-      image: "https://cdn.shopify.com/s/files/1/1019/7391/8062/files/compressed_compressed_Gemini_Generated_Image_8en3i68en3i68en3.webp?v=1792517472&width=480",
+      image: "/categories/category-sensors.webp",
       accent: "from-cyan-600 to-teal-600"
     },
     {
@@ -36,7 +36,7 @@ export default function CategoryGrid({ onSelectCategory, selectedCategory }: Cat
       subtitle: "PWM Speed Controllers, Drivers, Steppers",
       count: "8+ Modules",
       icon: Bot,
-      image: "https://cdn.shopify.com/s/files/1/1019/7391/8062/files/ChatGPTImageNov2_2026_06_27_03PM-8.png?v=1793627679",
+      image: "/categories/category-robotics.webp",
       accent: "from-emerald-600 to-green-600"
     },
     {
@@ -45,7 +45,7 @@ export default function CategoryGrid({ onSelectCategory, selectedCategory }: Cat
       subtitle: "100W Boost, Spot Welders, Server Breakouts",
       count: "9+ Units",
       icon: Zap,
-      image: "https://cdn.shopify.com/s/files/1/1019/7391/8062/files/ChatGPTImageNov2_2026_06_26_48PM-2.png?v=1793628410",
+      image: "/categories/category-power.webp",
       accent: "from-amber-500 to-orange-600"
     },
     {
@@ -54,7 +54,7 @@ export default function CategoryGrid({ onSelectCategory, selectedCategory }: Cat
       subtitle: "SOP/DIP ICs, MOSFETs, Diodes, Sockets",
       count: "12+ ICs",
       icon: Cpu,
-      image: "https://cdn.shopify.com/s/files/1/1019/7391/8062/files/ChatGPTImageNov2_2026_03_06_34PM-1.png?v=1793620847",
+      image: "/categories/category-components.webp",
       accent: "from-purple-600 to-violet-600"
     },
     {
@@ -63,7 +63,7 @@ export default function CategoryGrid({ onSelectCategory, selectedCategory }: Cat
       subtitle: "Nickel Strips, Jumper Wires, Adapters",
       count: "7+ Hardware",
       icon: Wrench,
-      image: "https://cdn.shopify.com/s/files/1/1019/7391/8062/files/jumper-wires-male-to-female.jpg?v=1787732702&width=320",
+      image: "/categories/category-tools.webp",
       accent: "from-rose-600 to-pink-600"
     }
   ];
