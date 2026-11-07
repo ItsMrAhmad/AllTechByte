@@ -40,6 +40,9 @@ export default function HomePage() {
 
   const handleSearchChange = (query: string) => {
     setSearchQuery(query);
+    if (query.trim() && selectedCategory !== 'all') {
+      setSelectedCategory('all');
+    }
   };
 
   const handleClearSearch = () => {

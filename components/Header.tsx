@@ -132,31 +132,18 @@ export default function Header({
             </div>
           </Link>
 
-          {/* Search bar with category selector */}
+          {/* Universal Website Search Bar */}
           <div className="hidden md:flex flex-1 max-w-2xl mx-4">
             <div className="relative flex w-full border-2 border-slate-200 focus-within:border-[#0084FF] rounded-xl overflow-hidden transition-all bg-white shadow-inner">
-              {/* Category dropdown inside search */}
-              <select
-                value={selectedCategory}
-                onChange={(e) => onCategorySelect(e.target.value)}
-                aria-label="Filter by product category"
-                className="bg-slate-50 border-r border-slate-200 text-xs font-semibold text-slate-700 px-3 py-2.5 outline-none cursor-pointer hover:bg-slate-100 transition-colors"
-              >
-                {CATEGORIES.map((cat) => (
-                  <option key={cat.id} value={cat.id}>
-                    {cat.name}
-                  </option>
-                ))}
-              </select>
-
-              {/* Text Input */}
-              <div className="relative flex-1 flex items-center">
+              {/* Text Input with Leading Search Icon */}
+              <div className="relative flex-1 flex items-center pl-3.5">
+                <Search className="w-4 h-4 text-slate-400 shrink-0 mr-2" />
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => onSearchChange(e.target.value)}
-                  placeholder="Search Arduino, Raspberry Pi, ESP32, sensors, ICs, spot welders..."
-                  className="w-full px-3.5 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 outline-none"
+                  placeholder="Search overall store: Arduino, Raspberry Pi, ESP32, sensors, motors, ICs..."
+                  className="w-full py-2.5 pr-2 text-sm text-slate-800 placeholder:text-slate-400 outline-none"
                 />
                 {searchQuery && (
                   <button

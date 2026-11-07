@@ -35,8 +35,8 @@ export default function ProductGrid({
   const filteredProducts = useMemo(() => {
     let list = [...products];
 
-    // Filter by Category
-    if (selectedCategory !== 'all') {
+    // Filter by Category (searchQuery searches overall catalog)
+    if (selectedCategory !== 'all' && !searchQuery.trim()) {
       const catConfig = CATEGORIES.find((c) => c.id === selectedCategory);
       if (catConfig?.query) {
         list = list.filter((p) => {
