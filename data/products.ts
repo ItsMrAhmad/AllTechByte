@@ -2973,6 +2973,33 @@ export const PRODUCTS: Product[] = [
       "Package Includes": "1 Pair (2 Motors + 2 Matching 75mm Propellers)",
       "Applications": "Micro FPV Drones, Mini Quadcopters, RC Helicopters, DIY Flight Models"
     }
+  },
+  {
+    id: "15469000000154",
+    title: "DIY DC Motor Fan Kit for Kids | Fun Electronic Science Project Set",
+    handle: "diy-dc-motor-fan-kit-kids-fun-electronic-science-project-set",
+    price: 799,
+    comparePrice: 1050,
+    category: "Robotics & Motors",
+    tags: ["DIY Kit", "Science Project", "Kids Electronics", "STEM Kit", "DC Motor Kit", "Fan Kit", "130 Motor", "School FYP", "Robotics"],
+    image: "/products/product-15469000000154.webp",
+    description: "Comprehensive DIY STEM electronic science project kit for kids, students, and hobbyists. Includes 4 micro 130 DC toy motors, 4 colorful four-blade fan propellers, assorted color LEDs, mini rocker switches, battery clips, and connecting wires. Ideal for school science fairs, basic electrical circuit experiments, solar/battery fan models, and hands-on physics learning.",
+    inStock: true,
+    isDraft: false,
+    rating: "5.0",
+    reviewsCount: 28,
+    sku: "ATB-KIT-DIY-FAN",
+    specs: {
+      "Kit Type": "STEM Educational DIY Electronics Experiment Kit",
+      "Motors Included": "4x Standard 130 Micro DC Toy Motors (3V - 6V)",
+      "Fan Propellers": "4x Colorful 4-Blade Plastic Propellers (Red, Blue, Yellow, Orange)",
+      "Lighting Accessories": "Assorted 5mm LEDs (Red, Green, Yellow)",
+      "Switches": "2x Mini SPST ON/OFF Rocker Switches",
+      "Power Accessories": "1x 9V Battery Snap Connector, 1x Dual AA Battery Holder Enclosure",
+      "Wiring": "3x Flexible Stranded Connecting Wire Coils (Red, Blue, Yellow)",
+      "Recommended Level": "Ages 8+ / School Science Projects & DIY Electronics Beginners",
+      "Safety": "Low-voltage safe DC circuit design"
+    }
   }
 ];
 
