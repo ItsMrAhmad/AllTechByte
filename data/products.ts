@@ -3000,6 +3000,32 @@ export const PRODUCTS: Product[] = [
       "Recommended Level": "Ages 8+ / School Science Projects & DIY Electronics Beginners",
       "Safety": "Low-voltage safe DC circuit design"
     }
+  },
+  {
+    id: "15469000000155",
+    title: "JS-30 3V-6V Low Speed DC Gear Motor with Long Metal Shaft (Internal Thread) | High Torque Micro Reduction Motor",
+    handle: "js-30-3v-6v-low-speed-dc-gear-motor-long-metal-shaft-internal-thread",
+    price: 210,
+    comparePrice: 280,
+    category: "Robotics & Motors",
+    tags: ["JS-30", "Gear Motor", "DC Motor", "Slow Speed Motor", "Reduction Motor", "Long Shaft", "Robotics", "Display Motor", "3V", "6V"],
+    image: "/products/product-15469000000155.webp",
+    description: "Compact JS-30 micro DC geared reduction motor featuring a durable POM plastic gearbox with side mounting tabs, coupled with an extended cylindrical metal output shaft featuring an internally threaded (M3 tapped) tip. Operates efficiently from 3V to 6V DC, delivering smooth low-speed high-torque rotation ideal for rotating displays, DIY turntables, automated valves, robotics linkages, and model engineering.",
+    inStock: true,
+    isDraft: false,
+    rating: "4.9",
+    reviewsCount: 19,
+    sku: "ATB-MOT-JS30-LS",
+    specs: {
+      "Model": "JS-30 (RF-300 Base DC Motor)",
+      "Operating Voltage Range": "3V - 6V DC (Compatible up to 9V)",
+      "Motor Type": "Brushed DC Motor with Enclosed Reduction Gearbox",
+      "Gearbox Material": "High-Strength White POM Plastic with Dual Mounting Tabs",
+      "Output Shaft Profile": "Extended Round Metal Shaft with Internal M3 Tapped Hole",
+      "Connection": "2-Pin JST/XH Terminal with Red and Black Lead Wires",
+      "Mounting": "Dual Flange Ear Screw Holes",
+      "Applications": "Rotating Display Stands, DIY Automata, Solar Turntables, Valves, Robotics Actuators"
+    }
   }
 ];
 
