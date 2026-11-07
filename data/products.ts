@@ -2947,6 +2947,32 @@ export const PRODUCTS: Product[] = [
     reviewsCount: 0,
     sku: "ATB-MOT-N20-24MM",
     specs: {"Total Length": "24 mm", "Motor Body Height": "12 mm", "Output Shaft Diameter": "3 mm (D-Shape)", "Output Shaft Length": "3.8 mm", "Gearbox Profile": "12 mm x 9 mm", "Mounting Screws": "M1.6"}
+  },
+  {
+    id: "15469000000153",
+    title: "High-Speed 3.7V Coreless DC Motor Pair with 75mm Propellers | 53,000 RPM | Ideal for DIY Drones & RC Helicopters",
+    handle: "high-speed-3-7v-coreless-dc-motor-pair-75mm-propellers-53000-rpm",
+    price: 280,
+    comparePrice: 380,
+    category: "Robotics & Motors",
+    tags: ["Coreless Motor", "Drone Motor", "75mm Propeller", "3.7V Motor", "53000 RPM", "Micro Drone", "Robotics", "DC Motor", "RC Helicopter"],
+    image: "/products/product-15469000000153.webp",
+    description: "High-speed 3.7V micro coreless DC motor pair rated at 53,000 RPM, paired with matching 75mm CW and CCW durable propellers. Delivers outstanding thrust-to-weight ratio with rapid throttle response for DIY micro quadcopters, mini racing drones, RC helicopters, and aeromodelling robotics projects.",
+    inStock: true,
+    isDraft: false,
+    rating: "4.9",
+    reviewsCount: 14,
+    sku: "ATB-MOT-COR-75MM",
+    specs: {
+      "Operating Voltage": "3.7V DC (1S LiPo compatible: 3.0V – 4.2V)",
+      "No-Load Speed": "53,000 RPM",
+      "Motor Type": "High-Efficiency Coreless (Hollow Cup) Micro DC Motor",
+      "Propeller Diameter": "75 mm (Includes CW & CCW pair)",
+      "Shaft Diameter": "1.0 mm",
+      "Lead Wires": "Color-coded flexible twisted silicone leads",
+      "Package Includes": "1 Pair (2 Motors + 2 Matching 75mm Propellers)",
+      "Applications": "Micro FPV Drones, Mini Quadcopters, RC Helicopters, DIY Flight Models"
+    }
   }
 ];
 
