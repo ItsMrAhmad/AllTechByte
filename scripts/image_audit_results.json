@@ -1,0 +1,2382 @@
+[
+  {
+    "id": "15468320293230",
+    "title": "12-Port Server Power Supply Breakout Board",
+    "category": "Power & Converters",
+    "image": "/products/product-15468320293230.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 1046.2,
+    "size_kb": 117.9,
+    "dim": "900x900",
+    "fg_dim": "900x900",
+    "fg_ratio": 99.9
+  },
+  {
+    "id": "15468298797422",
+    "title": "10A PWM DC Motor Speed Controller (12V to 40V)",
+    "category": "Robotics & Motors",
+    "image": "/products/product-15468298797422.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 981.6,
+    "size_kb": 68.8,
+    "dim": "900x900",
+    "fg_dim": "691x698",
+    "fg_ratio": 37.5
+  },
+  {
+    "id": "15468177654126",
+    "title": "100W DC-DC Boost Converter with Digital Voltmeter",
+    "category": "Power & Converters",
+    "image": "/products/product-15468177654126.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 886.7,
+    "size_kb": 175.9,
+    "dim": "1254x1254",
+    "fg_dim": "1254x1254",
+    "fg_ratio": 79.3
+  },
+  {
+    "id": "15468161696110",
+    "title": "100A Spot Welding Controller Board NY-D01",
+    "category": "Power & Converters",
+    "image": "/products/product-15468161696110.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 1424.5,
+    "size_kb": 177.7,
+    "dim": "900x900",
+    "fg_dim": "900x900",
+    "fg_ratio": 99.3
+  },
+  {
+    "id": "15468154945902",
+    "title": "10000ppm MH-Z19C NDIR CO2 Sensor Module",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15468154945902.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 1335.9,
+    "size_kb": 114.0,
+    "dim": "900x900",
+    "fg_dim": "900x900",
+    "fg_ratio": 97.6
+  },
+  {
+    "id": "15468123029870",
+    "title": "1.8V Adapter for CH341A / RT809H / T48 / TL866II Programmer",
+    "category": "Tools, Cables & Wires",
+    "image": "/products/product-15468123029870.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 788.5,
+    "size_kb": 66.0,
+    "dim": "900x900",
+    "fg_dim": "689x640",
+    "fg_ratio": 41.7
+  },
+  {
+    "id": "15468079710574",
+    "title": "1 Meter NEMA 17 Stepper Motor Cable (JST PH2.0 to 4-Pin DuPont)",
+    "category": "Tools, Cables & Wires",
+    "image": "/products/product-15468079710574.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 112.2,
+    "size_kb": 39.7,
+    "dim": "900x900",
+    "fg_dim": "900x900",
+    "fg_ratio": 36.2
+  },
+  {
+    "id": "15468043862382",
+    "title": "1 Meter 18650 Battery Pure Nickel Plated Strip (0.15 x 8mm)",
+    "category": "Tools, Cables & Wires",
+    "image": "/products/product-15468043862382.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 668.2,
+    "size_kb": 54.4,
+    "dim": "900x900",
+    "fg_dim": "900x900",
+    "fg_ratio": 97.8
+  },
+  {
+    "id": "15468028166446",
+    "title": "Raspberry Pi 5 16GB Single Board Computer",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15468028166446.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 997.9,
+    "size_kb": 41.9,
+    "dim": "720x540",
+    "fg_dim": "720x540",
+    "fg_ratio": 99.9
+  },
+  {
+    "id": "15468019951918",
+    "title": "Arduino Uno SMD R3 Development Board with Cable",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15468019951918.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 983.9,
+    "size_kb": 83.7,
+    "dim": "900x900",
+    "fg_dim": "900x900",
+    "fg_ratio": 99.6
+  },
+  {
+    "id": "15468011248942",
+    "title": "Raspberry Pi Pico 2 W (Dual Arm Cortex-M33 + Hazard3 RISC-V)",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15468011248942.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 1590.5,
+    "size_kb": 21.9,
+    "dim": "480x299",
+    "fg_dim": "480x299",
+    "fg_ratio": 99.5
+  },
+  {
+    "id": "15467988310318",
+    "title": "5-Inch HDMI Capacitive Touch Screen LCD for Raspberry Pi & PC",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15467988310318.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (480x299 px)"
+    ],
+    "sharpness": 1751.0,
+    "size_kb": 22.7,
+    "dim": "480x299",
+    "fg_dim": "480x299",
+    "fg_ratio": 99.2
+  },
+  {
+    "id": "15467975203118",
+    "title": "7-Inch HDMI Capacitive Touch LCD Screen (1024x600 IPS)",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15467975203118.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 418.3,
+    "size_kb": 13.9,
+    "dim": "480x299",
+    "fg_dim": "480x299",
+    "fg_ratio": 98.7
+  },
+  {
+    "id": "15467965103418",
+    "title": "DS18B20 Waterproof Stainless Steel Temperature Sensor Probe",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15467965103418.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 112.2,
+    "size_kb": 26.9,
+    "dim": "900x900",
+    "fg_dim": "900x900",
+    "fg_ratio": 99.7
+  },
+  {
+    "id": "15467954122158",
+    "title": "40-Pin Jumper Wires Ribbon (Female to Female 20cm)",
+    "category": "Tools, Cables & Wires",
+    "image": "/products/product-15467954122158.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 808.7,
+    "size_kb": 80.6,
+    "dim": "900x900",
+    "fg_dim": "798x648",
+    "fg_ratio": 33.9
+  },
+  {
+    "id": "15467945032110",
+    "title": "0.36-Inch Mini Digital Voltmeter DC 0-30V (3-Wire Blue LED)",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15467945032110.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 116.8,
+    "size_kb": 34.1,
+    "dim": "900x900",
+    "fg_dim": "900x900",
+    "fg_ratio": 26.6
+  },
+  {
+    "id": "15467931120984",
+    "title": "STM32F103C8T6 Blue Pill ARM Cortex-M3 Minimal Board",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15467931120984.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 1343.7,
+    "size_kb": 18.3,
+    "dim": "480x299",
+    "fg_dim": "480x299",
+    "fg_ratio": 99.3
+  },
+  {
+    "id": "15467923481230",
+    "title": "ESP32-WROOM-32D Dual-Core WiFi & Bluetooth Module",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15467923481230.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 1523.1,
+    "size_kb": 151.5,
+    "dim": "900x900",
+    "fg_dim": "900x900",
+    "fg_ratio": 99.6
+  },
+  {
+    "id": "15467912384720",
+    "title": "L298N Dual H-Bridge Motor Driver Module",
+    "category": "Robotics & Motors",
+    "image": "/products/product-15467912384720.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 2378.7,
+    "size_kb": 110.3,
+    "dim": "900x900",
+    "fg_dim": "799x782",
+    "fg_ratio": 42.2
+  },
+  {
+    "id": "15467901847190",
+    "title": "18650 Battery 4-Cell Spot Welder Handheld Pen with Trigger",
+    "category": "Power & Converters",
+    "image": "/products/product-15467901847190.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 144.8,
+    "size_kb": 56.3,
+    "dim": "900x900",
+    "fg_dim": "900x900",
+    "fg_ratio": 97.4
+  },
+  {
+    "id": "15469000000000",
+    "title": "1.8 Inch TFT SPI LCD Display Module ST7735S 128\u00d7160 with SD Card Slot | Arduino & ESP32",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000000.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Heavy compression artifacts / low detail (14.2 KB)"
+    ],
+    "sharpness": 474.7,
+    "size_kb": 14.2,
+    "dim": "900x900",
+    "fg_dim": "433x377",
+    "fg_ratio": 13.6
+  },
+  {
+    "id": "15469000000001",
+    "title": "Arduino UNO R4 ESP32 S3 MINI WIFI Bluetooth Chip",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000001.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (556x556 px)"
+    ],
+    "sharpness": 3099.6,
+    "size_kb": 26.0,
+    "dim": "556x556",
+    "fg_dim": "380x338",
+    "fg_ratio": 20.2
+  },
+  {
+    "id": "15469000000002",
+    "title": "3.5 inch TFT Touch Screen LCD Display Shield with SD Card Socket Compatible",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000002.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (543x543 px)",
+      "Heavy compression artifacts / low detail (14.2 KB)"
+    ],
+    "sharpness": 1519.6,
+    "size_kb": 14.2,
+    "dim": "543x543",
+    "fg_dim": "447x361",
+    "fg_ratio": 26.7
+  },
+  {
+    "id": "15469000000003",
+    "title": "Digispark Mini ATTINY85 Micro USB Development Board",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000003.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (685x685 px)"
+    ],
+    "sharpness": 5664.6,
+    "size_kb": 29.6,
+    "dim": "685x685",
+    "fg_dim": "448x371",
+    "fg_ratio": 15.4
+  },
+  {
+    "id": "15469000000004",
+    "title": "Arduino Mega 2560 Rev3 Board ATmega2560 ATMEGA16U2",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000004.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 329.9,
+    "size_kb": 66.8,
+    "dim": "800x800",
+    "fg_dim": "749x793",
+    "fg_ratio": 41.6
+  },
+  {
+    "id": "15469000000005",
+    "title": "Arduino Nano V3 ATmega328P",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000005.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 872.9,
+    "size_kb": 46.0,
+    "dim": "800x800",
+    "fg_dim": "657x552",
+    "fg_ratio": 20.0
+  },
+  {
+    "id": "15469000000006",
+    "title": "ARDUINO UNO R3 DIP Board Without Logo",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000006.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1076.2,
+    "size_kb": 28.3,
+    "dim": "775x775",
+    "fg_dim": "496x375",
+    "fg_ratio": 18.3
+  },
+  {
+    "id": "15469000000007",
+    "title": "Arduino UNO R3 DIP Version | ATmega328P Development Board",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000007.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 610.7,
+    "size_kb": 47.3,
+    "dim": "802x802",
+    "fg_dim": "716x566",
+    "fg_ratio": 35.3
+  },
+  {
+    "id": "15469000000008",
+    "title": "Mega2560 WiFi R3 ATmega2560 ESP8266 32Mb Memory",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000008.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 12004.4,
+    "size_kb": 54.7,
+    "dim": "800x800",
+    "fg_dim": "745x409",
+    "fg_ratio": 18.9
+  },
+  {
+    "id": "15469000000009",
+    "title": "Arduino MEGA 2560 R3 Board ATmega2560 CH340",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000009.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (500x500 px)"
+    ],
+    "sharpness": 2843.2,
+    "size_kb": 19.9,
+    "dim": "500x500",
+    "fg_dim": "419x272",
+    "fg_ratio": 21.2
+  },
+  {
+    "id": "15469000000010",
+    "title": "MEGA 2560 PRO CH340G/ATMEGA2560-16AU Chip with Male pin headers Compatible for Arduino Mega 2560",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000010.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 9654.7,
+    "size_kb": 118.9,
+    "dim": "800x800",
+    "fg_dim": "795x764",
+    "fg_ratio": 33.5
+  },
+  {
+    "id": "15469000000011",
+    "title": "Arduino Mini Pro 5V 16M",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000011.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1351.1,
+    "size_kb": 49.8,
+    "dim": "700x700",
+    "fg_dim": "672x517",
+    "fg_ratio": 27.3
+  },
+  {
+    "id": "15469000000012",
+    "title": "USB Cable for Arduino UNO & Arduino MEGA",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000012.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (500x500 px)",
+      "Heavy compression artifacts / low detail (7.0 KB)"
+    ],
+    "sharpness": 409.1,
+    "size_kb": 7.0,
+    "dim": "500x500",
+    "fg_dim": "354x251",
+    "fg_ratio": 6.7
+  },
+  {
+    "id": "15469000000013",
+    "title": "USB DigiSpark ATTiny85 Developing Board",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000013.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (640x640 px)"
+    ],
+    "sharpness": 826.4,
+    "size_kb": 35.6,
+    "dim": "640x640",
+    "fg_dim": "592x499",
+    "fg_ratio": 33.9
+  },
+  {
+    "id": "15469000000014",
+    "title": "ARDUINO UNO R3 SMD Board",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000014.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 891.8,
+    "size_kb": 59.1,
+    "dim": "800x800",
+    "fg_dim": "755x566",
+    "fg_ratio": 29.0
+  },
+  {
+    "id": "15469000000015",
+    "title": "Pro Mini ATmega328P 3.3V 8M Module Board",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000015.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1351.1,
+    "size_kb": 49.8,
+    "dim": "700x700",
+    "fg_dim": "672x517",
+    "fg_ratio": 27.3
+  },
+  {
+    "id": "15469000000016",
+    "title": "Arduino Leonardo 32u4",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000016.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 2625.5,
+    "size_kb": 46.3,
+    "dim": "800x800",
+    "fg_dim": "711x542",
+    "fg_ratio": 21.1
+  },
+  {
+    "id": "15469000000017",
+    "title": "Arduino Nano V3.0 ATMEGA328 FT232RL",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000017.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 357.4,
+    "size_kb": 29.0,
+    "dim": "800x800",
+    "fg_dim": "611x680",
+    "fg_ratio": 17.3
+  },
+  {
+    "id": "15469000000018",
+    "title": "Arduino DUE Development Board | ARM Cortex-M3",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000018.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 978.1,
+    "size_kb": 47.8,
+    "dim": "700x700",
+    "fg_dim": "635x515",
+    "fg_ratio": 28.7
+  },
+  {
+    "id": "15469000000019",
+    "title": "Arduino Pro Micro ATmega32U4 5V/16MHz",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000019.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 924.2,
+    "size_kb": 51.2,
+    "dim": "800x800",
+    "fg_dim": "732x488",
+    "fg_ratio": 24.0
+  },
+  {
+    "id": "15469000000020",
+    "title": "ARDUINO UNO R3 Board With Cable",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000020.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 739.4,
+    "size_kb": 45.1,
+    "dim": "800x800",
+    "fg_dim": "747x533",
+    "fg_ratio": 25.2
+  },
+  {
+    "id": "15469000000021",
+    "title": "Arduino UNO WIFI R3 ATmega328P+ESP8266 32Mb Memory",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000021.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 5431.8,
+    "size_kb": 52.7,
+    "dim": "800x800",
+    "fg_dim": "761x408",
+    "fg_ratio": 27.1
+  },
+  {
+    "id": "15469000000022",
+    "title": "Wemos D1 WiFi Esp8266 Development Board",
+    "category": "Microcontrollers & Boards",
+    "image": "/products/product-15469000000022.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1846.4,
+    "size_kb": 77.2,
+    "dim": "800x800",
+    "fg_dim": "782x576",
+    "fg_ratio": 41.1
+  },
+  {
+    "id": "15469000000023",
+    "title": "DC Small Cooling Fan 12V 0.16A \u2013 40 \u00d7 10mm",
+    "category": "Robotics & Motors",
+    "image": "/products/product-15469000000023.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1229.2,
+    "size_kb": 52.3,
+    "dim": "900x900",
+    "fg_dim": "614x636",
+    "fg_ratio": 39.9
+  },
+  {
+    "id": "15469000000024",
+    "title": "12 VOLT DC FAN FOR UPS AND SOLAR INVERTER",
+    "category": "Robotics & Motors",
+    "image": "/products/product-15469000000024.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1491.7,
+    "size_kb": 80.0,
+    "dim": "900x900",
+    "fg_dim": "872x804",
+    "fg_ratio": 58.6
+  },
+  {
+    "id": "15469000000025",
+    "title": "Ceramic Heat Emitter Reptile Heat Lamp Bulb 50W",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000025.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (489x489 px)",
+      "Heavy compression artifacts / low detail (12.7 KB)"
+    ],
+    "sharpness": 2618.8,
+    "size_kb": 12.7,
+    "dim": "489x489",
+    "fg_dim": "285x279",
+    "fg_ratio": 19.1
+  },
+  {
+    "id": "15469000000026",
+    "title": "DC5V Humidifier USB Spray Module C Type",
+    "category": "Robotics & Motors",
+    "image": "/products/product-15469000000026.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (534x534 px)",
+      "Heavy compression artifacts / low detail (8.1 KB)"
+    ],
+    "sharpness": 984.1,
+    "size_kb": 8.1,
+    "dim": "534x534",
+    "fg_dim": "301x306",
+    "fg_ratio": 8.7
+  },
+  {
+    "id": "15469000000027",
+    "title": "STC1000 Temperature Controller 220V Digital Thermostat",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000027.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 2726.5,
+    "size_kb": 29.1,
+    "dim": "900x900",
+    "fg_dim": "750x433",
+    "fg_ratio": 13.0
+  },
+  {
+    "id": "15469000000028",
+    "title": "NE555 DC 12V Delay Timer Switch Adjustable Module 0 to 10 Second",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000028.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (554x554 px)",
+      "Heavy compression artifacts / low detail (15.2 KB)"
+    ],
+    "sharpness": 2857.3,
+    "size_kb": 15.2,
+    "dim": "554x554",
+    "fg_dim": "362x205",
+    "fg_ratio": 11.2
+  },
+  {
+    "id": "15469000000029",
+    "title": "W3230 DC 12V Digital Thermostat & Temperature Controller",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000029.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 947.1,
+    "size_kb": 22.4,
+    "dim": "900x900",
+    "fg_dim": "870x493",
+    "fg_ratio": 12.8
+  },
+  {
+    "id": "15469000000030",
+    "title": "STC-3028 Temperature Controller 12V Temperature and Humidity Controller",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000030.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (565x565 px)"
+    ],
+    "sharpness": 2947.6,
+    "size_kb": 23.1,
+    "dim": "565x565",
+    "fg_dim": "442x454",
+    "fg_ratio": 19.5
+  },
+  {
+    "id": "15469000000031",
+    "title": "Temperature Controller XH-W3001 Temperature Controller 12V DC",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000031.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (490x490 px)",
+      "Heavy compression artifacts / low detail (7.5 KB)"
+    ],
+    "sharpness": 1817.8,
+    "size_kb": 7.5,
+    "dim": "490x490",
+    "fg_dim": "394x252",
+    "fg_ratio": 7.4
+  },
+  {
+    "id": "15469000000032",
+    "title": "Desktop USB Humidifier USB Humidifier With Colorful Light",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000032.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (594x594 px)",
+      "Heavy compression artifacts / low detail (4.3 KB)"
+    ],
+    "sharpness": 285.8,
+    "size_kb": 4.3,
+    "dim": "594x594",
+    "fg_dim": "253x331",
+    "fg_ratio": 15.1
+  },
+  {
+    "id": "15469000000034",
+    "title": "XH-M452 Sensor",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000034.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Severe blur / lack of edge detail (Sharpness score: 179.3)"
+    ],
+    "sharpness": 179.3,
+    "size_kb": 23.4,
+    "dim": "802x802",
+    "fg_dim": "802x773",
+    "fg_ratio": 84.5
+  },
+  {
+    "id": "15469000000035",
+    "title": "HTC-2 Thermometer Clock Temperature Humidity Meter Clock",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000035.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (517x517 px)"
+    ],
+    "sharpness": 1591.5,
+    "size_kb": 23.7,
+    "dim": "517x517",
+    "fg_dim": "484x388",
+    "fg_ratio": 45.2
+  },
+  {
+    "id": "15469000000036",
+    "title": "Mist Maker 24v DC Humidifier",
+    "category": "Robotics & Motors",
+    "image": "/products/product-15469000000036.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 359.3,
+    "size_kb": 28.9,
+    "dim": "800x800",
+    "fg_dim": "796x609",
+    "fg_ratio": 25.5
+  },
+  {
+    "id": "15469000000037",
+    "title": "Ceramic Heat Emitter Reptile Heat Lamp Bulb 100W",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000037.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 414.6,
+    "size_kb": 27.7,
+    "dim": "800x800",
+    "fg_dim": "589x561",
+    "fg_ratio": 27.8
+  },
+  {
+    "id": "15469000000038",
+    "title": "XM-18SW Full Automatic Egg Incubator Controller WiFi Remote",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000038.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 745.5,
+    "size_kb": 45.7,
+    "dim": "800x800",
+    "fg_dim": "793x503",
+    "fg_ratio": 42.0
+  },
+  {
+    "id": "15469000000039",
+    "title": "Mist Maker 24v DC Humidifier Steel With 24V Adaptor Supply",
+    "category": "Robotics & Motors",
+    "image": "/products/product-15469000000039.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (453x453 px)",
+      "Heavy compression artifacts / low detail (10.2 KB)"
+    ],
+    "sharpness": 1359.8,
+    "size_kb": 10.2,
+    "dim": "453x453",
+    "fg_dim": "367x242",
+    "fg_ratio": 18.3
+  },
+  {
+    "id": "15469000000040",
+    "title": "Aluminum Water Cooling Block 40 X 120",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000040.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Heavy compression artifacts / low detail (13.6 KB)"
+    ],
+    "sharpness": 294.2,
+    "size_kb": 13.6,
+    "dim": "800x800",
+    "fg_dim": "722x490",
+    "fg_ratio": 23.2
+  },
+  {
+    "id": "15469000000041",
+    "title": "Aluminum Water Cooling Block 40x40mm",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000041.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 398.3,
+    "size_kb": 38.4,
+    "dim": "721x721",
+    "fg_dim": "490x715",
+    "fg_ratio": 37.0
+  },
+  {
+    "id": "15469000000042",
+    "title": "Donuts Shape Mini USB Humidifier or Mist Maker",
+    "category": "Robotics & Motors",
+    "image": "/products/product-15469000000042.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Severe blur / lack of edge detail (Sharpness score: 70.1)",
+      "Heavy compression artifacts / low detail (14.0 KB)"
+    ],
+    "sharpness": 70.1,
+    "size_kb": 14.0,
+    "dim": "800x800",
+    "fg_dim": "657x668",
+    "fg_ratio": 23.4
+  },
+  {
+    "id": "15469000000043",
+    "title": "XM-26 Digital Controller for Automatic Egg Incubator",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000043.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 372.5,
+    "size_kb": 29.3,
+    "dim": "800x800",
+    "fg_dim": "764x673",
+    "fg_ratio": 38.2
+  },
+  {
+    "id": "15469000000044",
+    "title": "PTC Heating Element 12V 80 WATT Heater For Egg incubators",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000044.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Severe blur / lack of edge detail (Sharpness score: 26.2)",
+      "Heavy compression artifacts / low detail (9.3 KB)"
+    ],
+    "sharpness": 26.2,
+    "size_kb": 9.3,
+    "dim": "800x800",
+    "fg_dim": "584x592",
+    "fg_ratio": 18.7
+  },
+  {
+    "id": "15469000000045",
+    "title": "FY-12 Temperature and Humidity HYGRO Meter",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000045.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 334.3,
+    "size_kb": 31.8,
+    "dim": "800x800",
+    "fg_dim": "800x800",
+    "fg_ratio": 28.9
+  },
+  {
+    "id": "15469000000046",
+    "title": "TPM10 Digital LCD Thermometer",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000046.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (550x550 px)",
+      "Heavy compression artifacts / low detail (17.3 KB)"
+    ],
+    "sharpness": 868.5,
+    "size_kb": 17.3,
+    "dim": "550x550",
+    "fg_dim": "422x362",
+    "fg_ratio": 22.8
+  },
+  {
+    "id": "15469000000047",
+    "title": "HTC-1 Clock With HYGRO Meter",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000047.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 725.3,
+    "size_kb": 24.9,
+    "dim": "800x800",
+    "fg_dim": "723x555",
+    "fg_ratio": 38.5
+  },
+  {
+    "id": "15469000000048",
+    "title": "XM-18D Automatic Egg Incubator Controller",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000048.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 497.3,
+    "size_kb": 27.6,
+    "dim": "800x800",
+    "fg_dim": "707x457",
+    "fg_ratio": 19.5
+  },
+  {
+    "id": "15469000000049",
+    "title": "XM-18 Mini Digital Automatic Control System",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000049.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1983.4,
+    "size_kb": 43.4,
+    "dim": "800x800",
+    "fg_dim": "742x532",
+    "fg_ratio": 23.7
+  },
+  {
+    "id": "15469000000050",
+    "title": "YYA3 Two Button Time Delay Module Timer Kit 2 Button 12v DC",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000050.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1011.2,
+    "size_kb": 50.2,
+    "dim": "700x700",
+    "fg_dim": "700x566",
+    "fg_ratio": 80.2
+  },
+  {
+    "id": "15469000000051",
+    "title": "W3230 AC 220v 20A Digital Temperature Controller",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000051.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 746.0,
+    "size_kb": 36.4,
+    "dim": "800x800",
+    "fg_dim": "704x644",
+    "fg_ratio": 32.8
+  },
+  {
+    "id": "15469000000052",
+    "title": "XK-W1099 Temperature and Humidity Controller",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000052.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 440.2,
+    "size_kb": 24.1,
+    "dim": "800x800",
+    "fg_dim": "728x442",
+    "fg_ratio": 19.6
+  },
+  {
+    "id": "15469000000053",
+    "title": "STC-3028 Temperature & Humidity Controller 220V AC",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000053.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 329.9,
+    "size_kb": 25.1,
+    "dim": "800x800",
+    "fg_dim": "716x508",
+    "fg_ratio": 24.2
+  },
+  {
+    "id": "15469000000054",
+    "title": "XH-M452 Digital Temperature Humidity Controller DC 12v",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000054.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 664.1,
+    "size_kb": 36.6,
+    "dim": "800x800",
+    "fg_dim": "775x550",
+    "fg_ratio": 24.9
+  },
+  {
+    "id": "15469000000055",
+    "title": "XH-W3005 Digital Humidity Controller 220v AC",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000055.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 613.6,
+    "size_kb": 29.3,
+    "dim": "800x800",
+    "fg_dim": "768x528",
+    "fg_ratio": 23.2
+  },
+  {
+    "id": "15469000000056",
+    "title": "W3001 Digital Temperature Controller 220V",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000056.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 506.3,
+    "size_kb": 24.2,
+    "dim": "700x700",
+    "fg_dim": "565x653",
+    "fg_ratio": 23.4
+  },
+  {
+    "id": "15469000000057",
+    "title": "W2809 Digital Temperature Control Thermostat",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000057.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1655.1,
+    "size_kb": 46.6,
+    "dim": "800x800",
+    "fg_dim": "690x412",
+    "fg_ratio": 35.4
+  },
+  {
+    "id": "15469000000058",
+    "title": "XH-W1209 Case",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000058.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (550x550 px)"
+    ],
+    "sharpness": 1270.3,
+    "size_kb": 28.5,
+    "dim": "550x550",
+    "fg_dim": "464x368",
+    "fg_ratio": 25.8
+  },
+  {
+    "id": "15469000000059",
+    "title": "XH-W1209 Temperature Controller Thermostat",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000059.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Moderate blur / soft focus (Sharpness score: 236.6)"
+    ],
+    "sharpness": 236.6,
+    "size_kb": 32.5,
+    "dim": "800x800",
+    "fg_dim": "628x569",
+    "fg_ratio": 22.6
+  },
+  {
+    "id": "15469000000060",
+    "title": "Time Delay Module Timer Controller JZ-501",
+    "category": "Sensors & Displays",
+    "image": "/products/product-15469000000060.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1660.4,
+    "size_kb": 74.4,
+    "dim": "800x800",
+    "fg_dim": "785x610",
+    "fg_ratio": 30.4
+  },
+  {
+    "id": "15469000000061",
+    "title": "3.7V 18650 Rechargeable Battery 2000mAh 7.4Wh \u2013",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000061.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1880.3,
+    "size_kb": 19.1,
+    "dim": "900x900",
+    "fg_dim": "868x135",
+    "fg_ratio": 13.7
+  },
+  {
+    "id": "15469000000062",
+    "title": "3.7V 1S 550mAh Rechargeable LiPo Battery",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000062.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Product is tiny in frame (7.6% canvas coverage)"
+    ],
+    "sharpness": 692.6,
+    "size_kb": 36.9,
+    "dim": "900x900",
+    "fg_dim": "867x478",
+    "fg_ratio": 7.6
+  },
+  {
+    "id": "15469000000063",
+    "title": "4 Slot 18650 Li-ion Battery Smart Charger 4.2V",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000063.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 767.2,
+    "size_kb": 28.3,
+    "dim": "900x900",
+    "fg_dim": "679x702",
+    "fg_ratio": 30.4
+  },
+  {
+    "id": "15469000000064",
+    "title": "4000mAh 3.7V Lithium Ion Battery \u2013 9.5 \u00d7 54 \u00d7 65mm",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000064.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Product is tiny in frame (11.8% canvas coverage)"
+    ],
+    "sharpness": 794.1,
+    "size_kb": 18.6,
+    "dim": "900x900",
+    "fg_dim": "514x347",
+    "fg_ratio": 11.8
+  },
+  {
+    "id": "15469000000065",
+    "title": "LiPo battery 5200mAh 11.1V 50C 3S Li-Po 3 cell With XT60",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000065.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Product is tiny in frame (7.9% canvas coverage)"
+    ],
+    "sharpness": 836.4,
+    "size_kb": 24.4,
+    "dim": "900x900",
+    "fg_dim": "855x338",
+    "fg_ratio": 7.9
+  },
+  {
+    "id": "15469000000066",
+    "title": "3.7V 1S Rechargeable 500mAh Lithium LiPo Battery",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000066.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Product is tiny in frame (6.0% canvas coverage)"
+    ],
+    "sharpness": 1663.0,
+    "size_kb": 19.5,
+    "dim": "900x900",
+    "fg_dim": "604x422",
+    "fg_ratio": 6.0
+  },
+  {
+    "id": "15469000000067",
+    "title": "Premium AA Cell Holder with Wire Leads | Durable Battery Enclosure Case",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000067.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (519x519 px)",
+      "Heavy compression artifacts / low detail (8.4 KB)"
+    ],
+    "sharpness": 712.9,
+    "size_kb": 8.4,
+    "dim": "519x519",
+    "fg_dim": "353x220",
+    "fg_ratio": 8.6
+  },
+  {
+    "id": "15469000000068",
+    "title": "Double Charge AA 1.5V Battery | Rechargeable AA Battery",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000068.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (519x519 px)"
+    ],
+    "sharpness": 637.7,
+    "size_kb": 19.9,
+    "dim": "519x519",
+    "fg_dim": "374x315",
+    "fg_ratio": 24.8
+  },
+  {
+    "id": "15469000000069",
+    "title": "CR2032 3V Button Cell Coin Batteries | Long-Lasting Lithium Battery",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000069.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (519x519 px)",
+      "Heavy compression artifacts / low detail (15.1 KB)"
+    ],
+    "sharpness": 1867.1,
+    "size_kb": 15.1,
+    "dim": "519x519",
+    "fg_dim": "353x298",
+    "fg_ratio": 21.9
+  },
+  {
+    "id": "15469000000070",
+    "title": "LiPo Lithium Battery 3.7V 10000mAh | Rechargeable LiPo Battery",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000070.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1831.3,
+    "size_kb": 47.2,
+    "dim": "900x900",
+    "fg_dim": "676x896",
+    "fg_ratio": 25.3
+  },
+  {
+    "id": "15469000000071",
+    "title": "21700 3.7V 5000mA Lithium Ion Cell Battery",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000071.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 518.5,
+    "size_kb": 33.6,
+    "dim": "900x900",
+    "fg_dim": "900x900",
+    "fg_ratio": 23.8
+  },
+  {
+    "id": "15469000000072",
+    "title": "Adaptor Supply 12v 5A Dc Adaptor",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000072.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (550x550 px)"
+    ],
+    "sharpness": 6442.4,
+    "size_kb": 44.7,
+    "dim": "550x550",
+    "fg_dim": "320x365",
+    "fg_ratio": 29.5
+  },
+  {
+    "id": "15469000000073",
+    "title": "Adaptor 5V 2A Power Supply",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000073.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (546x546 px)",
+      "Heavy compression artifacts / low detail (13.5 KB)"
+    ],
+    "sharpness": 1438.6,
+    "size_kb": 13.5,
+    "dim": "546x546",
+    "fg_dim": "327x316",
+    "fg_ratio": 18.9
+  },
+  {
+    "id": "15469000000074",
+    "title": "AMS1117-3.3 DC-DC Step-Down Power Module",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000074.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (630x630 px)",
+      "Heavy compression artifacts / low detail (15.0 KB)"
+    ],
+    "sharpness": 1506.8,
+    "size_kb": 15.0,
+    "dim": "630x630",
+    "fg_dim": "414x236",
+    "fg_ratio": 15.6
+  },
+  {
+    "id": "15469000000075",
+    "title": "HLK-PM01 AC-DC 220V to 5V Step-Down Power Supply Module",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000075.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (550x550 px)"
+    ],
+    "sharpness": 3416.5,
+    "size_kb": 24.6,
+    "dim": "550x550",
+    "fg_dim": "398x340",
+    "fg_ratio": 25.0
+  },
+  {
+    "id": "15469000000076",
+    "title": "Type C USB 2/3S BMS 15W 8.4V 12.6V 1.5A Lithium Battery Charging Boost Module With Balanced With Indicator",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000076.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (560x560 px)"
+    ],
+    "sharpness": 10845.0,
+    "size_kb": 31.8,
+    "dim": "560x560",
+    "fg_dim": "398x326",
+    "fg_ratio": 34.7
+  },
+  {
+    "id": "15469000000077",
+    "title": "18650 Battery Charger 3S 4A 11.1 Type C Lithium Battery Charger Board",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000077.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (679x679 px)",
+      "Heavy compression artifacts / low detail (17.4 KB)"
+    ],
+    "sharpness": 1729.4,
+    "size_kb": 17.4,
+    "dim": "679x679",
+    "fg_dim": "598x178",
+    "fg_ratio": 10.1
+  },
+  {
+    "id": "15469000000078",
+    "title": "18650 Battery Cell Charger 2S 4A Type C Lithium Battery Charger Board",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000078.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (662x662 px)"
+    ],
+    "sharpness": 3796.9,
+    "size_kb": 36.3,
+    "dim": "662x662",
+    "fg_dim": "572x432",
+    "fg_ratio": 19.1
+  },
+  {
+    "id": "15469000000079",
+    "title": "600W 25A DC DC Step Down Buck Module",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000079.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (689x689 px)"
+    ],
+    "sharpness": 3716.6,
+    "size_kb": 35.3,
+    "dim": "689x689",
+    "fg_dim": "465x457",
+    "fg_ratio": 14.7
+  },
+  {
+    "id": "15469000000080",
+    "title": "Power Supply 5V 40A Slim Model N200V5-A G Energy",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000080.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1326.1,
+    "size_kb": 26.2,
+    "dim": "703x703",
+    "fg_dim": "581x404",
+    "fg_ratio": 23.8
+  },
+  {
+    "id": "15469000000081",
+    "title": "TP5000 4.2V/3.6V 2A Lithium Battery Charging Board Charger Module",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000081.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (699x699 px)"
+    ],
+    "sharpness": 1216.4,
+    "size_kb": 26.9,
+    "dim": "699x699",
+    "fg_dim": "507x351",
+    "fg_ratio": 12.5
+  },
+  {
+    "id": "15469000000082",
+    "title": "Buck Converter 30A 800W DC-DC Voltage Regulator Module",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000082.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (699x699 px)",
+      "Heavy compression artifacts / low detail (17.1 KB)"
+    ],
+    "sharpness": 1492.4,
+    "size_kb": 17.1,
+    "dim": "699x699",
+    "fg_dim": "498x320",
+    "fg_ratio": 21.3
+  },
+  {
+    "id": "15469000000083",
+    "title": "3S 40A BMS 18650 Lithium Battery Protection Board With Balancing Feature",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000083.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (593x593 px)"
+    ],
+    "sharpness": 3323.1,
+    "size_kb": 33.4,
+    "dim": "593x593",
+    "fg_dim": "432x326",
+    "fg_ratio": 22.6
+  },
+  {
+    "id": "15469000000084",
+    "title": "NEW 18650 Battery Charge Able 2.55 Mah 3.7v",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000084.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 845.4,
+    "size_kb": 21.3,
+    "dim": "900x900",
+    "fg_dim": "828x442",
+    "fg_ratio": 20.5
+  },
+  {
+    "id": "15469000000085",
+    "title": "QC2.0 QC3.0 Qualcomm Charger Module 24W 4-Channel Voltage Converter",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000085.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 4965.7,
+    "size_kb": 54.0,
+    "dim": "752x752",
+    "fg_dim": "659x468",
+    "fg_ratio": 23.2
+  },
+  {
+    "id": "15469000000086",
+    "title": "XH-M604 Battery Charger Controller DC 6-60V",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000086.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 7137.6,
+    "size_kb": 52.8,
+    "dim": "705x705",
+    "fg_dim": "580x466",
+    "fg_ratio": 26.8
+  },
+  {
+    "id": "15469000000087",
+    "title": "2 CH QC3.0 QC2.0 USB Quick Charging Board Module DC To DC Buck Converter",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000087.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (679x679 px)"
+    ],
+    "sharpness": 3608.3,
+    "size_kb": 46.0,
+    "dim": "679x679",
+    "fg_dim": "596x436",
+    "fg_ratio": 32.4
+  },
+  {
+    "id": "15469000000088",
+    "title": "QC3.0 QC2.0 Qualcomm USB Quick Charging Board Module DC To DC Buck Converter",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000088.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (685x685 px)"
+    ],
+    "sharpness": 2161.5,
+    "size_kb": 21.6,
+    "dim": "685x685",
+    "fg_dim": "429x336",
+    "fg_ratio": 14.5
+  },
+  {
+    "id": "15469000000089",
+    "title": "LM2596S DC-DC 24V/12V To 5V 5A Step Down Power Supply Buck Converter Charging Module For Mobile",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000089.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (685x685 px)"
+    ],
+    "sharpness": 1332.5,
+    "size_kb": 20.8,
+    "dim": "685x685",
+    "fg_dim": "425x337",
+    "fg_ratio": 12.4
+  },
+  {
+    "id": "15469000000090",
+    "title": "LM2596 HVS High Voltage DC-DC Adjustable Step Down Buck Converter Module",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000090.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 555.1,
+    "size_kb": 28.6,
+    "dim": "750x750",
+    "fg_dim": "552x488",
+    "fg_ratio": 19.6
+  },
+  {
+    "id": "15469000000091",
+    "title": "LiitoKala Lii 500 Lithium Battery Charger 18650/26650",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000091.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (625x625 px)",
+      "Heavy compression artifacts / low detail (14.7 KB)"
+    ],
+    "sharpness": 3351.9,
+    "size_kb": 14.7,
+    "dim": "625x625",
+    "fg_dim": "426x277",
+    "fg_ratio": 9.2
+  },
+  {
+    "id": "15469000000092",
+    "title": "XL4016 Step Down Buck Converter Module",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000092.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 722.8,
+    "size_kb": 33.2,
+    "dim": "700x700",
+    "fg_dim": "700x525",
+    "fg_ratio": 54.8
+  },
+  {
+    "id": "15469000000093",
+    "title": "Boost Module 15A 400W Dc to Dc Step up Boost Converter Module",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000093.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (647x647 px)"
+    ],
+    "sharpness": 1690.9,
+    "size_kb": 36.6,
+    "dim": "647x647",
+    "fg_dim": "486x403",
+    "fg_ratio": 26.1
+  },
+  {
+    "id": "15469000000094",
+    "title": "XL6009 Auto Buck Boost DC to DC Converter Module",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000094.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (588x588 px)",
+      "Heavy compression artifacts / low detail (15.7 KB)"
+    ],
+    "sharpness": 2011.4,
+    "size_kb": 15.7,
+    "dim": "588x588",
+    "fg_dim": "425x237",
+    "fg_ratio": 15.5
+  },
+  {
+    "id": "15469000000095",
+    "title": "LM2596 DC-DC Step-Down Adjustable CC/CV Power Supply Module",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000095.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (582x582 px)"
+    ],
+    "sharpness": 538.5,
+    "size_kb": 21.7,
+    "dim": "582x582",
+    "fg_dim": "526x498",
+    "fg_ratio": 20.0
+  },
+  {
+    "id": "15469000000096",
+    "title": "M602 Digital Control Battery Charging Control Module AC 220V",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000096.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 4298.8,
+    "size_kb": 41.2,
+    "dim": "797x797",
+    "fg_dim": "600x349",
+    "fg_ratio": 29.0
+  },
+  {
+    "id": "15469000000097",
+    "title": "1800W 40A Voltage Step Up Converter CC CV Power Supply Module",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000097.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (692x692 px)"
+    ],
+    "sharpness": 5180.9,
+    "size_kb": 25.8,
+    "dim": "692x692",
+    "fg_dim": "566x230",
+    "fg_ratio": 12.7
+  },
+  {
+    "id": "15469000000098",
+    "title": "BMS 3S 60A Battery Management System With Protection",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000098.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 6654.7,
+    "size_kb": 68.5,
+    "dim": "800x800",
+    "fg_dim": "722x663",
+    "fg_ratio": 21.0
+  },
+  {
+    "id": "15469000000099",
+    "title": "12v Adaptor Power Supply 2A",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000099.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 487.9,
+    "size_kb": 19.9,
+    "dim": "700x700",
+    "fg_dim": "608x365",
+    "fg_ratio": 24.4
+  },
+  {
+    "id": "15469000000100",
+    "title": "Adaptor Power Supply 9v 1.5 Amp",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000100.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 432.8,
+    "size_kb": 25.6,
+    "dim": "750x750",
+    "fg_dim": "590x525",
+    "fg_ratio": 33.5
+  },
+  {
+    "id": "15469000000101",
+    "title": "24v Adaptor 1.5 AMP",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000101.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (500x500 px)"
+    ],
+    "sharpness": 1375.8,
+    "size_kb": 25.4,
+    "dim": "500x500",
+    "fg_dim": "409x481",
+    "fg_ratio": 37.2
+  },
+  {
+    "id": "15469000000102",
+    "title": "BMS 4S 40A Li-ion Battery Protection Board Balanced Version",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000102.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 2424.8,
+    "size_kb": 63.3,
+    "dim": "800x800",
+    "fg_dim": "647x639",
+    "fg_ratio": 26.3
+  },
+  {
+    "id": "15469000000103",
+    "title": "XL7015 DC-DC Converter Step Down Module 5V-80V Wide Voltage",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000103.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (500x500 px)",
+      "Heavy compression artifacts / low detail (15.1 KB)"
+    ],
+    "sharpness": 2401.2,
+    "size_kb": 15.1,
+    "dim": "500x500",
+    "fg_dim": "383x251",
+    "fg_ratio": 13.4
+  },
+  {
+    "id": "15469000000104",
+    "title": "XL4015 Step Down CC CV Buck Charging Board DC 0.8-30V to 5-32V",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000104.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1143.8,
+    "size_kb": 39.5,
+    "dim": "800x800",
+    "fg_dim": "702x514",
+    "fg_ratio": 20.3
+  },
+  {
+    "id": "15469000000105",
+    "title": "Wireless Charger Module PCB Circuit Board with Coil Charging 5W",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000105.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1289.2,
+    "size_kb": 44.4,
+    "dim": "700x700",
+    "fg_dim": "625x438",
+    "fg_ratio": 23.6
+  },
+  {
+    "id": "15469000000106",
+    "title": "300W 20A Adjustable DC-DC Step Down Buck Converter",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000106.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Severe blur / lack of edge detail (Sharpness score: 97.8)"
+    ],
+    "sharpness": 97.8,
+    "size_kb": 39.4,
+    "dim": "800x800",
+    "fg_dim": "800x663",
+    "fg_ratio": 71.3
+  },
+  {
+    "id": "15469000000107",
+    "title": "Power Bank Charging Module Board with Display 18650 Charging Type-C/Micro USB Mobile",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000107.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 3746.5,
+    "size_kb": 37.6,
+    "dim": "710x710",
+    "fg_dim": "568x568",
+    "fg_ratio": 17.6
+  },
+  {
+    "id": "15469000000108",
+    "title": "High Voltage Generator DC 3V-6V,400KV",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000108.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (549x549 px)",
+      "Heavy compression artifacts / low detail (13.1 KB)"
+    ],
+    "sharpness": 1381.5,
+    "size_kb": 13.1,
+    "dim": "549x549",
+    "fg_dim": "487x234",
+    "fg_ratio": 12.2
+  },
+  {
+    "id": "15469000000109",
+    "title": "XH-M603 Battery Charging Control & Protection Board",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000109.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1742.7,
+    "size_kb": 70.9,
+    "dim": "900x900",
+    "fg_dim": "843x605",
+    "fg_ratio": 34.6
+  },
+  {
+    "id": "15469000000110",
+    "title": "iMax B3 Pro Compact 2S 3S Lipo Balance Battery Charger",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000110.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 855.2,
+    "size_kb": 28.7,
+    "dim": "700x700",
+    "fg_dim": "664x502",
+    "fg_ratio": 25.9
+  },
+  {
+    "id": "15469000000111",
+    "title": "TP4056 Lithium Battery Charging Board TYPE C 1A",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000111.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 4392.5,
+    "size_kb": 84.2,
+    "dim": "800x800",
+    "fg_dim": "744x576",
+    "fg_ratio": 27.2
+  },
+  {
+    "id": "15469000000112",
+    "title": "Lithium Battery Charger Module18650 TP5100 4.2V 8.4V",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000112.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1095.8,
+    "size_kb": 60.5,
+    "dim": "800x800",
+    "fg_dim": "748x571",
+    "fg_ratio": 33.1
+  },
+  {
+    "id": "15469000000113",
+    "title": "9A XL4016 300W Step Down Buck Converter Module",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000113.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 2168.1,
+    "size_kb": 44.7,
+    "dim": "736x736",
+    "fg_dim": "546x532",
+    "fg_ratio": 29.9
+  },
+  {
+    "id": "15469000000114",
+    "title": "Mini 360 DC to DC Buck Converter Step Down Module",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000114.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (517x517 px)"
+    ],
+    "sharpness": 2320.5,
+    "size_kb": 23.7,
+    "dim": "517x517",
+    "fg_dim": "398x285",
+    "fg_ratio": 23.3
+  },
+  {
+    "id": "15469000000115",
+    "title": "CA-1235 Adjustable Buck Converter Module",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000115.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 8172.0,
+    "size_kb": 43.8,
+    "dim": "800x800",
+    "fg_dim": "284x426",
+    "fg_ratio": 16.4
+  },
+  {
+    "id": "15469000000116",
+    "title": "BMS 4S 20A 18650 Lithium Battery Board",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000116.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (674x674 px)"
+    ],
+    "sharpness": 2733.1,
+    "size_kb": 37.7,
+    "dim": "674x674",
+    "fg_dim": "372x375",
+    "fg_ratio": 26.9
+  },
+  {
+    "id": "15469000000117",
+    "title": "BMS 3S 25A 18650 Lithium Battery Board",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000117.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 3075.6,
+    "size_kb": 63.3,
+    "dim": "800x800",
+    "fg_dim": "612x538",
+    "fg_ratio": 22.5
+  },
+  {
+    "id": "15469000000118",
+    "title": "ZB2L3 HW-586 Battery Capacity Tester Module For 18650 Battery",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000118.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (500x500 px)",
+      "Heavy compression artifacts / low detail (12.3 KB)"
+    ],
+    "sharpness": 1489.1,
+    "size_kb": 12.3,
+    "dim": "500x500",
+    "fg_dim": "354x251",
+    "fg_ratio": 10.3
+  },
+  {
+    "id": "15469000000119",
+    "title": "5v 1/2.1a USB DC-DC Boost Converter Charging Step up Power Bank PCB Module",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000119.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 3053.3,
+    "size_kb": 41.1,
+    "dim": "800x800",
+    "fg_dim": "613x426",
+    "fg_ratio": 18.2
+  },
+  {
+    "id": "15469000000120",
+    "title": "Power Bank Kit With LCD Display Dual USB 5V 2A",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000120.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (500x500 px)"
+    ],
+    "sharpness": 6920.7,
+    "size_kb": 46.6,
+    "dim": "500x500",
+    "fg_dim": "488x414",
+    "fg_ratio": 39.2
+  },
+  {
+    "id": "15469000000121",
+    "title": "Vehicle Battery Charger 3A Dual USB Output LM2596 Buck Converter",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000121.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (517x517 px)",
+      "Heavy compression artifacts / low detail (14.4 KB)"
+    ],
+    "sharpness": 974.7,
+    "size_kb": 14.4,
+    "dim": "517x517",
+    "fg_dim": "434x211",
+    "fg_ratio": 15.8
+  },
+  {
+    "id": "15469000000122",
+    "title": "LM2596 DC-DC Step-down Adjustable CC/CV",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000122.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (480x480 px)",
+      "Heavy compression artifacts / low detail (16.1 KB)"
+    ],
+    "sharpness": 2370.4,
+    "size_kb": 16.1,
+    "dim": "480x480",
+    "fg_dim": "368x210",
+    "fg_ratio": 16.6
+  },
+  {
+    "id": "15469000000123",
+    "title": "J5019 Battery Charge Micro USB Lithium Lipo 18650",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000123.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 745.6,
+    "size_kb": 58.0,
+    "dim": "851x851",
+    "fg_dim": "740x633",
+    "fg_ratio": 29.9
+  },
+  {
+    "id": "15469000000124",
+    "title": "18650 Battery Holder 3 Cell",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000124.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Severe blur / lack of edge detail (Sharpness score: 179.0)"
+    ],
+    "sharpness": 179.0,
+    "size_kb": 18.8,
+    "dim": "800x800",
+    "fg_dim": "571x471",
+    "fg_ratio": 27.3
+  },
+  {
+    "id": "15469000000125",
+    "title": "18650 Battery Holder 2 Cell",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000125.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Moderate blur / soft focus (Sharpness score: 213.8)"
+    ],
+    "sharpness": 213.8,
+    "size_kb": 18.3,
+    "dim": "788x788",
+    "fg_dim": "636x464",
+    "fg_ratio": 25.7
+  },
+  {
+    "id": "15469000000126",
+    "title": "18650 Battery Holder 1 Cell",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000126.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 558.1,
+    "size_kb": 22.7,
+    "dim": "700x700",
+    "fg_dim": "693x618",
+    "fg_ratio": 18.9
+  },
+  {
+    "id": "15469000000127",
+    "title": "Battery Charge/Discharge Module",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000127.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 2748.2,
+    "size_kb": 45.6,
+    "dim": "800x800",
+    "fg_dim": "642x436",
+    "fg_ratio": 22.4
+  },
+  {
+    "id": "15469000000128",
+    "title": "Buck Boost Converter 4A With Display",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000128.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1358.7,
+    "size_kb": 59.3,
+    "dim": "800x800",
+    "fg_dim": "772x460",
+    "fg_ratio": 27.3
+  },
+  {
+    "id": "15469000000129",
+    "title": "5V Boost Step Up Power Supply Module",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000129.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (613x613 px)"
+    ],
+    "sharpness": 1267.2,
+    "size_kb": 48.2,
+    "dim": "613x613",
+    "fg_dim": "507x560",
+    "fg_ratio": 42.1
+  },
+  {
+    "id": "15469000000130",
+    "title": "BMS 3S 20A 18650 Lithium Battery Board",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000130.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1586.3,
+    "size_kb": 72.0,
+    "dim": "800x800",
+    "fg_dim": "783x622",
+    "fg_ratio": 30.8
+  },
+  {
+    "id": "15469000000131",
+    "title": "BMS 3S 10A 18650 Lithium Battery Board",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000131.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1931.8,
+    "size_kb": 51.9,
+    "dim": "800x800",
+    "fg_dim": "644x533",
+    "fg_ratio": 17.9
+  },
+  {
+    "id": "15469000000132",
+    "title": "Mini DC Motor PWM Speed Controller 5A 5-24V DC",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000132.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 522.8,
+    "size_kb": 23.6,
+    "dim": "900x900",
+    "fg_dim": "563x325",
+    "fg_ratio": 13.5
+  },
+  {
+    "id": "15469000000133",
+    "title": "BMS 2S 7.4V 8.4V 8A 18650 Protection Charger",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000133.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Product is tiny in frame (5.2% canvas coverage)"
+    ],
+    "sharpness": 2289.8,
+    "size_kb": 20.9,
+    "dim": "800x800",
+    "fg_dim": "517x339",
+    "fg_ratio": 5.2
+  },
+  {
+    "id": "15469000000134",
+    "title": "Professional PCB Mount 12v 400ma Power Supply Module",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000134.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1438.1,
+    "size_kb": 30.9,
+    "dim": "800x800",
+    "fg_dim": "521x425",
+    "fg_ratio": 19.6
+  },
+  {
+    "id": "15469000000135",
+    "title": "220v to 5v 700 mA DC power supply module",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000135.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 773.8,
+    "size_kb": 53.5,
+    "dim": "700x700",
+    "fg_dim": "679x561",
+    "fg_ratio": 45.2
+  },
+  {
+    "id": "15469000000136",
+    "title": "TP4056 Lithium Battery Charging Board 1A",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000136.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 953.9,
+    "size_kb": 31.1,
+    "dim": "800x800",
+    "fg_dim": "525x423",
+    "fg_ratio": 17.2
+  },
+  {
+    "id": "15469000000137",
+    "title": "1200W DC-DC Constant Current Boost Converter",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000137.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (500x500 px)",
+      "Heavy compression artifacts / low detail (10.3 KB)"
+    ],
+    "sharpness": 1733.4,
+    "size_kb": 10.3,
+    "dim": "500x500",
+    "fg_dim": "358x212",
+    "fg_ratio": 13.0
+  },
+  {
+    "id": "15469000000138",
+    "title": "MT3608 Step up Booster DC-DC",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000138.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Low source resolution (480x480 px)"
+    ],
+    "sharpness": 3183.3,
+    "size_kb": 21.3,
+    "dim": "480x480",
+    "fg_dim": "429x253",
+    "fg_ratio": 24.4
+  },
+  {
+    "id": "15469000000139",
+    "title": "150w DC To DC Boost Converter 10 32v To 12 35v 6A Step up Power Supply",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000139.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 760.9,
+    "size_kb": 23.9,
+    "dim": "800x800",
+    "fg_dim": "627x400",
+    "fg_ratio": 18.6
+  },
+  {
+    "id": "15469000000140",
+    "title": "300W XL4016 DC to Dc Step Down 9A",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000140.webp",
+    "status": "NEEDS_REPLACEMENT",
+    "reasons": [
+      "Moderate blur / soft focus (Sharpness score: 271.7)"
+    ],
+    "sharpness": 271.7,
+    "size_kb": 32.9,
+    "dim": "800x800",
+    "fg_dim": "800x516",
+    "fg_ratio": 51.9
+  },
+  {
+    "id": "15469000000141",
+    "title": "XL4015 5A DC to DC Step Down Converter Module",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000141.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1960.4,
+    "size_kb": 40.2,
+    "dim": "800x800",
+    "fg_dim": "672x379",
+    "fg_ratio": 19.4
+  },
+  {
+    "id": "15469000000142",
+    "title": "XL6009 DC-DC Booster Converter Module",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000142.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 504.1,
+    "size_kb": 22.6,
+    "dim": "700x700",
+    "fg_dim": "518x427",
+    "fg_ratio": 19.7
+  },
+  {
+    "id": "15469000000143",
+    "title": "Solderless Breadboard Power Supply Module | 5V/3.3V",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000143.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1832.2,
+    "size_kb": 35.1,
+    "dim": "800x800",
+    "fg_dim": "603x398",
+    "fg_ratio": 17.7
+  },
+  {
+    "id": "15469000000144",
+    "title": "MP1584EN DC-DC Buck Step Down With Chip",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000144.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 395.8,
+    "size_kb": 39.2,
+    "dim": "900x900",
+    "fg_dim": "585x520",
+    "fg_ratio": 18.0
+  },
+  {
+    "id": "15469000000145",
+    "title": "LM2596 With Display Dc-Dc Step Down",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000145.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 735.3,
+    "size_kb": 44.4,
+    "dim": "800x800",
+    "fg_dim": "752x518",
+    "fg_ratio": 31.5
+  },
+  {
+    "id": "15469000000146",
+    "title": "XL6009 DC to DC Step Up Booster Module With Voltmeter",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000146.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 1839.3,
+    "size_kb": 41.4,
+    "dim": "800x800",
+    "fg_dim": "753x313",
+    "fg_ratio": 28.9
+  },
+  {
+    "id": "15469000000147",
+    "title": "Boost Converter Step up DC to Dc Converter Module 100Watt",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000147.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 803.1,
+    "size_kb": 51.3,
+    "dim": "800x800",
+    "fg_dim": "750x550",
+    "fg_ratio": 30.0
+  },
+  {
+    "id": "15469000000148",
+    "title": "LM2596 DC To DC Step Down Buck Converter",
+    "category": "Power & Converters",
+    "image": "/products/product-15469000000148.webp",
+    "status": "ACCEPTABLE",
+    "reasons": [],
+    "sharpness": 696.0,
+    "size_kb": 34.4,
+    "dim": "800x800",
+    "fg_dim": "687x532",
+    "fg_ratio": 23.1
+  },
+  {
+    "id": "15469000000153",
+    "title": "High-Speed 3.7V Coreless DC Motor Pair with 75mm Propellers | 53,000 RPM | Ideal for DIY Drones & RC Helicopters",
+    "category": "Robotics & Motors",
+    "image": "/products/product-15469000000153.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 50.8,
+    "size_kb": 40.6,
+    "dim": "900x900",
+    "fg_dim": "874x900",
+    "fg_ratio": 27.6
+  },
+  {
+    "id": "15469000000154",
+    "title": "DIY DC Motor Fan Kit for Kids | Fun Electronic Science Project Set",
+    "category": "Robotics & Motors",
+    "image": "/products/product-15469000000154.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 427.1,
+    "size_kb": 64.9,
+    "dim": "900x900",
+    "fg_dim": "619x797",
+    "fg_ratio": 28.6
+  },
+  {
+    "id": "15469000000155",
+    "title": "JS-30 3V-6V Low Speed DC Gear Motor with Long Metal Shaft (Internal Thread) | High Torque Micro Reduction Motor",
+    "category": "Robotics & Motors",
+    "image": "/products/product-15469000000155.webp",
+    "status": "APPROVED_STUDIO",
+    "reasons": [],
+    "sharpness": 55.6,
+    "size_kb": 12.3,
+    "dim": "900x900",
+    "fg_dim": "447x686",
+    "fg_ratio": 13.7
+  }
+]
