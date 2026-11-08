@@ -16,7 +16,7 @@ export default function CategoryGrid({ onSelectCategory, selectedCategory }: Cat
       id: "boards",
       title: "Microcontrollers & Boards",
       subtitle: "Arduino, Raspberry Pi, ESP32, STM32",
-      count: "14+ Models",
+      count: "28+ Models",
       icon: CircuitBoard,
       image: "/categories/category-boards.webp",
       accent: "from-blue-600 to-indigo-600"
@@ -25,7 +25,7 @@ export default function CategoryGrid({ onSelectCategory, selectedCategory }: Cat
       id: "sensors",
       title: "Sensors & Displays",
       subtitle: "Touch LCDs, CO2 NDIR, Voltmeter, Temp",
-      count: "10+ Types",
+      count: "34+ Types",
       icon: Activity,
       image: "/categories/category-sensors.webp",
       accent: "from-cyan-600 to-teal-600"
@@ -34,7 +34,7 @@ export default function CategoryGrid({ onSelectCategory, selectedCategory }: Cat
       id: "robotics",
       title: "Robotics & Motors",
       subtitle: "PWM Speed Controllers, Drivers, Steppers",
-      count: "8+ Modules",
+      count: "11+ Modules",
       icon: Bot,
       image: "/categories/category-robotics.webp",
       accent: "from-emerald-600 to-green-600"
@@ -43,7 +43,7 @@ export default function CategoryGrid({ onSelectCategory, selectedCategory }: Cat
       id: "power",
       title: "Power & Converters",
       subtitle: "100W Boost, Spot Welders, Server Breakouts",
-      count: "9+ Units",
+      count: "94+ Units",
       icon: Zap,
       image: "/categories/category-power.webp",
       accent: "from-amber-500 to-orange-600"
@@ -61,7 +61,7 @@ export default function CategoryGrid({ onSelectCategory, selectedCategory }: Cat
       id: "tools",
       title: "Tools, Cables & Wires",
       subtitle: "Nickel Strips, Jumper Wires, Adapters",
-      count: "7+ Hardware",
+      count: "4+ Hardware",
       icon: Wrench,
       image: "/categories/category-tools.webp",
       accent: "from-rose-600 to-pink-600"
