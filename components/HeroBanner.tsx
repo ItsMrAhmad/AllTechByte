@@ -43,11 +43,15 @@ export default function HeroBanner({ onQuickOrder }: HeroBannerProps) {
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-[#07132D]">
-              Smart Tech, <br />
+              Robotics, Arduino &amp; Electronics Store <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0084FF] via-blue-600 to-cyan-500">
-                Honest Prices.
+                in Pakistan.
               </span>
             </h1>
+
+            <p className="text-sm sm:text-base font-bold text-[#0084FF] tracking-wide uppercase">
+              Smart Tech, Honest Prices
+            </p>
 
             <p className="text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal text-slate-600">
               Your direct verified source for{' '}
@@ -109,7 +113,7 @@ export default function HeroBanner({ onQuickOrder }: HeroBannerProps) {
               </span>
             </div>
 
-            {featuredItems.map((item) => (
+            {featuredItems.map((item, idx) => (
               <div
                 key={item.id}
                 onClick={() => onQuickOrder(item)}
@@ -120,6 +124,7 @@ export default function HeroBanner({ onQuickOrder }: HeroBannerProps) {
                     src={item.image}
                     alt={`${item.title} - AllTechByte`}
                     fill
+                    priority={idx === 0}
                     sizes="64px"
                     className="object-contain p-1 group-hover:scale-108 transition-transform"
                   />
@@ -129,9 +134,9 @@ export default function HeroBanner({ onQuickOrder }: HeroBannerProps) {
                   <span className="text-[10px] font-bold uppercase tracking-wider block text-[#0084FF]">
                     {item.category}
                   </span>
-                  <h4 className="font-bold text-xs sm:text-sm truncate transition-colors text-slate-900 group-hover:text-[#0084FF]">
+                  <h3 className="font-bold text-xs sm:text-sm truncate transition-colors text-slate-900 group-hover:text-[#0084FF]">
                     {item.title}
-                  </h4>
+                  </h3>
                   <div className="flex items-center gap-2 mt-0.5">
                     <span className="text-xs sm:text-sm font-black text-slate-900">
                       Rs {item.price.toLocaleString()} PKR

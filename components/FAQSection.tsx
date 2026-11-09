@@ -87,7 +87,7 @@ export default function FAQSection() {
         {/* Still have questions banner */}
         <div className="mt-8 bg-blue-50/70 border border-blue-200/80 rounded-2xl p-5 text-center sm:flex sm:items-center sm:justify-between gap-4">
           <div className="text-left mb-3 sm:mb-0">
-            <h4 className="text-sm font-bold text-slate-900">Still have a question or need a custom quote?</h4>
+            <h3 className="text-sm font-bold text-slate-900">Still have a question or need a custom quote?</h3>
             <p className="text-xs text-slate-500">Our team is available 6 days a week on WhatsApp.</p>
           </div>
           <a

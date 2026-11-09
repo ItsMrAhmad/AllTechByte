@@ -15,19 +15,19 @@ import {
 import { BRAND_INFO, CATEGORIES, createGeneralInquiryUrl } from '@/data/products';
 
 interface HeaderProps {
-  onSearchChange: (query: string) => void;
-  onCategorySelect: (catId: string) => void;
-  selectedCategory: string;
-  searchQuery: string;
-  onOpenMobileMenu: () => void;
+  onSearchChange?: (query: string) => void;
+  onCategorySelect?: (catId: string) => void;
+  selectedCategory?: string;
+  searchQuery?: string;
+  onOpenMobileMenu?: () => void;
 }
 
 export default function Header({
-  onSearchChange,
-  onCategorySelect,
-  selectedCategory,
-  searchQuery,
-  onOpenMobileMenu
+  onSearchChange = () => {},
+  onCategorySelect = () => {},
+  selectedCategory = 'all',
+  searchQuery = '',
+  onOpenMobileMenu = () => {}
 }: HeaderProps) {
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
 

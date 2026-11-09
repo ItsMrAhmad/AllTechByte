@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   MessageCircle,
   Star,
@@ -209,7 +210,13 @@ export default function ProductGrid({
                         className="font-bold text-slate-900 text-xs sm:text-sm leading-snug line-clamp-2 group-hover:text-[#0084FF] transition-colors"
                         title={product.title}
                       >
-                        {product.title}
+                        <Link
+                          href={`/products/${product.id}`}
+                          onClick={(e) => e.stopPropagation()}
+                          className="hover:underline"
+                        >
+                          {product.title}
+                        </Link>
                       </h3>
                     </div>
 

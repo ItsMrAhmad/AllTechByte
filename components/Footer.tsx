@@ -72,9 +72,9 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div className="space-y-3">
-            <h4 className="text-xs font-black uppercase tracking-wider text-blue-300">
+            <h3 className="text-xs font-black uppercase tracking-wider text-blue-300">
               Categories
-            </h4>
+            </h3>
             <ul className="space-y-2 text-xs text-slate-300">
               <li>
                 <a href="#products-section" className="hover:text-white transition-colors">
@@ -116,9 +116,9 @@ export default function Footer() {
 
           {/* Column 3: Customer Care & Ordering */}
           <div className="space-y-3">
-            <h4 className="text-xs font-black uppercase tracking-wider text-blue-300">
+            <h3 className="text-xs font-black uppercase tracking-wider text-blue-300">
               Customer Help
-            </h4>
+            </h3>
             <ul className="space-y-2 text-xs text-slate-300">
               <li>
                 <a
@@ -165,9 +165,9 @@ export default function Footer() {
 
           {/* Column 4: Physical Addresses in Lahore */}
           <div className="space-y-3">
-            <h4 className="text-xs font-black uppercase tracking-wider text-blue-300">
+            <h3 className="text-xs font-black uppercase tracking-wider text-blue-300">
               Lahore Branches
-            </h4>
+            </h3>
             <div className="space-y-3 text-xs text-slate-300">
               <div className="space-y-1 bg-white/5 p-3 rounded-xl border border-white/10">
                 <span className="font-bold text-white block text-[11px] flex items-center gap-1">
