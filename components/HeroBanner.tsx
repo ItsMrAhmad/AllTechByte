@@ -49,9 +49,13 @@ export default function HeroBanner({ onQuickOrder }: HeroBannerProps) {
               </span>
             </h1>
 
-            <p className="text-sm sm:text-base font-bold text-[#0084FF] tracking-wide uppercase">
-              Smart Tech, Honest Prices
-            </p>
+            <div className="inline-flex items-center justify-center lg:justify-start gap-2.5">
+              <span className="h-[2.5px] w-5 bg-[#008CFF] rounded-full"></span>
+              <p className="text-xs sm:text-sm font-black text-[#07132D] tracking-widest uppercase">
+                POWERING <em className="italic text-[#008CFF]">EVERY</em> PROJECT
+              </p>
+              <span className="h-[2.5px] w-5 bg-[#008CFF] rounded-full"></span>
+            </div>
 
             <p className="text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal text-slate-600">
               Your direct verified source for{' '}

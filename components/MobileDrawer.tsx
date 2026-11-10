@@ -38,22 +38,26 @@ export default function MobileDrawer({
         {/* Drawer Header */}
         <div className="p-4 bg-[#0B1E48] text-white flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-white/10 border border-white/20 p-1 flex items-center justify-center">
+            <div className="relative w-11 h-11 rounded-xl overflow-hidden bg-white border border-white/20 p-1 flex items-center justify-center shrink-0">
               <Image
                 src="/robot-character.png"
                 alt="All Tech Byte Robot"
                 fill
-                sizes="40px"
+                sizes="44px"
                 className="object-contain p-0.5"
               />
             </div>
             <div>
-              <span className="font-black text-lg tracking-tight text-white leading-tight block">
-                AllTech<span className="text-[#0084FF]">Byte</span>
+              <span className="font-brand font-black text-lg tracking-tight text-white leading-none block">
+                All Tech <span className="text-[#0099FF]">Byte</span>
               </span>
-              <span className="text-[10px] text-blue-200 block font-bold uppercase tracking-wider">
-                Smart Tech, Honest Prices
-              </span>
+              <div className="flex items-center gap-1 mt-1">
+                <span className="h-[1.5px] w-2 bg-[#0099FF] rounded-full shrink-0"></span>
+                <span className="text-[8.5px] text-slate-200 font-black uppercase tracking-wider whitespace-nowrap leading-none">
+                  POWERING <em className="italic text-[#38BDF8]">EVERY</em> PROJECT
+                </span>
+                <span className="h-[1.5px] w-2 bg-[#0099FF] rounded-full shrink-0"></span>
+              </div>
             </div>
           </div>
 

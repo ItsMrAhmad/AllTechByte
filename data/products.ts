@@ -2857,7 +2857,7 @@ export const BRAND_INFO = {
   whatsappNumber: "923298840694",
   whatsappFormatted: "+92 329 8840694",
   email: "support@alltechbyte.pk",
-  tagline: "Smart Tech, Honest Prices",
+  tagline: "Powering Every Project",
   subtagline: "Pakistan's Premier Store for Robotics, Arduino, Raspberry Pi, Sensors & Electronic Components",
   address1: {
     title: "Lahore Retail Branch (Bund Road)",

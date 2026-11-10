@@ -1,10 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Nunito } from "next/font/google";
 import "./globals.css";
 import StructuredData from "@/components/StructuredData";
 
 const inter = Inter({
   subsets: ["latin"],
+  display: "swap",
+});
+
+const brandFont = Nunito({
+  subsets: ["latin"],
+  weight: ["800", "900"],
+  variable: "--font-brand",
   display: "swap",
 });
 
@@ -71,8 +78,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/logo.jpg",
-        width: 800,
-        height: 800,
+        width: 1024,
+        height: 1024,
         alt: "All Tech Byte Pakistan Logo",
       },
     ],
@@ -94,7 +101,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en" className={`${inter.className} ${brandFont.variable}`}>
       <head>
         <StructuredData />
         <link rel="icon" href="/favicon.ico" sizes="any" />

@@ -26,22 +26,26 @@ export default function Footer() {
           {/* Column 1: Brand Info & Logo */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="relative w-12 h-12 rounded-2xl overflow-hidden bg-white/10 border border-white/20 p-1 shadow-sm flex items-center justify-center">
+              <div className="relative w-13 h-13 rounded-2xl overflow-hidden bg-white border border-white/20 p-1 shadow-sm flex items-center justify-center shrink-0">
                 <Image
                   src="/robot-character.png"
                   alt="All Tech Byte Robot"
                   fill
-                  sizes="48px"
+                  sizes="52px"
                   className="object-contain p-0.5"
                 />
               </div>
               <div>
-                <span className="text-2xl font-black tracking-tight text-white leading-tight block">
-                  AllTech<span className="text-[#0084FF]">Byte</span>
+                <span className="font-brand text-2xl font-black tracking-tight text-white leading-none block">
+                  All Tech <span className="text-[#0099FF]">Byte</span>
                 </span>
-                <span className="text-xs text-blue-300 block font-bold uppercase tracking-wider">
-                  Smart Tech, Honest Prices
-                </span>
+                <div className="flex items-center gap-1.5 mt-1.5">
+                  <span className="h-[2px] w-3 bg-[#0099FF] rounded-full shrink-0"></span>
+                  <span className="text-[10px] text-slate-200 font-black uppercase tracking-wider whitespace-nowrap leading-none">
+                    POWERING <em className="italic text-[#38BDF8]">EVERY</em> PROJECT
+                  </span>
+                  <span className="h-[2px] w-3 bg-[#0099FF] rounded-full shrink-0"></span>
+                </div>
               </div>
             </div>
 

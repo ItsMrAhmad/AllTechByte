@@ -112,23 +112,27 @@ export default function Header({
 
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-2.5 sm:gap-3 shrink-0 group">
-            <div className="relative w-11 h-11 md:w-13 md:h-13 rounded-2xl overflow-hidden bg-slate-50 border border-slate-200/90 shadow-xs flex items-center justify-center p-1 group-hover:border-[#0084FF]/50 transition-colors">
+            <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-2xl overflow-hidden bg-white border border-slate-200/90 shadow-xs flex items-center justify-center p-1 group-hover:border-[#0084FF]/50 transition-colors">
               <Image
                 src="/robot-character.png"
                 alt="All Tech Byte Robot"
                 fill
-                sizes="(max-width: 768px) 44px, 52px"
+                sizes="(max-width: 768px) 48px, 56px"
                 className="object-contain p-0.5 group-hover:scale-105 transition-transform"
                 priority
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl md:text-2xl font-black tracking-tight text-[#0B1E48] leading-tight">
-                AllTech<span className="text-[#0084FF]">Byte</span>
+              <span className="font-brand text-xl md:text-2xl font-black tracking-tight text-[#07132D] leading-none">
+                All Tech <span className="text-[#008CFF]">Byte</span>
               </span>
-              <span className="text-[10px] md:text-[11px] font-bold tracking-wider text-slate-500 uppercase">
-                Smart Tech, Honest Prices
-              </span>
+              <div className="flex items-center gap-1.5 mt-1">
+                <span className="h-[2px] w-2.5 md:w-3.5 bg-[#008CFF] rounded-full shrink-0"></span>
+                <span className="text-[8px] md:text-[9.5px] font-black tracking-wider text-[#07132D] uppercase whitespace-nowrap leading-none">
+                  POWERING <em className="italic text-[#008CFF]">EVERY</em> PROJECT
+                </span>
+                <span className="h-[2px] w-2.5 md:w-3.5 bg-[#008CFF] rounded-full shrink-0"></span>
+              </div>
             </div>
           </Link>
 
