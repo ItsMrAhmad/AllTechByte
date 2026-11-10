@@ -31,8 +31,8 @@ export default function ValueProps() {
       icon: MapPin,
       color: "text-amber-600",
       bgColor: "bg-amber-50 border-amber-100",
-      title: "2 Lahore Walk-in Stores",
-      description: "Visit our physical locations at Bund Road (Near Muhammadia Masjid) and Al Latif Center Gulberg III for immediate in-store pickup & consultation."
+      title: "Lahore Walk-in Store",
+      description: "Visit our physical retail store at Bund Road (Near Muhammadia Masjid) for immediate in-store pickup & consultation."
     }
   ];
 

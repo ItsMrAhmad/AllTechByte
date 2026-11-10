@@ -12,12 +12,12 @@ Prioritizes seamless **WhatsApp Direct Commerce** (inspired by [dotmaticprinter.
    - **Sliding Announcement Bar**: Real-time rotating updates, store branch indicators, and quick WhatsApp link.
    - **Multi-Level Responsive Header**: Search bar with category dropdowns, live keyword filtering, and brand logo.
    - **Hero Section**: Showcases flagship development hardware (Raspberry Pi 5, Arduino Uno R3, ESP32, Sensors) with instant "Buy Now" triggers.
-   - **4-Column Value Proposition Bar**: Nationwide delivery, 100% tested genuine components, WhatsApp ordering, and 2 Lahore stores.
+   - **4-Column Value Proposition Bar**: Nationwide delivery, 100% tested genuine components, WhatsApp ordering, and Lahore walk-in store.
    - **Popular Categories Grid**: Visual category tiles with image previews and item counters.
    - **Flash Deals & Hot Offers**: Promotional discount pricing with percentage savings tags and stock status.
    - **Interactive Product Catalog**: Searchable, filterable, and sortable by price/rating with pre-formatted WhatsApp order buttons.
    - **Zero-Friction WhatsApp Ordering Banner**: 3-step guide detailing direct human ordering without cart friction.
-   - **Physical Lahore Stores Showcase**: Highlighting Bund Road and Gulberg III (Al Latif Center) branches with Google Maps directions.
+   - **Physical Lahore Store Showcase**: Highlighting the Bund Road retail store with Google Maps directions.
    - **FAQ Accordion & Technical Knowledge Hub**: Customer questions and engineering tutorials.
    - **Interactive Quick-Order Modal**: Real-time quantity selector, subtotal calculation, and customized WhatsApp order builder.
    - **Sticky Floating WhatsApp CTA**: Pulsing WhatsApp shortcut with customer support notification.
@@ -26,8 +26,7 @@ Prioritizes seamless **WhatsApp Direct Commerce** (inspired by [dotmaticprinter.
    - **Brand Name**: All Tech Byte
    - **Domain**: `alltechbyte.pk`
    - **WhatsApp & Phone**: `03298840694` (`+92 329 8840694`)
-   - **Retail & Dispatch Branch**: Shop #8, Muhammadia Colony, Near Muhammadia Masjid, Bund Road, Lahore, Punjab
-   - **Tech & Corporate Office**: 2nd Floor Office, Al Latif Center, 40 Main Boulevard Gulberg, Block D1, Gulberg III, Lahore
+   - **Retail & Dispatch Store**: Shop #8, Muhammadia Colony, Near Muhammadia Masjid, Bund Road, Lahore, Punjab
    - **Brand Logos**: Official vector robot mascot logo & favicon placed in `/public/logo.jpg` and `/public/favicon.jpg`.
 
 3. **Cloudflare Pages Optimization**:

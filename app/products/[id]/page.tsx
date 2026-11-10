@@ -293,7 +293,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                     </div>
                     <div className="flex items-center justify-center gap-1.5 bg-slate-50 p-2 rounded-xl border border-slate-100">
                       <MapPin className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-                      <span>2 Walk-in Lahore stores</span>
+                      <span>Walk-in Lahore store</span>
                     </div>
                   </div>
                 </div>

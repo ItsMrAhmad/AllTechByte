@@ -176,9 +176,9 @@ export default function Header({
             >
               <span className="flex items-center gap-1 text-[11px] font-bold text-slate-700 justify-end">
                 <MapPin className="w-3 h-3 text-[#0084FF]" />
-                <span>2 Stores in Lahore</span>
+                <span>Lahore Store</span>
               </span>
-              <span className="text-[10px] text-slate-500">Bund Rd & Gulberg III</span>
+              <span className="text-[10px] text-slate-500">Main Bund Road</span>
             </a>
 
             {/* Direct WhatsApp Ordering Button */}

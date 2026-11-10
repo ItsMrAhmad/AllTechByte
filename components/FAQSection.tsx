@@ -13,8 +13,8 @@ export default function FAQSection() {
       a: "Just like dotmaticprinter.com, we prioritize direct WhatsApp communication to save you time. Simply browse any product on our site and click 'Order on WhatsApp' or send us your parts list. A pre-filled message with the exact item title and price will open in your WhatsApp. Our sales technician will confirm availability, answer technical questions, and book your dispatch immediately."
     },
     {
-      q: "Where are your physical retail stores located in Lahore?",
-      a: "We operate two convenient locations in Lahore: (1) Retail & Dispatch Outlet: Shop #8, Muhammadia Colony, Near Muhammadia Masjid, Bund Road, Lahore. (2) Corporate & Tech Office: 2nd Floor Office, Al Latif Center, 40 Main Boulevard Gulberg, Block D1, Gulberg III, Lahore. You are welcome to walk in, inspect hardware, and purchase on the spot!"
+      q: "Where is your physical retail store located in Lahore?",
+      a: "Our retail store & dispatch outlet is located at Shop #8, Muhammadia Colony, Near Muhammadia Masjid, Bund Road, Lahore. You are welcome to walk in, inspect hardware, and purchase on the spot!"
     },
     {
       q: "Do you deliver to cities outside Lahore across Pakistan?",

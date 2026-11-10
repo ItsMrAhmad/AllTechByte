@@ -49,7 +49,7 @@ export default function AnnouncementBar() {
         <div className="hidden lg:flex items-center space-x-4 text-slate-300">
           <span className="flex items-center gap-1">
             <MapPin className="w-3.5 h-3.5 text-[#0084FF]" />
-            <span>Bund Road & Gulberg III, Lahore</span>
+            <span>Bund Road, Lahore</span>
           </span>
           <span className="text-slate-500">•</span>
           <a

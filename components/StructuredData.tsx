@@ -17,23 +17,13 @@ export default function StructuredData() {
         "priceRange": "PKR",
         "currenciesAccepted": "PKR",
         "paymentAccepted": "Cash, Bank Transfer, EasyPaisa, JazzCash",
-        "address": [
-          {
-            "@type": "PostalAddress",
-            "streetAddress": "2nd Floor, Al Latif Center, 40 Main Boulevard Gulberg, Block D1, Gulberg III",
-            "addressLocality": "Lahore",
-            "addressRegion": "Punjab",
-            "postalCode": "54660",
-            "addressCountry": "PK"
-          },
-          {
-            "@type": "PostalAddress",
-            "streetAddress": "Shop #8, Muhammadia Colony, Near Muhammadia Masjid, Main Bund Road",
-            "addressLocality": "Lahore",
-            "addressRegion": "Punjab",
-            "addressCountry": "PK"
-          }
-        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Shop #8, Muhammadia Colony, Near Muhammadia Masjid, Main Bund Road",
+          "addressLocality": "Lahore",
+          "addressRegion": "Punjab",
+          "addressCountry": "PK"
+        },
         "geo": {
           "@type": "GeoCoordinates",
           "latitude": 31.5204,
@@ -76,10 +66,10 @@ export default function StructuredData() {
           },
           {
             "@type": "Question",
-            "name": "Where are your physical retail stores located in Lahore?",
+            "name": "Where is your physical retail store located in Lahore?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "We operate two locations in Lahore: (1) Retail & Dispatch Outlet: Shop #8, Muhammadia Colony, Near Muhammadia Masjid, Bund Road, Lahore. (2) Corporate & Tech Office: 2nd Floor Office, Al Latif Center, 40 Main Boulevard Gulberg, Block D1, Gulberg III, Lahore."
+              "text": "Our retail store and dispatch outlet is located at Shop #8, Muhammadia Colony, Near Muhammadia Masjid, Bund Road, Lahore."
             }
           },
           {

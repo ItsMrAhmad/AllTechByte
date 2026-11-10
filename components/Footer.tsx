@@ -163,29 +163,19 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Physical Addresses in Lahore */}
+          {/* Column 4: Physical Address in Lahore */}
           <div className="space-y-3">
             <h3 className="text-xs font-black uppercase tracking-wider text-blue-300">
-              Lahore Branches
+              Lahore Store
             </h3>
             <div className="space-y-3 text-xs text-slate-300">
               <div className="space-y-1 bg-white/5 p-3 rounded-xl border border-white/10">
                 <span className="font-bold text-white block text-[11px] flex items-center gap-1">
                   <MapPin className="w-3.5 h-3.5 text-[#0084FF]" />
-                  <span>Branch 1 (Retail &amp; Dispatch):</span>
+                  <span>Retail &amp; Dispatch Outlet:</span>
                 </span>
                 <p className="text-[11px] text-slate-300 leading-snug">
                   {BRAND_INFO.address1.line}
-                </p>
-              </div>
-
-              <div className="space-y-1 bg-white/5 p-3 rounded-xl border border-white/10">
-                <span className="font-bold text-white block text-[11px] flex items-center gap-1">
-                  <MapPin className="w-3.5 h-3.5 text-[#25D366]" />
-                  <span>Branch 2 (Gulberg Tech Office):</span>
-                </span>
-                <p className="text-[11px] text-slate-300 leading-snug">
-                  {BRAND_INFO.address2.line}
                 </p>
               </div>
             </div>

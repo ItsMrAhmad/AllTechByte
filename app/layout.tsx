@@ -31,7 +31,6 @@ export const metadata: Metadata = {
     "All Tech Byte",
     "alltechbyte.pk",
     "Bund Road Lahore electronics",
-    "Al Latif Center Gulberg",
     "Sensors Pakistan",
     "18650 Spot Welder",
     "Motor Drivers",

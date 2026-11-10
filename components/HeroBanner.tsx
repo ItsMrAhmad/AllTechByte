@@ -91,7 +91,7 @@ export default function HeroBanner({ onQuickOrder }: HeroBannerProps) {
               <span className="text-slate-300">•</span>
               <span className="flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-[#0084FF]" />
-                <span>2 Stores in Lahore</span>
+                <span>Lahore Store Pickup</span>
               </span>
               <span className="text-slate-300">•</span>
               <span className="flex items-center gap-1.5">

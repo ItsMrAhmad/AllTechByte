@@ -20,21 +20,6 @@ export default function StoreLocations() {
         "Testing Facilities Available"
       ],
       mapsQuery: "Muhammadia Colony Near Muhammadia Masjid Bund Road Lahore"
-    },
-    {
-      name: "Gulberg III Tech Office & Corporate Desk",
-      tag: "Corporate & Tech Office",
-      address: "2nd Floor Office, Al Latif Center, 40 Main Boulevard Gulberg, Block D1, Gulberg III, Lahore",
-      city: "Lahore, Punjab",
-      phone: BRAND_INFO.phone,
-      hours: "Monday - Saturday: 10:30 AM - 8:00 PM",
-      features: [
-        "Bulk & University Project Consultations",
-        "Corporate Electronics Procurement",
-        "Technical Hardware Troubleshooting",
-        "Central Gulberg Pickup Point"
-      ],
-      mapsQuery: "Al Latif Center 40 Main Boulevard Gulberg Lahore"
     }
   ];
 
@@ -46,18 +31,18 @@ export default function StoreLocations() {
         <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
           <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0084FF] bg-blue-50 px-3 py-1 rounded-full">
             <MapPin className="w-3.5 h-3.5" />
-            <span>Physical Walk-in Outlets</span>
+            <span>Physical Walk-in Outlet</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
-            Visit Our Stores in Lahore
+            Visit Our Store in Lahore
           </h2>
           <p className="text-sm text-slate-500">
-            Need urgent components for your FYP, maker build, or industrial assembly? Visit any of our two Lahore locations or order for immediate courier delivery!
+            Need urgent components for your FYP, maker build, or industrial assembly? Visit our Lahore store on Bund Road or order for immediate courier delivery!
           </p>
         </div>
 
-        {/* 2 Locations Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        {/* Single Centered Store Card */}
+        <div className="max-w-2xl mx-auto">
           {branches.map((b, i) => (
             <div
               key={i}

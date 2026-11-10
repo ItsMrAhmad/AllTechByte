@@ -112,10 +112,10 @@ export default function MobileDrawer({
             </div>
           </div>
 
-          {/* Lahore Branches */}
+          {/* Lahore Store */}
           <div className="pt-2 border-t border-slate-200">
             <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-2 px-1">
-              Lahore Branches
+              Lahore Store
             </span>
             <div className="space-y-2 text-xs">
               <a
@@ -123,17 +123,8 @@ export default function MobileDrawer({
                 onClick={onClose}
                 className="block p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 hover:border-blue-300"
               >
-                <strong className="text-slate-900 block font-bold">1. Bund Road Branch:</strong>
+                <strong className="text-slate-900 block font-bold">Bund Road Store:</strong>
                 <span className="text-[11px] text-slate-500">Shop #8, Muhammadia Colony, Bund Road</span>
-              </a>
-
-              <a
-                href="#locations-section"
-                onClick={onClose}
-                className="block p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 hover:border-blue-300"
-              >
-                <strong className="text-slate-900 block font-bold">2. Gulberg III Office:</strong>
-                <span className="text-[11px] text-slate-500">2nd Floor, Al Latif Center, Main Blvd Gulberg</span>
               </a>
             </div>
           </div>

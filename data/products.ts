@@ -2864,11 +2864,6 @@ export const BRAND_INFO = {
     line: "Shop #8, Muhammadia Colony, Near Muhammadia Masjid, Bund Road, Lahore, Punjab",
     city: "Lahore"
   },
-  address2: {
-    title: "Gulberg Corporate & Tech Office",
-    line: "2nd Floor Office, Al Latif Center, 40 Main Boulevard Gulberg, Block D1, Gulberg III, Lahore",
-    city: "Lahore"
-  },
   hours: "Monday - Saturday: 10:00 AM - 8:30 PM (Sunday Closed)",
   deliveryPromise: "Same-Day Dispatch in Lahore | 1-2 Days Express Delivery Nationwide across Pakistan"
 };
