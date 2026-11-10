@@ -5,7 +5,6 @@ import Image from 'next/image';
 import {
   MessageCircle,
   ArrowRight,
-  Cpu,
   CheckCircle2,
   MapPin,
   Truck
@@ -35,35 +34,13 @@ export default function HeroBanner({ onQuickOrder }: HeroBannerProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
           {/* Left Column: Bold Typography & Direct WhatsApp Action */}
-          <div className="lg:col-span-6 space-y-4 sm:space-y-5 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold shadow-xs bg-blue-50 border border-blue-200 text-[#0084FF]">
-              <Cpu className="w-3.5 h-3.5 text-[#0084FF]" />
-              <span>Pakistan Maker Hardware Hub</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            </div>
-
+          <div className="lg:col-span-6 space-y-5 sm:space-y-6 text-center lg:text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-[1.1] text-[#07132D]">
               Robotics, Arduino &amp; Electronics Store <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0084FF] via-blue-600 to-cyan-500">
                 in Pakistan.
               </span>
             </h1>
-
-            <div className="inline-flex items-center justify-center lg:justify-start gap-2.5">
-              <span className="h-[2.5px] w-5 bg-[#008CFF] rounded-full"></span>
-              <p className="text-xs sm:text-sm font-black text-[#07132D] tracking-widest uppercase">
-                POWERING <em className="italic text-[#008CFF]">EVERY</em> PROJECT
-              </p>
-              <span className="h-[2.5px] w-5 bg-[#008CFF] rounded-full"></span>
-            </div>
-
-            <p className="text-sm sm:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal text-slate-600">
-              Your direct verified source for{' '}
-              <strong className="text-slate-900 font-semibold">
-                Arduino, Raspberry Pi 5, ESP32
-              </strong>
-              , precision NDIR sensors, and power converters with zero checkout friction.
-            </p>
 
             {/* Primary WhatsApp Action */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-1">
@@ -116,10 +93,6 @@ export default function HeroBanner({ onQuickOrder }: HeroBannerProps) {
                 sizes="(max-width: 1024px) 100vw, 620px"
                 className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
               />
-              <div className="hidden sm:flex absolute bottom-3.5 left-3.5 bg-white/95 backdrop-blur-xs border border-slate-200/90 shadow-md px-3 py-1.5 rounded-full text-[11px] font-bold text-[#07132D] items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span>Same-Day Lahore Dispatch</span>
-              </div>
             </div>
           </div>
 
