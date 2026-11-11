@@ -7,7 +7,7 @@ import { PRODUCTS, Product, BRAND_INFO, createProductOrderUrl } from '@/data/pro
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
-import { MessageCircle, CheckCircle2, ShieldCheck, ArrowLeft, Star, Truck, MapPin } from 'lucide-react';
+import { MessageCircle, ShieldCheck, ArrowLeft, Truck, MapPin } from 'lucide-react';
 
 interface ProductPageProps {
   params: Promise<{
@@ -86,11 +86,6 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
       "@type": "Brand",
       "name": "All Tech Byte"
     },
-    "aggregateRating": product.rating ? {
-      "@type": "AggregateRating",
-      "ratingValue": product.rating,
-      "reviewCount": product.reviewsCount || 10
-    } : undefined,
     "offers": {
       "@type": "Offer",
       "url": `https://alltechbyte.pk/products/${product.id}`,
@@ -213,15 +208,10 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               {/* Product Info Column */}
               <div className="lg:col-span-7 space-y-6">
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="text-xs font-bold text-[#0084FF] uppercase tracking-wider bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-100">
+                  <div className="mb-2">
+                    <span className="inline-block text-xs font-bold text-[#0084FF] uppercase tracking-wider bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-100">
                       {product.category}
                     </span>
-                    <div className="flex items-center gap-1 text-amber-500 text-xs font-bold">
-                      <Star className="w-4 h-4 fill-amber-400 stroke-none" />
-                      <span>{product.rating || '5.0'}</span>
-                      <span className="text-slate-400 font-normal">({product.reviewsCount || 48} reviews)</span>
-                    </div>
                   </div>
 
                   <h1 className="text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
@@ -236,7 +226,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 </div>
 
                 {/* Price Display */}
-                <div className="bg-slate-50 rounded-2xl p-4 sm:p-5 border border-slate-100 flex items-baseline justify-between flex-wrap gap-4">
+                <div className="bg-slate-50 rounded-2xl p-4 sm:p-5 border border-slate-100">
                   <div>
                     <div className="flex items-baseline gap-2.5">
                       <span className="text-3xl sm:text-4xl font-black text-slate-900">
@@ -252,11 +242,6 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                       Cash on Delivery Available across Pakistan
                     </span>
                   </div>
-
-                  <span className="bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold px-3 py-1.5 rounded-xl flex items-center gap-1.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                    Genuine Verified Hardware
-                  </span>
                 </div>
 
                 {/* Description */}
@@ -268,28 +253,6 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                     {product.description}
                   </p>
                 </div>
-
-                {/* Specifications Table */}
-                {product.specs && Object.keys(product.specs).length > 0 && (
-                  <div>
-                    <h2 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
-                      Technical Specifications
-                    </h2>
-                    <div className="border border-slate-200 rounded-xl overflow-hidden text-xs">
-                      {Object.entries(product.specs).map(([k, v], idx) => (
-                        <div
-                          key={k}
-                          className={`flex justify-between py-2.5 px-3.5 ${
-                            idx % 2 === 0 ? 'bg-slate-50/70' : 'bg-white'
-                          } border-b border-slate-100 last:border-b-0`}
-                        >
-                          <span className="font-semibold text-slate-700">{k}</span>
-                          <span className="font-mono text-slate-900 font-bold">{v}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
 
                 {/* WhatsApp Order Action */}
                 <div className="pt-2 space-y-3">
