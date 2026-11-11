@@ -63,7 +63,10 @@ export default function HomePage() {
       {/* Main Content Area */}
       <main className="flex-1">
         {/* Hero Banner Section */}
-        <HeroBanner onQuickOrder={handleQuickOrder} />
+        <HeroBanner
+          onQuickOrder={handleQuickOrder}
+          onSelectCategory={handleCategorySelect}
+        />
 
         {/* Popular Categories Visual Grid */}
         <CategoryGrid
