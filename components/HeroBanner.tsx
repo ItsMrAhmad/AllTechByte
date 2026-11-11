@@ -44,9 +44,9 @@ export default function HeroBanner({ onQuickOrder, onSelectCategory }: HeroBanne
   return (
     <section className="relative overflow-hidden border-b border-slate-200/80 animate-fadeIn">
       {/* ========================================================= */}
-      {/* MIDNIGHT NAVY COMMAND STAGE (SAMPLE 2)                    */}
+      {/* MIDNIGHT NAVY COMMAND STAGE (SAMPLE 2 - FULL VIEWPORT)    */}
       {/* ========================================================= */}
-      <div className="relative bg-[#07132D] text-white overflow-hidden">
+      <div className="relative bg-[#07132D] text-white overflow-hidden lg:min-h-[calc(100vh-118px)] flex items-center">
         {/* Seamless Full-Bleed Dark Studio Hardware Visual (Desktop Right) */}
         <div className="hidden lg:block absolute inset-y-0 right-0 w-[68%] z-0 pointer-events-none select-none">
           <Image
@@ -59,23 +59,17 @@ export default function HeroBanner({ onQuickOrder, onSelectCategory }: HeroBanne
           />
           {/* Seamless left & vertical melt into #07132D */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#07132D] via-[#07132D]/85 via-25% to-transparent"></div>
-          <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-[#07132D]/60 to-transparent"></div>
-          <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#07132D]/80 to-transparent"></div>
+          <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-[#07132D]/60 to-transparent"></div>
+          <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#07132D]/80 to-transparent"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14 lg:py-16">
-          <div className="max-w-xl space-y-5 text-center lg:text-left mx-auto lg:mx-0">
-            
-            {/* Verified Stock Status Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider text-cyan-300 bg-white/10 border border-cyan-400/30 backdrop-blur-xs">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>172+ Components Ready to Ship</span>
-            </div>
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
+          <div className="max-w-xl space-y-6 text-center lg:text-left mx-auto lg:mx-0">
 
             {/* Bold Dual-Tone Display Headline */}
-            <h1 className="font-brand text-3xl sm:text-5xl font-black tracking-tight leading-[1.1] text-white">
+            <h1 className="font-brand text-3xl sm:text-5xl xl:text-[54px] font-black tracking-tight leading-[1.1] text-white">
               Everything Your{' '}
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-cyan-300 to-emerald-300 mt-1">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-cyan-300 to-emerald-300 mt-1.5">
                 Next Project Demands.
               </span>
             </h1>
@@ -154,9 +148,9 @@ export default function HeroBanner({ onQuickOrder, onSelectCategory }: HeroBanne
       </div>
 
       {/* ========================================================= */}
-      {/* COMPACT SPOTLIGHT STRIP ABOVE THE FOLD                    */}
+      {/* HIGH-DEMAND SPOTLIGHT STRIP BELOW HERO                    */}
       {/* ========================================================= */}
-      <div className="bg-[#fafbfc] py-5">
+      <div className="bg-[#fafbfc] py-8 sm:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-bold uppercase tracking-wider mb-3 px-1">
             <div className="flex items-center gap-2.5">
