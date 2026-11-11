@@ -169,23 +169,44 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
               
               {/* Product Image Column */}
-              <div className="lg:col-span-5 bg-white rounded-2xl border border-slate-100 p-6 flex items-center justify-center aspect-square relative shadow-xs">
-                <Image
-                  src={product.image}
-                  alt={product.title}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 500px"
-                  className="object-contain p-4"
-                />
-                <span className="absolute top-4 left-4 bg-emerald-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-xs">
-                  <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
-                  In Stock (Lahore)
-                </span>
-                {product.comparePrice && (
-                  <span className="absolute top-4 right-4 bg-rose-500 text-white text-[10px] font-black px-2.5 py-1 rounded-full shadow-xs">
-                    SAVE Rs {(product.comparePrice - product.price).toLocaleString()}
+              <div className="lg:col-span-5 space-y-3">
+                <div className="bg-white rounded-2xl border border-slate-100 p-6 flex items-center justify-center aspect-square relative shadow-xs">
+                  <Image
+                    src={product.image}
+                    alt={product.title}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 500px"
+                    className="object-contain p-4"
+                  />
+                  <span className="absolute top-4 left-4 bg-emerald-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-xs">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                    In Stock (Lahore)
                   </span>
+                  {product.comparePrice && (
+                    <span className="absolute top-4 right-4 bg-rose-500 text-white text-[10px] font-black px-2.5 py-1 rounded-full shadow-xs">
+                      SAVE Rs {(product.comparePrice - product.price).toLocaleString()}
+                    </span>
+                  )}
+                </div>
+
+                {product.gallery && product.gallery.length > 1 && (
+                  <div className="grid grid-cols-3 gap-2.5">
+                    {product.gallery.map((imgUrl, idx) => (
+                      <div
+                        key={imgUrl}
+                        className="relative aspect-square rounded-xl border border-slate-200 bg-white overflow-hidden p-1.5 shadow-2xs"
+                      >
+                        <Image
+                          src={imgUrl}
+                          alt={`${product.title} view ${idx + 1}`}
+                          fill
+                          sizes="150px"
+                          className="object-contain p-1"
+                        />
+                      </div>
+                    ))}
+                  </div>
                 )}
               </div>
 

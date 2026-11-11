@@ -10,8 +10,8 @@ interface FlashSaleProps {
 }
 
 export default function FlashSaleSection({ onQuickOrder }: FlashSaleProps) {
-  // Select top products with discount / comparePrice
-  const flashProducts = PRODUCTS.filter((p) => p.comparePrice && p.comparePrice > p.price).slice(0, 4);
+  // Select top 4 active featured/flash-sale products
+  const flashProducts = PRODUCTS.filter((p) => !p.isDraft).slice(0, 4);
 
   return (
     <section id="flash-sale" className="py-12 bg-white border-b border-slate-200">
@@ -61,9 +61,13 @@ export default function FlashSaleSection({ onQuickOrder }: FlashSaleProps) {
               >
                 {/* Badges container */}
                 <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10 pointer-events-none">
-                  {discountPct && (
+                  {discountPct ? (
                     <span className="bg-rose-600 text-white text-[11px] font-black px-2.5 py-0.5 rounded-full shadow-sm">
                       SAVE {discountPct}%
+                    </span>
+                  ) : (
+                    <span className="bg-slate-900/80 backdrop-blur-xs text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-sm">
+                      New Arrival
                     </span>
                   )}
                   <span className="bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-2xs">

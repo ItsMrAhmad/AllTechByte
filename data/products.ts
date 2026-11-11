@@ -7,6 +7,7 @@ export interface Product {
   category: string;
   tags: string[];
   image: string;
+  gallery?: string[];
   description: string;
   inStock: boolean;
   rating: string;
@@ -17,11 +18,11 @@ export interface Product {
 }
 
 export const CATEGORIES = [
-  { id: 'all', name: 'All Products', count: 171, icon: 'Cpu' },
+  { id: 'all', name: 'All Products', count: 172, icon: 'Cpu' },
   { id: 'boards', name: 'Microcontrollers & Boards', count: 28, icon: 'CircuitBoard', query: ['board', 'arduino', 'raspberry', 'stm', 'breakout', 'controller'] },
   { id: 'components', name: 'Electronic Components & ICs', count: 12, icon: 'Cpu', query: ['ic', 'sop', 'dip', 'transistor', 'diode', 'mosfet', 'oscillator'] },
   { id: 'sensors', name: 'Sensors & Displays', count: 34, icon: 'Activity', query: ['sensor', 'voltmeter', 'lcd', 'display', 'temperature', 'touch screen'] },
-  { id: 'robotics', name: 'Robotics & Motors', count: 11, icon: 'Bot', query: ['motor', 'speed controller', 'pwm', 'stepper', 'robotics'] },
+  { id: 'robotics', name: 'Robotics & Motors', count: 12, icon: 'Bot', query: ['motor', 'speed controller', 'pwm', 'stepper', 'robotics'] },
   { id: 'power', name: 'Power & Converters', count: 94, icon: 'Zap', query: ['boost converter', 'power supply', 'spot welder', 'charger', 'battery'] },
   { id: 'tools', name: 'Tools, Cables & Wires', count: 4, icon: 'Wrench', query: ['cable', 'wire', 'jumper', 'tape', 'strip', 'adapter', 'tool'] }
 ];
@@ -44,20 +45,25 @@ export const PRODUCTS: Product[] = [
     specs: {"Operating Voltage":"3.7V DC (1S LiPo compatible: 3.0V – 4.2V)","No-Load Speed":"53,000 RPM","Motor Type":"High-Efficiency Coreless (Hollow Cup) Micro DC Motor","Propeller Diameter":"75 mm (Includes CW & CCW pair)","Shaft Diameter":"1.0 mm","Lead Wires":"Color-coded flexible twisted silicone leads","Package Includes":"1 Pair (2 Motors + 2 Matching 75mm Propellers)","Applications":"Micro FPV Drones, Mini Quadcopters, RC Helicopters, DIY Flight Models"}
   },
   {
-    id: "15468298797422",
-    title: "10A PWM DC Motor Speed Controller (12V to 40V)",
-    handle: "10a-pwm-dc-motor-speed-controller-12v-to-40v",
-    price: 878,
-    comparePrice: 1148,
+    id: "15469000000150",
+    title: "N20 DC 3V–6V Micro Metal Gear Motor – High Torque, Low Noise, Durable Mini Gearbox for Robotics, DIY, and Electronics Projects",
+    handle: "n20-dc-3v-6v-micro-metal-gear-motor",
+    price: 299,
+    comparePrice: null,
     category: "Robotics & Motors",
-    tags: ["Modules and Motors","PWM","Speed Controller"],
-    image: "/products/product-15468298797422.webp",
-    description: "High-efficiency 10A PWM DC motor speed controller module with potentiometer and forward reverse switch capability. Smooth speed regulation without loss of torque.",
+    tags: ["N20","Micro Metal Gear Motor","DC Motor","Gearbox","Robotics","DIY","3V-6V"],
+    image: "/products/product-15469000000150.webp",
+    gallery: [
+      "/products/product-15469000000150.webp",
+      "/products/product-15469000000151.webp",
+      "/products/product-15469000000152.webp"
+    ],
+    description: "High-torque, low-noise N20 (GA12-N20) micro DC 3V–6V metal gear motor featuring a compact 24mm body, durable all-metal spur reduction gearbox with rigid brass end plates, flat 3mm D-cut output shaft (3.8mm length), and dual M1.6 front mounting holes. Ideal for micro robotics, smart locks, and DIY electronics projects.",
     inStock: true,
-    rating: "4.8",
-    reviewsCount: 42,
-    sku: "ATB-MOT-PWM10",
-    specs: {"Operating Voltage":"DC 12V - 40V","Max Current":"10A Continuous","PWM Frequency":"13 kHz","Duty Cycle":"10% - 100%"}
+    rating: "5.0",
+    reviewsCount: 0,
+    sku: "ATB-MOT-N20-3V6V",
+    specs: {"Operating Voltage":"3V – 6V DC","Motor Model":"GA12-N20","Body Dimensions":"24 mm length × 12 mm × 9 mm","Output Shaft":"3 mm D-Shaft (3.8 mm length)","Mounting Pattern":"Dual M1.6 threaded holes","Gearbox Material":"Full Metal Gears & Brass Plates"}
   },
   {
     id: "15469000000154",
@@ -2750,57 +2756,6 @@ export const PRODUCTS: Product[] = [
     specs: {"Core Module":"ESP-WROOM-32","USB Interface":"Silicon Labs CP2102 Micro-USB","Pin Count":"30 Pins (2.54mm pitch)","Wireless Connectivity":"2.4 GHz Wi-Fi (802.11 b/g/n) + Bluetooth v4.2 BR/EDR & BLE","Buttons":"EN (Reset) & BOOT pushbuttons"}
   },
   {
-    id: "15469000000150",
-    title: "GA12-N20 Micro Metal Gear Motor with 3mm D-Shaft",
-    handle: "ga12-n20-micro-metal-gear-motor-3mm-d-shaft",
-    price: 0,
-    comparePrice: null,
-    category: "Robotics & Motors",
-    tags: ["N20","Motor","Gear Motor","GA12-N20","Robotics","DC Motor"],
-    image: "/products/product-15469000000150.webp",
-    description: "High-precision GA12-N20 micro DC motor featuring an integrated all-metal reduction gearbox, flat 3mm D-cut drive shaft, and dual M1.6 front faceplate mounting holes for miniature robotics, smart locks, and automation projects.",
-    inStock: false,
-    isDraft: true,
-    rating: "5.0",
-    reviewsCount: 0,
-    sku: "ATB-MOT-N20-D3",
-    specs: {"Motor Model":"GA12-N20","Shaft Profile":"3mm D-Shaft","Gearbox Structure":"All-Metal Spur Gearhead","Mounting Pattern":"Dual M1.6 threaded faceplate holes","Gearbox Face":"12 mm x 9 mm"}
-  },
-  {
-    id: "15469000000151",
-    title: "GA12-N20 High-Torque Miniature All-Metal Gearbox DC Motor",
-    handle: "ga12-n20-high-torque-miniature-all-metal-gearbox-dc-motor",
-    price: 0,
-    comparePrice: null,
-    category: "Robotics & Motors",
-    tags: ["N20","Gearbox","DC Motor","Robotics","Micro Motor"],
-    image: "/products/product-15469000000151.webp",
-    description: "Rugged GA12-N20 sub-miniature DC gearmotor built with a multi-stage all-metal gear train supported between rigid brass end plates. Designed for high torque output, wear resistance, and long operational life in compact robotic chassis.",
-    inStock: false,
-    isDraft: true,
-    rating: "5.0",
-    reviewsCount: 0,
-    sku: "ATB-MOT-N20-GB",
-    specs: {"Gear Construction":"Solid steel and brass spur gears","Frame Material":"Brass end plates with steel spacers","Shaft Diameter":"3 mm D-Cut","Motor Type":"N20 DC motor"}
-  },
-  {
-    id: "15469000000152",
-    title: "GA12-N20 Micro Metal Gear Motor 24mm (M1.6 Mounting, 3mm D-Shaft)",
-    handle: "ga12-n20-micro-metal-gear-motor-24mm-m16-mount",
-    price: 0,
-    comparePrice: null,
-    category: "Robotics & Motors",
-    tags: ["N20","Micro Metal Gear Motor","24mm","M1.6","Motor","Robotics"],
-    image: "/products/product-15469000000152.webp",
-    description: "Standard 24mm GA12-N20 micro DC gearmotor with verified physical dimensions: 24mm overall length, 12mm motor body height, 3mm D-shaft with 3.8mm shaft extension, 12mm x 9mm gearbox profile, and M1.6 mounting threads.",
-    inStock: false,
-    isDraft: true,
-    rating: "5.0",
-    reviewsCount: 0,
-    sku: "ATB-MOT-N20-24MM",
-    specs: {"Total Length":"24 mm","Motor Body Height":"12 mm","Output Shaft Diameter":"3 mm (D-Shape)","Output Shaft Length":"3.8 mm","Gearbox Profile":"12 mm x 9 mm","Mounting Screws":"M1.6"}
-  },
-  {
     id: "15468320293230",
     title: "12-Port Server Power Supply Breakout Board",
     handle: "12-port-server-power-supply-breakout-board",
@@ -2847,6 +2802,22 @@ export const PRODUCTS: Product[] = [
     reviewsCount: 29,
     sku: "ATB-SPT-NYD01",
     specs: {"Current Capacity":"100A Thyristor","Display":"Dual Digital LED","Time Adjust":"1-50 cycles","Current Adjust":"30-99%"}
+  },
+  {
+    id: "15468298797422",
+    title: "10A PWM DC Motor Speed Controller (12V to 40V)",
+    handle: "10a-pwm-dc-motor-speed-controller-12v-to-40v",
+    price: 878,
+    comparePrice: 1148,
+    category: "Robotics & Motors",
+    tags: ["Modules and Motors","PWM","Speed Controller"],
+    image: "/products/product-15468298797422.webp",
+    description: "High-efficiency 10A PWM DC motor speed controller module with potentiometer and forward reverse switch capability. Smooth speed regulation without loss of torque.",
+    inStock: true,
+    rating: "4.8",
+    reviewsCount: 42,
+    sku: "ATB-MOT-PWM10",
+    specs: {"Operating Voltage":"DC 12V - 40V","Max Current":"10A Continuous","PWM Frequency":"13 kHz","Duty Cycle":"10% - 100%"}
   }
 ];
 
