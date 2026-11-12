@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { PRODUCTS, Product, BRAND_INFO, createProductOrderUrl } from '@/data/products';
+import { PRODUCTS, Product, BRAND_INFO, createProductOrderUrl, getCategorySlugForProduct } from '@/data/products';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -115,7 +115,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         "@type": "ListItem",
         "position": 2,
         "name": product.category,
-        "item": `https://alltechbyte.pk/?category=${encodeURIComponent(product.category)}`
+        "item": `https://alltechbyte.pk/category/${getCategorySlugForProduct(product)}`
       },
       {
         "@type": "ListItem",
@@ -150,7 +150,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               <span>Back to Store</span>
             </Link>
             <span>/</span>
-            <Link href="/" className="hover:text-[#0084FF] transition-colors">
+            <Link href={`/category/${getCategorySlugForProduct(product)}`} className="hover:text-[#0084FF] transition-colors">
               {product.category}
             </Link>
             <span>/</span>

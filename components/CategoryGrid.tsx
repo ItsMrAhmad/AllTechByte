@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowRight, Cpu, CircuitBoard, Activity, Bot, Zap, Wrench } from 'lucide-react';
 import { CATEGORIES } from '@/data/products';
 
@@ -86,17 +87,14 @@ export default function CategoryGrid({ onSelectCategory, selectedCategory }: Cat
             </p>
           </div>
 
-          <button
-            onClick={() => {
-              onSelectCategory('all');
-              const el = document.getElementById('products-section');
-              el?.scrollIntoView({ behavior: 'smooth' });
-            }}
+          <Link
+            href="/#products-section"
+            onClick={() => onSelectCategory('all')}
             className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0B1E48] hover:text-[#0084FF] transition-colors self-start md:self-auto"
           >
             <span>View All Categories</span>
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </Link>
         </div>
 
         {/* Category Cards Grid */}
@@ -106,13 +104,10 @@ export default function CategoryGrid({ onSelectCategory, selectedCategory }: Cat
             const Icon = cat.icon;
 
             return (
-              <button
+              <Link
                 key={cat.id}
-                onClick={() => {
-                  onSelectCategory(cat.id);
-                  const el = document.getElementById('products-section');
-                  el?.scrollIntoView({ behavior: 'smooth' });
-                }}
+                href={`/category/${cat.id}`}
+                onClick={() => onSelectCategory(cat.id)}
                 className={`flex flex-col text-left p-3.5 sm:p-4 rounded-2xl bg-white border transition-all group overflow-hidden relative ${
                   isSelected
                     ? 'border-[#0084FF] shadow-lg ring-2 ring-[#0084FF]/20 bg-blue-50/20'
@@ -150,7 +145,7 @@ export default function CategoryGrid({ onSelectCategory, selectedCategory }: Cat
                   <span>Explore</span>
                   <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                 </div>
-              </button>
+              </Link>
             );
           })}
         </div>

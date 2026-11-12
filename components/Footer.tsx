@@ -81,34 +81,34 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 text-xs text-slate-300">
               <li>
-                <a href="#products-section" className="hover:text-white transition-colors">
-                  Microcontrollers &amp; Arduino
-                </a>
+                <Link href="/category/boards" className="hover:text-white transition-colors">
+                  Microcontrollers &amp; Boards
+                </Link>
               </li>
               <li>
-                <a href="#products-section" className="hover:text-white transition-colors">
-                  Raspberry Pi 5 &amp; Pico 2W
-                </a>
+                <Link href="/category/components" className="hover:text-white transition-colors">
+                  Electronic Components &amp; ICs
+                </Link>
               </li>
               <li>
-                <a href="#products-section" className="hover:text-white transition-colors">
-                  NDIR Sensors &amp; Displays
-                </a>
+                <Link href="/category/sensors" className="hover:text-white transition-colors">
+                  Sensors &amp; Displays
+                </Link>
               </li>
               <li>
-                <a href="#products-section" className="hover:text-white transition-colors">
-                  PWM Motor Speed Controllers
-                </a>
+                <Link href="/category/robotics" className="hover:text-white transition-colors">
+                  Robotics &amp; Motors
+                </Link>
               </li>
               <li>
-                <a href="#products-section" className="hover:text-white transition-colors">
-                  18650 Spot Welders &amp; Boosters
-                </a>
+                <Link href="/category/power" className="hover:text-white transition-colors">
+                  Power &amp; Converters
+                </Link>
               </li>
               <li>
-                <a href="#products-section" className="hover:text-white transition-colors">
-                  Semiconductor ICs &amp; Transistors
-                </a>
+                <Link href="/category/tools" className="hover:text-white transition-colors">
+                  Tools, Cables &amp; Wires
+                </Link>
               </li>
               <li>
                 <a href="#flash-sale" className="text-rose-400 hover:text-rose-300 font-bold transition-colors">

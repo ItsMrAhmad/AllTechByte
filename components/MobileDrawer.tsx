@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { X, MessageCircle, MapPin, Search, ChevronRight, Phone } from 'lucide-react';
 import { BRAND_INFO, CATEGORIES, createGeneralInquiryUrl } from '@/data/products';
 
@@ -93,14 +94,14 @@ export default function MobileDrawer({
             <div className="space-y-1">
               {CATEGORIES.map((cat) => {
                 const isSelected = selectedCategory === cat.id;
+                const href = cat.id === 'all' ? '/#products-section' : `/category/${cat.id}`;
                 return (
-                  <button
+                  <Link
                     key={cat.id}
+                    href={href}
                     onClick={() => {
                       onSelectCategory(cat.id);
                       onClose();
-                      const el = document.getElementById('products-section');
-                      el?.scrollIntoView({ behavior: 'smooth' });
                     }}
                     className={`w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold flex items-center justify-between transition-colors ${
                       isSelected
@@ -110,7 +111,7 @@ export default function MobileDrawer({
                   >
                     <span>{cat.name}</span>
                     <ChevronRight className={`w-3.5 h-3.5 ${isSelected ? 'text-white' : 'text-slate-400'}`} />
-                  </button>
+                  </Link>
                 );
               })}
             </div>
@@ -122,14 +123,14 @@ export default function MobileDrawer({
               Lahore Store
             </span>
             <div className="space-y-2 text-xs">
-              <a
-                href="#locations-section"
+              <Link
+                href="/#locations-section"
                 onClick={onClose}
                 className="block p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 hover:border-blue-300"
               >
                 <strong className="text-slate-900 block font-bold">Bund Road Store:</strong>
                 <span className="text-[11px] text-slate-500">Shop #8, Muhammadia Colony, Bund Road</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

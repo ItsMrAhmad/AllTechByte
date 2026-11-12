@@ -239,9 +239,10 @@ export default function Header({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ul className="flex items-center gap-1 xl:gap-2 py-1 text-xs xl:text-[13px] 2xl:text-sm font-medium text-slate-700 whitespace-nowrap overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             
-            {/* All Categories Dropdown Button */}
+            {/* All Categories Link */}
             <li className="relative group py-1 shrink-0">
-              <button
+              <Link
+                href="/#products-section"
                 onClick={() => onCategorySelect('all')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors font-bold ${
                   selectedCategory === 'all'
@@ -251,7 +252,7 @@ export default function Header({
               >
                 <span className="whitespace-nowrap">All Categories</span>
                 <ChevronDown className="w-4 h-4 opacity-70 group-hover:rotate-180 transition-transform shrink-0" />
-              </button>
+              </Link>
             </li>
 
             {/* Menu Items with Hover Dropdowns */}
@@ -262,11 +263,10 @@ export default function Header({
                 onMouseEnter={() => setDropdownOpen(menu.catId)}
                 onMouseLeave={() => setDropdownOpen(null)}
               >
-                <button
+                <Link
+                  href={`/category/${menu.catId}`}
                   onClick={() => {
-                    onCategorySelect(menu.catId);
-                    const el = document.getElementById('products-section');
-                    el?.scrollIntoView({ behavior: 'smooth' });
+                    setDropdownOpen(null);
                   }}
                   className={`flex items-center gap-1 px-2.5 xl:px-3 py-1.5 rounded-lg whitespace-nowrap font-semibold transition-colors ${
                     selectedCategory === menu.catId
@@ -276,7 +276,7 @@ export default function Header({
                 >
                   <span className="whitespace-nowrap">{menu.title}</span>
                   <ChevronDown className="w-3.5 h-3.5 opacity-60 shrink-0" />
-                </button>
+                </Link>
 
                 {/* Dropdown panel */}
                 {dropdownOpen === menu.catId && (
@@ -285,14 +285,13 @@ export default function Header({
                       {menu.title}
                     </div>
                     {menu.items.map((sub, i) => (
-                      <button
+                      <Link
                         key={i}
+                        href={`/category/${menu.catId}?q=${encodeURIComponent(sub.tag)}`}
                         onClick={() => {
                           onCategorySelect(menu.catId);
                           onSearchChange(sub.tag);
                           setDropdownOpen(null);
-                          const el = document.getElementById('products-section');
-                          el?.scrollIntoView({ behavior: 'smooth' });
                         }}
                         className="w-full text-left px-3.5 py-2 text-xs text-slate-700 hover:bg-blue-50 hover:text-[#0084FF] transition-colors flex items-center justify-between group"
                       >
@@ -300,7 +299,7 @@ export default function Header({
                         <span className="text-[10px] text-slate-400 group-hover:text-[#0084FF] font-medium">
                           View &rarr;
                         </span>
-                      </button>
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -309,12 +308,12 @@ export default function Header({
 
             {/* FAQs link right-aligned */}
             <li className="py-1 ml-auto shrink-0">
-              <a
-                href="#faq-section"
+              <Link
+                href="/#faq-section"
                 className="px-3 py-1.5 rounded-lg whitespace-nowrap font-semibold text-slate-600 hover:text-[#0084FF] hover:bg-slate-200/60 transition-colors inline-block"
               >
                 Help &amp; FAQs
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { X, MessageCircle, Star, Plus, Minus, CheckCircle, ShieldCheck, Truck } from 'lucide-react';
+import { X, MessageCircle, Plus, Minus, CheckCircle, ShieldCheck, Truck } from 'lucide-react';
 import { Product, createProductOrderUrl } from '@/data/products';
 
 interface QuickOrderModalProps {
@@ -60,13 +60,9 @@ export default function QuickOrderModal({ product, onClose }: QuickOrderModalPro
 
             {/* Product Summary */}
             <div className="space-y-3">
-              <div className="flex items-start justify-between gap-2 text-xs text-slate-500">
-                <span className="text-[#0084FF] font-bold uppercase tracking-wider leading-tight flex-1">
+              <div className="text-xs text-slate-500">
+                <span className="text-[#0084FF] font-bold uppercase tracking-wider leading-tight">
                   {product.category}
-                </span>
-                <span className="flex items-center gap-1 text-amber-500 font-bold shrink-0 pt-0.5">
-                  <Star className="w-3.5 h-3.5 fill-amber-400 stroke-none" />
-                  <span>{product.rating} ({product.reviewsCount} reviews)</span>
                 </span>
               </div>
 

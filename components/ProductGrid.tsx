@@ -5,13 +5,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   MessageCircle,
-  Star,
   SlidersHorizontal,
   CheckCircle,
   X,
   Search
 } from 'lucide-react';
-import { Product, CATEGORIES, createProductOrderUrl } from '@/data/products';
+import { Product, CATEGORIES, createProductOrderUrl, matchesCategory } from '@/data/products';
 
 interface ProductGridProps {
   products: Product[];
@@ -20,6 +19,9 @@ interface ProductGridProps {
   searchQuery: string;
   onClearSearch: () => void;
   onQuickOrder: (product: Product) => void;
+  hideCategoryTabs?: boolean;
+  sectionTitle?: string;
+  sectionSubtitle?: string;
 }
 
 export default function ProductGrid({
@@ -28,9 +30,12 @@ export default function ProductGrid({
   onSelectCategory,
   searchQuery,
   onClearSearch,
-  onQuickOrder
+  onQuickOrder,
+  hideCategoryTabs = false,
+  sectionTitle = 'Electronics, Robotics & Maker Components',
+  sectionSubtitle = 'Every component is backed by direct WhatsApp support, stock confirmation, and Lahore store pickup.'
 }: ProductGridProps) {
-  const [sortBy, setSortBy] = useState<'featured' | 'price-asc' | 'price-desc' | 'rating'>('featured');
+  const [sortBy, setSortBy] = useState<'featured' | 'price-asc' | 'price-desc'>('featured');
 
   // Filter and sort products
   const filteredProducts = useMemo(() => {
@@ -38,13 +43,7 @@ export default function ProductGrid({
 
     // Filter by Category (searchQuery searches overall catalog)
     if (selectedCategory !== 'all' && !searchQuery.trim()) {
-      const catConfig = CATEGORIES.find((c) => c.id === selectedCategory);
-      if (catConfig?.query) {
-        list = list.filter((p) => {
-          const text = (p.title + ' ' + p.category + ' ' + (p.tags || []).join(' ')).toLowerCase();
-          return catConfig.query!.some((q) => text.includes(q.toLowerCase()));
-        });
-      }
+      list = list.filter((p) => matchesCategory(p, selectedCategory));
     }
 
     // Filter by Search Query
@@ -65,8 +64,6 @@ export default function ProductGrid({
       list.sort((a, b) => a.price - b.price);
     } else if (sortBy === 'price-desc') {
       list.sort((a, b) => b.price - a.price);
-    } else if (sortBy === 'rating') {
-      list.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating));
     }
 
     return list;
@@ -84,10 +81,10 @@ export default function ProductGrid({
                 Verified Inventory
               </div>
               <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                Electronics, Robotics &amp; Maker Components
+                {sectionTitle}
               </h2>
               <p className="text-sm text-slate-500 mt-1">
-                Every component is backed by direct WhatsApp support, stock confirmation, and Lahore store pickup.
+                {sectionSubtitle}
               </p>
             </div>
 
@@ -104,31 +101,32 @@ export default function ProductGrid({
                   <option value="featured">Featured First</option>
                   <option value="price-asc">Price: Low to High</option>
                   <option value="price-desc">Price: High to Low</option>
-                  <option value="rating">Top Customer Rated</option>
                 </select>
               </div>
             </div>
           </div>
 
           {/* Category Tabs Pill Bar */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-            {CATEGORIES.map((cat) => {
-              const isSelected = selectedCategory === cat.id;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => onSelectCategory(cat.id)}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
-                    isSelected
-                      ? 'bg-[#0B1E48] text-white shadow-md'
-                      : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300 hover:bg-slate-100/60'
-                  }`}
-                >
-                  {cat.name}
-                </button>
-              );
-            })}
-          </div>
+          {!hideCategoryTabs && (
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+              {CATEGORIES.map((cat) => {
+                const isSelected = selectedCategory === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => onSelectCategory(cat.id)}
+                    className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
+                      isSelected
+                        ? 'bg-[#0B1E48] text-white shadow-md'
+                        : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300 hover:bg-slate-100/60'
+                    }`}
+                  >
+                    {cat.name}
+                  </button>
+                );
+              })}
+            </div>
+          )}
 
           {/* Active Search Filter Badge if present */}
           {searchQuery && (
@@ -194,14 +192,10 @@ export default function ProductGrid({
                   {/* Card Body */}
                   <div className="p-3 sm:p-4 flex-1 flex flex-col justify-between space-y-2.5">
                     <div>
-                      {/* Category & Rating */}
-                      <div className="flex items-start justify-between gap-2 text-[10px] sm:text-[11px] text-slate-500 mb-1.5">
-                        <span className="font-bold text-[#0084FF] uppercase tracking-wider leading-tight flex-1">
+                      {/* Category */}
+                      <div className="text-[10px] sm:text-[11px] text-slate-500 mb-1.5">
+                        <span className="font-bold text-[#0084FF] uppercase tracking-wider leading-tight">
                           {product.category}
-                        </span>
-                        <span className="flex items-center gap-0.5 text-amber-500 font-bold shrink-0 pt-0.5">
-                          <Star className="w-3 h-3 fill-amber-400 stroke-none" />
-                          <span>{product.rating}</span>
                         </span>
                       </div>
 
