@@ -40,7 +40,7 @@ export default function FAQSection() {
         
         {/* Section Header */}
         <div className="text-center mb-10 space-y-2">
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0084FF] bg-blue-50 px-3 py-1 rounded-full">
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0066CC] bg-blue-50 px-3 py-1 rounded-full">
             <HelpCircle className="w-3.5 h-3.5" />
             <span>Got Questions?</span>
           </div>
@@ -64,12 +64,12 @@ export default function FAQSection() {
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
                   aria-expanded={isOpen}
-                  className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 font-bold text-slate-900 hover:text-[#0084FF] transition-colors"
+                  className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 font-bold text-slate-900 hover:text-[#0066CC] transition-colors"
                 >
                   <span className="text-sm sm:text-base leading-snug">{faq.q}</span>
                   <ChevronDown
                     className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
-                      isOpen ? 'rotate-180 text-[#0084FF]' : ''
+                      isOpen ? 'rotate-180 text-[#0066CC]' : ''
                     }`}
                   />
                 </button>
@@ -88,15 +88,15 @@ export default function FAQSection() {
         <div className="mt-8 bg-blue-50/70 border border-blue-200/80 rounded-2xl p-5 text-center sm:flex sm:items-center sm:justify-between gap-4">
           <div className="text-left mb-3 sm:mb-0">
             <h3 className="text-sm font-bold text-slate-900">Still have a question or need a custom quote?</h3>
-            <p className="text-xs text-slate-500">Our team is available 6 days a week on WhatsApp.</p>
+            <p className="text-xs text-slate-600">Our team is available 6 days a week on WhatsApp.</p>
           </div>
           <a
             href={createGeneralInquiryUrl("FAQ Inquiry")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1fb355] text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-xs shrink-0"
+            className="inline-flex items-center gap-2 bg-[#15803D] hover:bg-[#166534] text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-xs shrink-0"
           >
-            <MessageCircle className="w-4 h-4 fill-white stroke-[#25D366]" />
+            <MessageCircle className="w-4 h-4 fill-white stroke-[#15803D]" />
             <span>Chat on WhatsApp (03298840694)</span>
           </a>
         </div>

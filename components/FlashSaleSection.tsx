@@ -90,10 +90,10 @@ export default function FlashSaleSection({ onQuickOrder }: FlashSaleProps) {
                 {/* Details */}
                 <div className="p-4 flex-1 flex flex-col justify-between space-y-3">
                   <div>
-                    <span className="text-[11px] font-bold text-[#0084FF] uppercase tracking-wider block">
+                    <span className="text-[11px] font-bold text-[#0066CC] uppercase tracking-wider block">
                       {product.category}
                     </span>
-                    <h3 className="font-bold text-slate-900 text-sm leading-snug line-clamp-2 mt-1 group-hover:text-[#0084FF] transition-colors">
+                    <h3 className="font-bold text-slate-900 text-sm leading-snug line-clamp-2 mt-1 group-hover:text-[#0066CC] transition-colors">
                       {product.title}
                     </h3>
                   </div>
@@ -105,12 +105,12 @@ export default function FlashSaleSection({ onQuickOrder }: FlashSaleProps) {
                         Rs {product.price.toLocaleString()}
                       </span>
                       {product.comparePrice && (
-                        <span className="text-xs text-slate-400 line-through">
+                        <span className="text-xs text-slate-500 line-through">
                           Rs {product.comparePrice.toLocaleString()}
                         </span>
                       )}
                     </div>
-                    <span className="text-[10px] text-slate-400 block mt-0.5">
+                    <span className="text-[10px] text-slate-500 block mt-0.5">
                       Prices include GST / Cash on Delivery
                     </span>
                   </div>
@@ -122,9 +122,9 @@ export default function FlashSaleSection({ onQuickOrder }: FlashSaleProps) {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="flex-1 flex items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#1fb355] text-white text-xs font-bold py-2.5 px-3 rounded-xl shadow-xs transition-all active:scale-95"
+                      className="flex-1 flex items-center justify-center gap-1.5 bg-[#15803D] hover:bg-[#166534] text-white text-xs font-bold py-2.5 px-3 rounded-xl shadow-xs transition-all active:scale-95"
                     >
-                      <MessageCircle className="w-4 h-4 fill-white stroke-[#25D366]" />
+                      <MessageCircle className="w-4 h-4 fill-white stroke-[#15803D]" />
                       <span>Order on WhatsApp</span>
                     </a>
                   </div>

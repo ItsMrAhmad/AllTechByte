@@ -40,7 +40,7 @@ export default function NewsSection() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-[#0084FF] mb-1">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#0066CC] mb-1">
               Knowledge Hub
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
@@ -55,7 +55,7 @@ export default function NewsSection() {
             href={createGeneralInquiryUrl("Technical Guidance & Tutorial Parts")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0084FF] hover:text-blue-700 transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0066CC] hover:text-blue-700 transition-colors"
           >
             <span>Ask for Project Parts on WhatsApp</span>
             <ArrowRight className="w-4 h-4" />
@@ -86,13 +86,13 @@ export default function NewsSection() {
               {/* Body */}
               <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-[11px] text-slate-400 font-medium">
+                  <div className="flex items-center gap-2 text-[11px] text-slate-500 font-medium">
                     <span>{art.date}</span>
                     <span>•</span>
                     <span>{art.readTime}</span>
                   </div>
 
-                  <h3 className="text-base font-bold text-slate-900 leading-snug group-hover:text-[#0084FF] transition-colors">
+                  <h3 className="text-base font-bold text-slate-900 leading-snug group-hover:text-[#0066CC] transition-colors">
                     {art.title}
                   </h3>
 
@@ -106,13 +106,13 @@ export default function NewsSection() {
                     href={createGeneralInquiryUrl(`Parts for Article: ${art.title}`)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#25D366] hover:text-emerald-700 transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 transition-colors"
                   >
                     <MessageCircle className="w-3.5 h-3.5 fill-current" />
                     <span>Inquire Components</span>
                   </a>
 
-                  <span className="text-xs font-semibold text-[#0084FF] flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  <span className="text-xs font-semibold text-[#0066CC] flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                     <span>Read Guide</span>
                     <ArrowRight className="w-3 h-3" />
                   </span>

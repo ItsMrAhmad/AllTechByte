@@ -141,9 +141,9 @@ export default function MobileDrawer({
             href={createGeneralInquiryUrl("Mobile Menu Order")}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fb355] text-white py-3 px-4 rounded-xl font-bold text-xs shadow-md transition-colors"
+            className="w-full flex items-center justify-center gap-2 bg-[#15803D] hover:bg-[#166534] text-white py-3 px-4 rounded-xl font-bold text-xs shadow-md transition-colors"
           >
-            <MessageCircle className="w-4 h-4 fill-white stroke-[#25D366]" />
+            <MessageCircle className="w-4 h-4 fill-white stroke-[#15803D]" />
             <span>Chat on WhatsApp: {BRAND_INFO.phone}</span>
           </a>
 

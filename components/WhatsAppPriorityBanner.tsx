@@ -54,12 +54,12 @@ export default function WhatsAppPriorityBanner() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
                 {steps.map((st, i) => (
                   <div key={i} className="bg-white/5 border border-white/10 p-3.5 rounded-2xl">
-                    <div className="w-7 h-7 rounded-full bg-[#0084FF] text-white font-black text-xs flex items-center justify-center mb-2">
+                    <div className="w-7 h-7 rounded-full bg-[#0066CC] text-white font-black text-xs flex items-center justify-center mb-2">
                       {st.num}
                     </div>
-                    <h4 className="text-xs sm:text-sm font-bold text-white mb-1">
+                    <h3 className="text-xs sm:text-sm font-bold text-white mb-1">
                       {st.title}
-                    </h4>
+                    </h3>
                     <p className="text-[11px] text-slate-300 leading-relaxed">
                       {st.desc}
                     </p>
@@ -73,9 +73,9 @@ export default function WhatsAppPriorityBanner() {
                   href={createGeneralInquiryUrl("Custom Order or Parts List")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1fb355] text-white px-8 py-3.5 rounded-2xl font-black text-base shadow-xl hover:shadow-emerald-500/30 transition-all transform active:scale-95 group"
+                  className="inline-flex items-center justify-center gap-3 bg-[#15803D] hover:bg-[#166534] text-white px-8 py-3.5 rounded-2xl font-black text-base shadow-xl hover:shadow-emerald-500/30 transition-all transform active:scale-95 group"
                 >
-                  <MessageCircle className="w-6 h-6 fill-white stroke-[#25D366]" />
+                  <MessageCircle className="w-6 h-6 fill-white stroke-[#15803D]" />
                   <span>Start WhatsApp Chat: 03298840694</span>
                 </a>
 
@@ -92,12 +92,12 @@ export default function WhatsAppPriorityBanner() {
                 
                 {/* Simulated chat header */}
                 <div className="flex items-center gap-3 pb-3 border-b border-white/10">
-                  <div className="relative w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center text-white font-bold text-sm">
+                  <div className="relative w-10 h-10 rounded-full bg-[#15803D] flex items-center justify-center text-white font-bold text-sm">
                     AB
                     <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-300 border-2 border-[#0E1E38] rounded-full"></span>
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-white">All Tech Byte Sales</h4>
+                    <h3 className="text-sm font-bold text-white">All Tech Byte Sales</h3>
                     <span className="text-[10px] text-emerald-400 block font-medium">Online • Lahore Store</span>
                   </div>
                 </div>

@@ -112,9 +112,9 @@ export default function CategoryPageClient({
                     href={createGeneralInquiryUrl(`Category Inquiry: ${categoryName}`)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1fb355] text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-md transition-colors"
+                    className="inline-flex items-center gap-2 bg-[#15803D] hover:bg-[#166534] text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-md transition-colors"
                   >
-                    <MessageCircle className="w-4 h-4 fill-white stroke-[#25D366]" />
+                    <MessageCircle className="w-4 h-4 fill-white stroke-[#15803D]" />
                     <span>Ask Bulk Pricing on WhatsApp</span>
                   </a>
 

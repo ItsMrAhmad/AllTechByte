@@ -139,7 +139,7 @@ export default function HeroBanner({ onQuickOrder, onSelectCategory }: HeroBanne
                 alt="All Tech Byte — Raspberry Pi 5, Arduino UNO, ESP32, N20 Motor & Sensors"
                 fill
                 priority
-                sizes="100vw"
+                sizes="(max-width: 768px) 100vw, 1024px"
                 className="object-cover"
               />
             </div>
@@ -154,9 +154,9 @@ export default function HeroBanner({ onQuickOrder, onSelectCategory }: HeroBanne
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-bold uppercase tracking-wider mb-3 px-1">
             <div className="flex items-center gap-2.5">
-              <span className="text-slate-600">
+              <h2 className="text-xs font-bold uppercase tracking-wider text-slate-700">
                 Today&apos;s High-Demand Electronics
-              </span>
+              </h2>
               <span className="flex items-center gap-1 font-semibold text-[11px] px-2 py-0.5 rounded-full text-emerald-700 bg-emerald-50 border border-emerald-200/80">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
                 Verified Stock
@@ -172,7 +172,7 @@ export default function HeroBanner({ onQuickOrder, onSelectCategory }: HeroBanne
               <div
                 key={item.id}
                 onClick={() => onQuickOrder(item)}
-                className="p-3 rounded-2xl shadow-xs transition-all duration-200 flex items-center justify-between gap-3 cursor-pointer group bg-white border border-slate-200/90 hover:border-[#0084FF] hover:shadow-md text-slate-900"
+                className="p-3 rounded-2xl shadow-xs transition-all duration-200 flex items-center justify-between gap-3 cursor-pointer group bg-white border border-slate-200/90 hover:border-[#0066CC] hover:shadow-md text-slate-900"
               >
                 <div className="relative w-12 h-12 rounded-xl shrink-0 overflow-hidden flex items-center justify-center p-1 bg-white border border-slate-100">
                   <Image
@@ -185,10 +185,10 @@ export default function HeroBanner({ onQuickOrder, onSelectCategory }: HeroBanne
                 </div>
 
                 <div className="flex-1 min-w-0">
-                  <span className="text-[10px] font-bold uppercase tracking-wider block text-[#0084FF]">
+                  <span className="text-[10px] font-bold uppercase tracking-wider block text-[#0066CC]">
                     {item.category}
                   </span>
-                  <h3 className="font-bold text-xs truncate transition-colors text-slate-900 group-hover:text-[#0084FF]">
+                  <h3 className="font-bold text-xs truncate transition-colors text-slate-900 group-hover:text-[#0066CC]">
                     {item.title}
                   </h3>
                   <div className="flex items-center gap-2 mt-0.5">
@@ -206,10 +206,10 @@ export default function HeroBanner({ onQuickOrder, onSelectCategory }: HeroBanne
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="p-2 rounded-xl bg-[#25D366] hover:bg-[#1fb355] text-white shrink-0 shadow-xs active:scale-95 transition-transform"
+                  className="p-2 rounded-xl bg-[#15803D] hover:bg-[#166534] text-white shrink-0 shadow-xs active:scale-95 transition-transform"
                   title="Order on WhatsApp"
                 >
-                  <MessageCircle className="w-4 h-4 fill-white stroke-[#25D366]" />
+                  <MessageCircle className="w-4 h-4 fill-white stroke-[#15803D]" />
                 </a>
               </div>
             ))}

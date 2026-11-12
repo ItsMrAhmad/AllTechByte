@@ -124,14 +124,14 @@ export default function Header({
             </div>
             <div className="flex flex-col">
               <span className="font-brand text-xl md:text-2xl font-black tracking-tight text-[#07132D] leading-none">
-                All Tech <span className="text-[#008CFF]">Byte</span>
+                All Tech <span className="text-[#0066CC]">Byte</span>
               </span>
               <div className="flex items-center gap-1.5 mt-1">
-                <span className="h-[2px] w-2.5 md:w-3.5 bg-[#008CFF] rounded-full shrink-0"></span>
+                <span className="h-[2px] w-2.5 md:w-3.5 bg-[#0066CC] rounded-full shrink-0"></span>
                 <span className="text-[8px] md:text-[9.5px] font-black tracking-wider text-[#07132D] uppercase whitespace-nowrap leading-none">
-                  POWERING <em className="italic text-[#008CFF]">EVERY</em> PROJECT
+                  POWERING <em className="italic text-[#0066CC]">EVERY</em> PROJECT
                 </span>
-                <span className="h-[2px] w-2.5 md:w-3.5 bg-[#008CFF] rounded-full shrink-0"></span>
+                <span className="h-[2px] w-2.5 md:w-3.5 bg-[#0066CC] rounded-full shrink-0"></span>
               </div>
             </div>
           </Link>
@@ -190,20 +190,20 @@ export default function Header({
               href={createGeneralInquiryUrl("Instant Order Booking")}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 bg-[#25D366] hover:bg-[#1fb355] text-white px-3.5 md:px-4 py-2 md:py-2.5 rounded-xl font-bold shadow-md hover:shadow-lg transition-all transform active:scale-95 group"
+              className="flex items-center gap-2.5 bg-[#075E54] hover:bg-[#054c44] text-white px-3.5 md:px-4 py-2 md:py-2.5 rounded-xl font-bold shadow-md hover:shadow-lg transition-all transform active:scale-95 group"
             >
               <div className="relative">
-                <MessageCircle className="w-5 h-5 fill-white stroke-[#25D366]" />
+                <MessageCircle className="w-5 h-5 fill-white stroke-[#075E54]" />
                 <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-200"></span>
                 </span>
               </div>
               <div className="flex flex-col text-left">
-                <span className="text-[10px] font-semibold text-emerald-100 uppercase tracking-wider leading-none">
+                <span className="text-[10px] font-bold text-white uppercase tracking-wider leading-none">
                   Order via WhatsApp
                 </span>
-                <span className="text-xs md:text-sm font-black tracking-tight leading-tight">
+                <span className="text-xs md:text-sm font-black tracking-tight leading-tight text-white">
                   {BRAND_INFO.phone}
                 </span>
               </div>

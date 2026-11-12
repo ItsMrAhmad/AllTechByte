@@ -29,7 +29,7 @@ export default function StoreLocations() {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0084FF] bg-blue-50 px-3 py-1 rounded-full">
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0066CC] bg-blue-50 px-3 py-1 rounded-full">
             <MapPin className="w-3.5 h-3.5" />
             <span>Physical Walk-in Outlet</span>
           </div>
@@ -46,15 +46,15 @@ export default function StoreLocations() {
           {branches.map((b, i) => (
             <div
               key={i}
-              className="bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs hover:shadow-lg hover:border-[#0084FF]/40 transition-all flex flex-col justify-between space-y-6"
+              className="bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs hover:shadow-lg hover:border-[#0066CC]/40 transition-all flex flex-col justify-between space-y-6"
             >
               <div className="space-y-4">
                 {/* Branch Badge */}
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-[#0084FF] bg-blue-100/80 px-3 py-1 rounded-full uppercase tracking-wider">
+                  <span className="text-xs font-bold text-[#0066CC] bg-blue-100/80 px-3 py-1 rounded-full uppercase tracking-wider">
                     {b.tag}
                   </span>
-                  <span className="flex items-center gap-1 text-xs font-semibold text-emerald-600">
+                  <span className="flex items-center gap-1 text-xs font-semibold text-emerald-700">
                     <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
                     Open Today
                   </span>
@@ -107,9 +107,9 @@ export default function StoreLocations() {
                   href={createGeneralInquiryUrl(`Store Visit Inquiry for ${b.name}`)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:flex-1 flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fb355] text-white text-xs font-bold py-3 px-4 rounded-xl shadow-xs transition-colors"
+                  className="w-full sm:flex-1 flex items-center justify-center gap-2 bg-[#15803D] hover:bg-[#166534] text-white text-xs font-bold py-3 px-4 rounded-xl shadow-xs transition-colors"
                 >
-                  <MessageCircle className="w-4 h-4 fill-white stroke-[#25D366]" />
+                  <MessageCircle className="w-4 h-4 fill-white stroke-[#15803D]" />
                   <span>Confirm Stock via WhatsApp</span>
                 </a>
 
@@ -119,7 +119,7 @@ export default function StoreLocations() {
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto flex items-center justify-center gap-1.5 bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 text-xs font-bold py-3 px-4 rounded-xl transition-colors"
                 >
-                  <Navigation className="w-4 h-4 text-[#0084FF]" />
+                  <Navigation className="w-4 h-4 text-[#0066CC]" />
                   <span>Get Directions</span>
                 </a>
               </div>

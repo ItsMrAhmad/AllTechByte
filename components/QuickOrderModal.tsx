@@ -52,10 +52,6 @@ export default function QuickOrderModal({ product, onClose }: QuickOrderModalPro
                 sizes="(max-width: 768px) 100vw, 350px"
                 className="object-contain p-3"
               />
-              <span className="absolute top-3 left-3 bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                In Stock in Lahore
-              </span>
             </div>
 
             {/* Product Summary */}
@@ -163,12 +159,12 @@ export default function QuickOrderModal({ product, onClose }: QuickOrderModalPro
               href={orderUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1fb355] text-white py-3.5 px-6 rounded-2xl font-black text-sm sm:text-base shadow-xl hover:shadow-emerald-500/30 transition-all active:scale-95 group"
+              className="w-full flex items-center justify-center gap-3 bg-[#15803D] hover:bg-[#166534] text-white py-3.5 px-6 rounded-2xl font-black text-sm sm:text-base shadow-xl hover:shadow-emerald-500/30 transition-all active:scale-95 group"
             >
-              <MessageCircle className="w-5 h-5 fill-white stroke-[#25D366]" />
+              <MessageCircle className="w-5 h-5 fill-white stroke-[#15803D]" />
               <span>Proceed to WhatsApp Order (Rs {subtotal.toLocaleString()})</span>
             </a>
-            <span className="text-[11px] text-slate-400 text-center block mt-2">
+            <span className="text-[11px] text-slate-500 text-center block mt-2">
               Opens WhatsApp directly with pre-filled item specifications and pricing. No cart checkout required!
             </span>
           </div>

@@ -76,7 +76,7 @@ export default function CategoryGrid({ onSelectCategory, selectedCategory }: Cat
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-[#0084FF] mb-1">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#0066CC] mb-1">
               Component Categories
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
@@ -90,7 +90,7 @@ export default function CategoryGrid({ onSelectCategory, selectedCategory }: Cat
           <Link
             href="/#products-section"
             onClick={() => onSelectCategory('all')}
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0B1E48] hover:text-[#0084FF] transition-colors self-start md:self-auto"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0B1E48] hover:text-[#0066CC] transition-colors self-start md:self-auto"
           >
             <span>View All Categories</span>
             <ArrowRight className="w-4 h-4" />
@@ -110,7 +110,7 @@ export default function CategoryGrid({ onSelectCategory, selectedCategory }: Cat
                 onClick={() => onSelectCategory(cat.id)}
                 className={`flex flex-col text-left p-3.5 sm:p-4 rounded-2xl bg-white border transition-all group overflow-hidden relative ${
                   isSelected
-                    ? 'border-[#0084FF] shadow-lg ring-2 ring-[#0084FF]/20 bg-blue-50/20'
+                    ? 'border-[#0066CC] shadow-lg ring-2 ring-[#0066CC]/20 bg-blue-50/20'
                     : 'border-slate-200 hover:border-slate-300 hover:shadow-md'
                 }`}
               >
@@ -125,15 +125,15 @@ export default function CategoryGrid({ onSelectCategory, selectedCategory }: Cat
                   />
                   {/* Category icon badge */}
                   <div className="absolute top-1.5 left-1.5 p-1 rounded-md bg-white/90 shadow-xs backdrop-blur-xs text-slate-700">
-                    <Icon className="w-3.5 h-3.5 text-[#0084FF]" />
+                    <Icon className="w-3.5 h-3.5 text-[#0066CC]" />
                   </div>
                 </div>
 
                 {/* Info */}
-                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">
                   {cat.count}
                 </span>
-                <h3 className="font-bold text-slate-900 text-xs sm:text-sm leading-snug line-clamp-2 mt-0.5 group-hover:text-[#0084FF] transition-colors">
+                <h3 className="font-bold text-slate-900 text-xs sm:text-sm leading-snug line-clamp-2 mt-0.5 group-hover:text-[#0066CC] transition-colors">
                   {cat.title}
                 </h3>
                 <p className="text-[10px] text-slate-500 line-clamp-1 mt-1">
@@ -141,7 +141,7 @@ export default function CategoryGrid({ onSelectCategory, selectedCategory }: Cat
                 </p>
 
                 {/* Sub-hover arrow */}
-                <div className="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-[#0084FF]">
+                <div className="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-[#0066CC]">
                   <span>Explore</span>
                   <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                 </div>
