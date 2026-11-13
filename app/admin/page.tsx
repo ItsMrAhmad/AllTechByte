@@ -28,7 +28,7 @@ import {
   Clock,
   Layers
 } from 'lucide-react';
-import { Product, CATEGORIES } from '@/data/products';
+import { Product, CATEGORIES, PRODUCTS } from '@/data/products';
 
 interface SpecRow {
   key: string;
@@ -94,10 +94,11 @@ export default function AdminPortalPage() {
   const [publishSuccess, setPublishSuccess] = useState<{ commitUrl: string; productTitle: string } | null>(null);
 
   // Catalog Browser State
-  const [catalogProducts, setCatalogProducts] = useState<Product[]>([]);
+  const [catalogProducts, setCatalogProducts] = useState<Product[]>(PRODUCTS);
   const [catalogSearch, setCatalogSearch] = useState('');
   const [catalogCategory, setCatalogCategory] = useState('all');
   const [loadingCatalog, setLoadingCatalog] = useState(false);
+  const [actionInProgressId, setActionInProgressId] = useState<string | null>(null);
 
   // Load GitHub Settings on Mount
   useEffect(() => {
@@ -528,10 +529,17 @@ export default function AdminPortalPage() {
 
   // Toggle in-stock status directly from Manage Catalog Tab
   const handleToggleStock = async (productToToggle: Product) => {
+    if (!githubToken.trim()) {
+      setActiveTab('settings');
+      alert('Please configure your GitHub Personal Access Token in the GitHub Setup tab first.');
+      return;
+    }
+
     if (!confirm(`Are you sure you want to mark "${productToToggle.title}" as ${productToToggle.inStock ? 'Out of Stock' : 'In Stock'}?`)) {
       return;
     }
 
+    setActionInProgressId(productToToggle.id);
     try {
       const { products, sha } = await fetchProductsJsonFromGitHub();
       const updated = products.map((p) => {
@@ -552,9 +560,48 @@ export default function AdminPortalPage() {
       );
 
       setCatalogProducts(updated);
-      alert('Stock status updated and committed to GitHub successfully!');
+      alert(`Stock status for "${productToToggle.title}" updated and committed to GitHub successfully!`);
     } catch (err: any) {
       alert(`Failed to update stock: ${err.message}`);
+    } finally {
+      setActionInProgressId(null);
+    }
+  };
+
+  // Delete product directly from Manage Catalog Tab
+  const handleDeleteProduct = async (productToDelete: Product) => {
+    if (!githubToken.trim()) {
+      setActiveTab('settings');
+      alert('Please configure your GitHub Personal Access Token in the GitHub Setup tab first.');
+      return;
+    }
+
+    const confirmText = `Are you sure you want to permanently delete this product?\n\n"${productToDelete.title}" (ID: ${productToDelete.id}, Rs ${productToDelete.price})\n\nThis will remove it from the catalog and commit the change to GitHub.`;
+    if (!window.confirm(confirmText)) {
+      return;
+    }
+
+    setActionInProgressId(productToDelete.id);
+    try {
+      const { products, sha } = await fetchProductsJsonFromGitHub();
+      const updated = products.filter((p) => p.id !== productToDelete.id);
+
+      const updatedJsonString = JSON.stringify(updated, null, 2);
+      const encodedJsonBase64 = btoa(unescape(encodeURIComponent(updatedJsonString)));
+
+      await uploadFileToGitHub(
+        'data/products.json',
+        encodedJsonBase64,
+        `chore(catalog): remove product "${productToDelete.title}" (ID: ${productToDelete.id}) via Admin Portal`,
+        sha
+      );
+
+      setCatalogProducts(updated);
+      alert(`"${productToDelete.title}" has been deleted from the catalog and committed to GitHub successfully!`);
+    } catch (err: any) {
+      alert(`Failed to delete product: ${err.message}`);
+    } finally {
+      setActionInProgressId(null);
     }
   };
 
@@ -1059,34 +1106,68 @@ export default function AdminPortalPage() {
             </div>
 
             {/* Filter and Search Bar */}
-            <div className="flex flex-col sm:flex-row gap-3">
-              <div className="relative flex-1">
-                <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
-                <input
-                  type="text"
-                  value={catalogSearch}
-                  onChange={(e) => setCatalogSearch(e.target.value)}
-                  placeholder="Search products by title, SKU, or keyword..."
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm bg-slate-50/50"
-                />
+            <div className="space-y-3">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <div className="relative flex-1">
+                  <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                  <input
+                    type="text"
+                    value={catalogSearch}
+                    onChange={(e) => setCatalogSearch(e.target.value)}
+                    placeholder="Search all products by title, SKU, ID, or keyword..."
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm bg-slate-50/50"
+                  />
+                </div>
+                <select
+                  value={catalogCategory}
+                  onChange={(e) => setCatalogCategory(e.target.value)}
+                  className="px-3 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm font-bold bg-slate-50/50"
+                >
+                  <option value="all">All Categories ({catalogProducts.length})</option>
+                  <option value="Microcontrollers & Boards">Microcontrollers & Boards</option>
+                  <option value="Sensors & Displays">Sensors & Displays</option>
+                  <option value="Robotics & Motors">Robotics & Motors</option>
+                  <option value="Power & Converters">Power & Converters</option>
+                  <option value="Electronic Components & ICs">Electronic Components & ICs</option>
+                  <option value="Tools, Cables & Wires">Tools, Cables & Wires</option>
+                </select>
               </div>
-              <select
-                value={catalogCategory}
-                onChange={(e) => setCatalogCategory(e.target.value)}
-                className="px-3 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm font-bold bg-slate-50/50"
-              >
-                <option value="all">All Categories</option>
-                <option value="Microcontrollers & Boards">Microcontrollers & Boards</option>
-                <option value="Sensors & Displays">Sensors & Displays</option>
-                <option value="Robotics & Motors">Robotics & Motors</option>
-                <option value="Power & Converters">Power & Converters</option>
-                <option value="Electronic Components & ICs">Electronic Components & ICs</option>
-                <option value="Tools, Cables & Wires">Tools, Cables & Wires</option>
-              </select>
+
+              {/* Product Count & Filter Summary */}
+              <div className="flex items-center justify-between text-xs text-slate-500 px-1">
+                <span>
+                  Showing{' '}
+                  <strong className="text-slate-900 font-bold">
+                    {
+                      catalogProducts.filter((p) => {
+                        const matchesText =
+                          !catalogSearch ||
+                          p.title.toLowerCase().includes(catalogSearch.toLowerCase()) ||
+                          (p.sku && p.sku.toLowerCase().includes(catalogSearch.toLowerCase())) ||
+                          p.id.includes(catalogSearch);
+                        const matchesCat =
+                          catalogCategory === 'all' ||
+                          p.category.toLowerCase() === catalogCategory.toLowerCase();
+                        return matchesText && matchesCat;
+                      }).length
+                    }
+                  </strong>{' '}
+                  of <strong className="text-slate-900 font-bold">{catalogProducts.length}</strong> total products
+                </span>
+                {catalogSearch && (
+                  <button
+                    type="button"
+                    onClick={() => setCatalogSearch('')}
+                    className="text-[#0066CC] hover:underline font-bold"
+                  >
+                    Clear search filter
+                  </button>
+                )}
+              </div>
             </div>
 
             {/* Products Table */}
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto border border-slate-200 rounded-2xl">
               <table className="w-full text-left text-xs border-collapse">
                 <thead>
                   <tr className="border-b border-slate-200 bg-slate-50 text-slate-500 uppercase tracking-wider font-bold">
@@ -1103,17 +1184,17 @@ export default function AdminPortalPage() {
                       const matchesText =
                         !catalogSearch ||
                         p.title.toLowerCase().includes(catalogSearch.toLowerCase()) ||
-                        (p.sku && p.sku.toLowerCase().includes(catalogSearch.toLowerCase()));
+                        (p.sku && p.sku.toLowerCase().includes(catalogSearch.toLowerCase())) ||
+                        p.id.includes(catalogSearch);
                       const matchesCat =
                         catalogCategory === 'all' ||
                         p.category.toLowerCase() === catalogCategory.toLowerCase();
                       return matchesText && matchesCat;
                     })
-                    .slice(0, 50)
                     .map((product) => (
                       <tr key={product.id} className="hover:bg-slate-50/80 transition-colors">
                         <td className="py-3 px-3 flex items-center gap-3">
-                          <div className="relative w-10 h-10 rounded-lg bg-slate-100 border border-slate-200 overflow-hidden shrink-0">
+                          <div className="relative w-11 h-11 rounded-lg bg-slate-100 border border-slate-200 overflow-hidden shrink-0">
                             <Image
                               src={product.image}
                               alt={product.title}
@@ -1153,12 +1234,30 @@ export default function AdminPortalPage() {
                           </span>
                         </td>
                         <td className="py-3 px-3 text-right">
-                          <button
-                            onClick={() => handleToggleStock(product)}
-                            className="px-2.5 py-1 rounded-lg text-[11px] font-bold border border-slate-200 hover:bg-slate-100 transition-colors cursor-pointer"
-                          >
-                            Toggle Stock
-                          </button>
+                          <div className="flex items-center justify-end gap-1.5">
+                            <button
+                              type="button"
+                              onClick={() => handleToggleStock(product)}
+                              disabled={actionInProgressId === product.id}
+                              className="px-2.5 py-1.5 rounded-lg text-[11px] font-bold border border-slate-200 hover:bg-slate-100 transition-colors cursor-pointer disabled:opacity-50"
+                            >
+                              {actionInProgressId === product.id
+                                ? 'Saving...'
+                                : product.inStock
+                                ? 'Mark Out of Stock'
+                                : 'Mark In Stock'}
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => handleDeleteProduct(product)}
+                              disabled={actionInProgressId === product.id}
+                              className="px-2.5 py-1.5 rounded-lg text-[11px] font-bold text-rose-600 border border-rose-200 hover:bg-rose-50 transition-colors cursor-pointer flex items-center gap-1 disabled:opacity-50"
+                              title={`Delete ${product.title}`}
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                              <span>Delete</span>
+                            </button>
+                          </div>
                         </td>
                       </tr>
                     ))}
