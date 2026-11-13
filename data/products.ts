@@ -18,8 +18,8 @@ export interface Product {
 }
 
 export const CATEGORIES = [
-  { id: 'all', name: 'All Products', count: 172, icon: 'Cpu' },
-  { id: 'boards', name: 'Microcontrollers & Boards', count: 28, icon: 'CircuitBoard', query: ['board', 'arduino', 'raspberry', 'stm', 'breakout', 'controller'] },
+  { id: 'all', name: 'All Products', count: 174, icon: 'Cpu' },
+  { id: 'boards', name: 'Microcontrollers & Boards', count: 30, icon: 'CircuitBoard', query: ['board', 'arduino', 'raspberry', 'stm', 'breakout', 'controller'] },
   { id: 'components', name: 'Electronic Components & ICs', count: 12, icon: 'Cpu', query: ['ic', 'sop', 'dip', 'transistor', 'diode', 'mosfet', 'oscillator'] },
   { id: 'sensors', name: 'Sensors & Displays', count: 34, icon: 'Activity', query: ['sensor', 'voltmeter', 'lcd', 'display', 'temperature', 'touch screen'] },
   { id: 'robotics', name: 'Robotics & Motors', count: 12, icon: 'Bot', query: ['motor', 'speed controller', 'pwm', 'stepper', 'robotics'] },
@@ -39,7 +39,7 @@ export function getLiveProducts(): Product[] {
 
 const CATEGORY_KEYWORDS: Record<string, RegExp> = {
   boards:
-    /\b(arduino|raspberry|pico|stm32|esp32|esp8266|wemos|digispark|mega2560|atmega|attiny|breakout|development board|minimal board|pro mini|pro micro|nano v3|leonardo)\b/i,
+    /\b(arduino|raspberry|pico|stm32|esp32|esp8266|wemos|digispark|mega2560|atmega|attiny|breakout|development board|minimal board|pro mini|pro micro|nano v3|leonardo|lora|sx1278|ra-02)\b/i,
   components:
     /\b(ic|ics|sop|dip|chip|transistor|diode|mosfet|oscillator|regulator|eeprom|flash memory|ch340|ch340g|ft232|ne555|ams1117|mp1584|programmer|timer switch)\b/i,
   sensors:
@@ -157,19 +157,19 @@ export const CATEGORY_DETAILS: Record<string, CategoryDetail> = {
 export const PRODUCTS: Product[] = [
   {
     id: "15469000000153",
-    title: "High-Speed 3.7V Coreless DC Motor Pair with 75mm Propellers | 53,000 RPM | Ideal for DIY Drones & RC Helicopters",
+    title: "High-Speed 3.7V Coreless DC Motor with 75mm Propeller | 53,000 RPM | Ideal for DIY Drones & RC Helicopters",
     handle: "high-speed-3-7v-coreless-dc-motor-pair-75mm-propellers-53000-rpm",
     price: 280,
     comparePrice: 380,
     category: "Robotics & Motors",
     tags: ["Coreless Motor","Drone Motor","75mm Propeller","3.7V Motor","53000 RPM","Micro Drone","Robotics","DC Motor","RC Helicopter"],
     image: "/products/product-15469000000153.webp",
-    description: "High-speed 3.7V micro coreless DC motor pair rated at 53,000 RPM, paired with matching 75mm CW and CCW durable propellers. Delivers outstanding thrust-to-weight ratio with rapid throttle response for DIY micro quadcopters, mini racing drones, RC helicopters, and aeromodelling robotics projects.",
+    description: "High-speed 3.7V micro coreless DC motor rated at 53,000 RPM, paired with matching 75mm durable propeller. Delivers outstanding thrust-to-weight ratio with rapid throttle response for DIY micro quadcopters, mini racing drones, RC helicopters, and aeromodelling robotics projects.",
     inStock: true,
     rating: "4.9",
     reviewsCount: 14,
     sku: "ATB-MOT-COR-75MM",
-    specs: {"Operating Voltage":"3.7V DC (1S LiPo compatible: 3.0V – 4.2V)","No-Load Speed":"53,000 RPM","Motor Type":"High-Efficiency Coreless (Hollow Cup) Micro DC Motor","Propeller Diameter":"75 mm (Includes CW & CCW pair)","Shaft Diameter":"1.0 mm","Lead Wires":"Color-coded flexible twisted silicone leads","Package Includes":"1 Pair (2 Motors + 2 Matching 75mm Propellers)","Applications":"Micro FPV Drones, Mini Quadcopters, RC Helicopters, DIY Flight Models"}
+    specs: {"Operating Voltage":"3.7V DC (1S LiPo compatible: 3.0V – 4.2V)","No-Load Speed":"53,000 RPM","Motor Type":"High-Efficiency Coreless (Hollow Cup) Micro DC Motor","Propeller Diameter":"75 mm","Shaft Diameter":"1.0 mm","Lead Wires":"Color-coded flexible twisted silicone leads","Package Includes":"1 motor + 1 propeller","Applications":"Micro FPV Drones, Mini Quadcopters, RC Helicopters, DIY Flight Models"}
   },
   {
     id: "15469000000150",
@@ -193,36 +193,40 @@ export const PRODUCTS: Product[] = [
     specs: {"Operating Voltage":"3V – 6V DC","Motor Model":"GA12-N20","Body Dimensions":"24 mm length × 12 mm × 9 mm","Output Shaft":"3 mm D-Shaft (3.8 mm length)","Mounting Pattern":"Dual M1.6 threaded holes","Gearbox Material":"Full Metal Gears & Brass Plates"}
   },
   {
-    id: "15469000000154",
-    title: "DIY DC Motor Fan Kit for Kids | Fun Electronic Science Project Set",
-    handle: "diy-dc-motor-fan-kit-kids-fun-electronic-science-project-set",
-    price: 799,
-    comparePrice: 1050,
-    category: "Robotics & Motors",
-    tags: ["DIY Kit","Science Project","Kids Electronics","STEM Kit","DC Motor Kit","Fan Kit","130 Motor","School FYP","Robotics"],
-    image: "/products/product-15469000000154.webp",
-    description: "Comprehensive DIY STEM electronic science project kit for kids, students, and hobbyists. Includes 4 micro 130 DC toy motors, 4 colorful four-blade fan propellers, assorted color LEDs, mini rocker switches, battery clips, and connecting wires. Ideal for school science fairs, basic electrical circuit experiments, solar/battery fan models, and hands-on physics learning.",
+    id: "15469000000156",
+    title: "ESP32 Development Board 38 Pin – WiFi + Bluetooth Dual-Core (CP2102)",
+    handle: "esp32-development-board-38-pin-wifi-bluetooth-dual-core",
+    price: 1280,
+    comparePrice: null,
+    category: "Microcontrollers & Boards",
+    tags: ["ESP32", "Development Board", "38 Pin", "WiFi", "Bluetooth", "IoT", "Microcontrollers", "Dual-Core", "CP2102"],
+    image: "/products/product-15469000000156.webp",
+    description: "High-performance 38-pin ESP32 development board powered by the dual-core 32-bit Xtensa LX6 processor running up to 240MHz. Features integrated 2.4GHz Wi-Fi (802.11 b/g/n), Bluetooth v4.2 BR/EDR & BLE, Silicon Labs CP2102 USB-to-UART bridge, Micro-USB port, EN/BOOT buttons, and breadboard-friendly 38-pin layout. Ideal for IoT projects, wireless sensor nodes, automation, and robotics.",
     inStock: true,
     rating: "5.0",
-    reviewsCount: 28,
-    sku: "ATB-KIT-DIY-FAN",
-    specs: {"Kit Type":"STEM Educational DIY Electronics Experiment Kit","Motors Included":"4x Standard 130 Micro DC Toy Motors (3V - 6V)","Fan Propellers":"4x Colorful 4-Blade Plastic Propellers (Red, Blue, Yellow, Orange)","Lighting Accessories":"Assorted 5mm LEDs (Red, Green, Yellow)","Switches":"2x Mini SPST ON/OFF Rocker Switches","Power Accessories":"1x 9V Battery Snap Connector, 1x Dual AA Battery Holder Enclosure","Wiring":"3x Flexible Stranded Connecting Wire Coils (Red, Blue, Yellow)","Recommended Level":"Ages 8+ / School Science Projects & DIY Electronics Beginners","Safety":"Low-voltage safe DC circuit design"}
+    reviewsCount: 0,
+    sku: "ATB-MCU-ESP32-38P",
+    specs: {"Microcontroller":"ESP-WROOM-32 (Dual-Core 32-bit Xtensa LX6 @ 240MHz)","Pin Count":"38 Pins (2x19 Header Pins, 2.54mm pitch)","Wireless Connectivity":"2.4 GHz Wi-Fi (802.11 b/g/n) + Bluetooth v4.2 BR/EDR & BLE","USB Interface":"Silicon Labs CP2102 Micro-USB","Operating Voltage":"3.3V DC (5V input via Micro-USB or Vin pin)","SRAM":"520 KB on-chip","Flash Memory":"4MB SPI Flash","Buttons":"EN (Reset) & BOOT Pushbuttons"}
   },
   {
-    id: "15469000000155",
-    title: "JS-30 3V-6V Low Speed DC Gear Motor with Long Metal Shaft (Internal Thread) | High Torque Micro Reduction Motor",
-    handle: "js-30-3v-6v-low-speed-dc-gear-motor-long-metal-shaft-internal-thread",
-    price: 210,
-    comparePrice: 280,
-    category: "Robotics & Motors",
-    tags: ["JS-30","Gear Motor","DC Motor","Slow Speed Motor","Reduction Motor","Long Shaft","Robotics","Display Motor","3V","6V"],
-    image: "/products/product-15469000000155.webp",
-    description: "Compact JS-30 micro DC geared reduction motor featuring a durable POM plastic gearbox with side mounting tabs, coupled with an extended cylindrical metal output shaft featuring an internally threaded (M3 tapped) tip. Operates efficiently from 3V to 6V DC, delivering smooth low-speed high-torque rotation ideal for rotating displays, DIY turntables, automated valves, robotics linkages, and model engineering.",
+    id: "15469000000157",
+    title: "SX1278 LoRa Module 433MHz Ra-02 Wireless Spread Spectrum Transmission Board",
+    handle: "sx1278-lora-module-433mhz-ra-02-wireless-spread-spectrum-transmission-board",
+    price: 1850,
+    comparePrice: null,
+    category: "Microcontrollers & Boards",
+    tags: ["LoRa", "SX1278", "Ra-02", "433MHz", "Wireless Transceiver", "Spread Spectrum", "IoT", "Long Range", "AI-Thinker"],
+    image: "/products/product-15469000000157.webp",
+    gallery: [
+      "/products/product-15469000000157.webp",
+      "/products/product-15469000000158.webp"
+    ],
+    description: "AI-Thinker Ra-02 LoRa transceiver module built around the Semtech SX1278 chip operating on the 433MHz frequency band (410–525 MHz). Features +18 dBm transmit power, ultra-long-range spread spectrum communication, high anti-interference immunity, onboard IPEX/U.FL external antenna connector, and standard 2.54mm dual 8-pin headers with SPI interface. Ideal for long-distance IoT telemetry, agricultural monitoring, and wireless communication.",
     inStock: true,
-    rating: "4.9",
-    reviewsCount: 19,
-    sku: "ATB-MOT-JS30-LS",
-    specs: {"Model":"JS-30 (RF-300 Base DC Motor)","Operating Voltage Range":"3V - 6V DC (Compatible up to 9V)","Motor Type":"Brushed DC Motor with Enclosed Reduction Gearbox","Gearbox Material":"High-Strength White POM Plastic with Dual Mounting Tabs","Output Shaft Profile":"Extended Round Metal Shaft with Internal M3 Tapped Hole","Connection":"2-Pin JST/XH Terminal with Red and Black Lead Wires","Mounting":"Dual Flange Ear Screw Holes","Applications":"Rotating Display Stands, DIY Automata, Solar Turntables, Valves, Robotics Actuators"}
+    rating: "5.0",
+    reviewsCount: 0,
+    sku: "ATB-WRL-RA02-433M",
+    specs: {"Transceiver IC":"Semtech SX1278 (AI-Thinker Ra-02)","Operating Frequency":"433MHz (ISM Band: 410 MHz – 525 MHz)","Modulation":"LoRa, FSK, GFSK, MSK, GMSK, OOK","Transmit Power":"+18 dBm @ 433MHz (PA Output)","Operating Voltage":"3.3V DC (1.8V – 3.7V compatible)","Interface":"SPI Hardware Interface","Antenna Connector":"IPEX / U.FL external antenna socket","Pin Header":"2.54mm pitch (Includes 2x 8-pin male pin headers)"}
   },
   {
     id: "15468154945902",
@@ -2945,6 +2949,38 @@ export const PRODUCTS: Product[] = [
     reviewsCount: 42,
     sku: "ATB-MOT-PWM10",
     specs: {"Operating Voltage":"DC 12V - 40V","Max Current":"10A Continuous","PWM Frequency":"13 kHz","Duty Cycle":"10% - 100%"}
+  },
+  {
+    id: "15469000000154",
+    title: "DIY DC Motor Fan Kit for Kids | Fun Electronic Science Project Set",
+    handle: "diy-dc-motor-fan-kit-kids-fun-electronic-science-project-set",
+    price: 799,
+    comparePrice: 1050,
+    category: "Robotics & Motors",
+    tags: ["DIY Kit","Science Project","Kids Electronics","STEM Kit","DC Motor Kit","Fan Kit","130 Motor","School FYP","Robotics"],
+    image: "/products/product-15469000000154.webp",
+    description: "Comprehensive DIY STEM electronic science project kit for kids, students, and hobbyists. Includes 4 micro 130 DC toy motors, 4 colorful four-blade fan propellers, assorted color LEDs, mini rocker switches, battery clips, and connecting wires. Ideal for school science fairs, basic electrical circuit experiments, solar/battery fan models, and hands-on physics learning.",
+    inStock: true,
+    rating: "5.0",
+    reviewsCount: 28,
+    sku: "ATB-KIT-DIY-FAN",
+    specs: {"Kit Type":"STEM Educational DIY Electronics Experiment Kit","Motors Included":"4x Standard 130 Micro DC Toy Motors (3V - 6V)","Fan Propellers":"4x Colorful 4-Blade Plastic Propellers (Red, Blue, Yellow, Orange)","Lighting Accessories":"Assorted 5mm LEDs (Red, Green, Yellow)","Switches":"2x Mini SPST ON/OFF Rocker Switches","Power Accessories":"1x 9V Battery Snap Connector, 1x Dual AA Battery Holder Enclosure","Wiring":"3x Flexible Stranded Connecting Wire Coils (Red, Blue, Yellow)","Recommended Level":"Ages 8+ / School Science Projects & DIY Electronics Beginners","Safety":"Low-voltage safe DC circuit design"}
+  },
+  {
+    id: "15469000000155",
+    title: "JS-30 3V-6V Low Speed DC Gear Motor with Long Metal Shaft (Internal Thread) | High Torque Micro Reduction Motor",
+    handle: "js-30-3v-6v-low-speed-dc-gear-motor-long-metal-shaft-internal-thread",
+    price: 210,
+    comparePrice: 280,
+    category: "Robotics & Motors",
+    tags: ["JS-30","Gear Motor","DC Motor","Slow Speed Motor","Reduction Motor","Long Shaft","Robotics","Display Motor","3V","6V"],
+    image: "/products/product-15469000000155.webp",
+    description: "Compact JS-30 micro DC geared reduction motor featuring a durable POM plastic gearbox with side mounting tabs, coupled with an extended cylindrical metal output shaft featuring an internally threaded (M3 tapped) tip. Operates efficiently from 3V to 6V DC, delivering smooth low-speed high-torque rotation ideal for rotating displays, DIY turntables, automated valves, robotics linkages, and model engineering.",
+    inStock: true,
+    rating: "4.9",
+    reviewsCount: 19,
+    sku: "ATB-MOT-JS30-LS",
+    specs: {"Model":"JS-30 (RF-300 Base DC Motor)","Operating Voltage Range":"3V - 6V DC (Compatible up to 9V)","Motor Type":"Brushed DC Motor with Enclosed Reduction Gearbox","Gearbox Material":"High-Strength White POM Plastic with Dual Mounting Tabs","Output Shaft Profile":"Extended Round Metal Shaft with Internal M3 Tapped Hole","Connection":"2-Pin JST/XH Terminal with Red and Black Lead Wires","Mounting":"Dual Flange Ear Screw Holes","Applications":"Rotating Display Stands, DIY Automata, Solar Turntables, Valves, Robotics Actuators"}
   }
 ];
 

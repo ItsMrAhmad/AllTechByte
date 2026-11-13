@@ -17,7 +17,7 @@ export default function CategoryGrid({ onSelectCategory, selectedCategory }: Cat
       id: "boards",
       title: "Microcontrollers & Boards",
       subtitle: "Arduino, Raspberry Pi, ESP32, STM32",
-      count: "28+ Models",
+      count: "30+ Models",
       icon: CircuitBoard,
       image: "/categories/category-boards.webp",
       accent: "from-blue-600 to-indigo-600"
