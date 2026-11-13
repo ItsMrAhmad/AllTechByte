@@ -14,6 +14,9 @@ import {
   RefreshCw,
   ExternalLink,
   Lock,
+  Unlock,
+  LogOut,
+  Hash,
   ShieldCheck,
   Eye,
   EyeOff,
@@ -54,6 +57,13 @@ function GithubIcon({ className = 'w-5 h-5' }: { className?: string }) {
 }
 
 export default function AdminPortalPage() {
+  // Authentication Lock State
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [enteredPassword, setEnteredPassword] = useState('');
+  const [loginError, setLoginError] = useState('');
+  const [showLoginPassword, setShowLoginPassword] = useState(false);
+  const [newAdminPassword, setNewAdminPassword] = useState('');
+
   // Tabs
   const [activeTab, setActiveTab] = useState<'add' | 'manage' | 'settings'>('add');
 
@@ -100,8 +110,13 @@ export default function AdminPortalPage() {
   const [loadingCatalog, setLoadingCatalog] = useState(false);
   const [actionInProgressId, setActionInProgressId] = useState<string | null>(null);
 
-  // Load GitHub Settings on Mount
+  // Load GitHub Settings and Auth on Mount
   useEffect(() => {
+    const sessionAuth = sessionStorage.getItem('atb_admin_session');
+    if (sessionAuth === 'authenticated') {
+      setIsAuthenticated(true);
+    }
+
     const savedToken = localStorage.getItem('atb_github_token') || '';
     const savedRepo = localStorage.getItem('atb_github_repo') || 'ItsMrAhmad/AllTechByte';
     const savedBranch = localStorage.getItem('atb_github_branch') || 'add-products-batch-1';
@@ -114,6 +129,39 @@ export default function AdminPortalPage() {
       setActiveTab('settings');
     }
   }, []);
+
+  // Admin Portal Login
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    const currentPass = localStorage.getItem('atb_admin_pass') || 'AllTechByte@786';
+    if (enteredPassword.trim() === currentPass.trim()) {
+      setIsAuthenticated(true);
+      sessionStorage.setItem('atb_admin_session', 'authenticated');
+      setLoginError('');
+      setEnteredPassword('');
+    } else {
+      setLoginError('Incorrect password. Please verify and try again.');
+    }
+  };
+
+  // Admin Portal Logout
+  const handleLogout = () => {
+    sessionStorage.removeItem('atb_admin_session');
+    setIsAuthenticated(false);
+    setEnteredPassword('');
+  };
+
+  // Change Admin Password
+  const handleUpdatePassword = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newAdminPassword.trim()) {
+      alert('Password cannot be blank.');
+      return;
+    }
+    localStorage.setItem('atb_admin_pass', newAdminPassword.trim());
+    setNewAdminPassword('');
+    alert('Admin password updated successfully! Please keep this password in a safe place.');
+  };
 
   // Auto-generate SKU based on Category and Title
   useEffect(() => {
@@ -611,6 +659,81 @@ export default function AdminPortalPage() {
       ? Math.round(((Number(comparePrice) - Number(price)) / Number(comparePrice)) * 100)
       : null;
 
+  // Render Password Lock Screen if not authenticated
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-[#07132F] via-[#0B1E48] to-[#0A1633] flex items-center justify-center p-4">
+        <div className="w-full max-w-md bg-white rounded-3xl border border-white/20 shadow-2xl p-8 space-y-6">
+          <div className="text-center space-y-2">
+            <div className="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
+              <Lock className="w-7 h-7" />
+            </div>
+            <h1 className="text-2xl font-black tracking-tight text-slate-900">
+              All Tech Byte
+            </h1>
+            <p className="text-xs font-bold uppercase tracking-wider text-[#0066CC]">
+              Admin Portal Security
+            </p>
+            <p className="text-xs text-slate-500 max-w-xs mx-auto">
+              This area is restricted to store administrators. Enter your password to access catalog controls.
+            </p>
+          </div>
+
+          <form onSubmit={handleLogin} className="space-y-4">
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                Admin Password
+              </label>
+              <div className="relative">
+                <input
+                  type={showLoginPassword ? 'text' : 'password'}
+                  required
+                  value={enteredPassword}
+                  onChange={(e) => setEnteredPassword(e.target.value)}
+                  placeholder="Enter admin password..."
+                  className="w-full pl-4 pr-11 py-3 rounded-xl border border-slate-200 text-sm focus:outline-hidden focus:ring-2 focus:ring-blue-500 font-medium bg-slate-50"
+                  autoFocus
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowLoginPassword(!showLoginPassword)}
+                  className="absolute right-3 top-3 text-slate-400 hover:text-slate-600 cursor-pointer"
+                >
+                  {showLoginPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
+              </div>
+            </div>
+
+            {loginError && (
+              <div className="bg-rose-50 border border-rose-200 rounded-xl p-3 text-xs text-rose-700 flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 shrink-0 text-rose-500" />
+                <span>{loginError}</span>
+              </div>
+            )}
+
+            <button
+              type="submit"
+              className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-black text-sm shadow-lg shadow-blue-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <Unlock className="w-4 h-4" />
+              <span>Unlock Admin Portal</span>
+            </button>
+          </form>
+
+          <div className="pt-4 border-t border-slate-100 text-center">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-[#0066CC] transition-colors"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span>Return to Public Storefront</span>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-slate-100 flex flex-col">
       {/* Top Admin Header */}
@@ -672,6 +795,14 @@ export default function AdminPortalPage() {
               <Settings className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">GitHub Setup</span>
               <span className="sm:hidden">Setup</span>
+            </button>
+            <button
+              onClick={handleLogout}
+              className="px-3 py-2 rounded-xl text-rose-300 hover:text-rose-100 hover:bg-rose-950/40 text-xs font-bold transition-all flex items-center gap-1.5 ml-1 border border-rose-900/40 cursor-pointer"
+              title="Log Out of Admin Portal"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Log Out</span>
             </button>
           </nav>
         </div>
@@ -1171,6 +1302,7 @@ export default function AdminPortalPage() {
               <table className="w-full text-left text-xs border-collapse">
                 <thead>
                   <tr className="border-b border-slate-200 bg-slate-50 text-slate-500 uppercase tracking-wider font-bold">
+                    <th className="py-3 px-3 w-12 text-center">#</th>
                     <th className="py-3 px-3">Item</th>
                     <th className="py-3 px-3">Category</th>
                     <th className="py-3 px-3">Price</th>
@@ -1191,8 +1323,13 @@ export default function AdminPortalPage() {
                         p.category.toLowerCase() === catalogCategory.toLowerCase();
                       return matchesText && matchesCat;
                     })
-                    .map((product) => (
+                    .map((product, idx) => (
                       <tr key={product.id} className="hover:bg-slate-50/80 transition-colors">
+                        <td className="py-3 px-3 text-center">
+                          <span className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-slate-100 border border-slate-200 font-mono text-xs font-bold text-slate-700">
+                            {idx + 1}
+                          </span>
+                        </td>
                         <td className="py-3 px-3 flex items-center gap-3">
                           <div className="relative w-11 h-11 rounded-lg bg-slate-100 border border-slate-200 overflow-hidden shrink-0">
                             <Image
@@ -1207,7 +1344,7 @@ export default function AdminPortalPage() {
                               {product.title}
                             </span>
                             <span className="text-[10px] text-slate-400 font-mono">
-                              ID: {product.id} {product.sku ? `• SKU: ${product.sku}` : ''}
+                              Product #{idx + 1} • ID: {product.id} {product.sku ? `• SKU: ${product.sku}` : ''}
                             </span>
                           </div>
                         </td>
@@ -1404,6 +1541,34 @@ export default function AdminPortalPage() {
                 <li>Under <strong>Repository permissions</strong>, find <strong>Contents</strong> and set it to <strong>Read and write</strong>.</li>
                 <li>Click <strong>Generate token</strong>, copy the key, and paste it into the box above!</li>
               </ol>
+            </div>
+
+            {/* Admin Password Management */}
+            <div className="bg-slate-50 rounded-2xl p-5 border border-slate-200 space-y-3">
+              <div className="flex items-center gap-2">
+                <Lock className="w-4 h-4 text-[#0066CC]" />
+                <span className="font-bold text-slate-800 text-sm">
+                  Change Portal Password
+                </span>
+              </div>
+              <p className="text-xs text-slate-500">
+                Update the password required to unlock and open this Admin Portal on this browser. (Default: <code>AllTechByte@786</code>)
+              </p>
+              <form onSubmit={handleUpdatePassword} className="flex flex-col sm:flex-row gap-2">
+                <input
+                  type="password"
+                  value={newAdminPassword}
+                  onChange={(e) => setNewAdminPassword(e.target.value)}
+                  placeholder="Enter new admin password..."
+                  className="flex-1 px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white focus:ring-2 focus:ring-blue-500"
+                />
+                <button
+                  type="submit"
+                  className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-sm transition-colors cursor-pointer shrink-0"
+                >
+                  Save New Password
+                </button>
+              </form>
             </div>
           </div>
         )}
