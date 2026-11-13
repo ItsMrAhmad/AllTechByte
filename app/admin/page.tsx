@@ -1,0 +1,1314 @@
+'use client';
+
+import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import {
+  Upload,
+  Check,
+  AlertCircle,
+  Key,
+  Plus,
+  Trash2,
+  Settings,
+  RefreshCw,
+  ExternalLink,
+  Lock,
+  ShieldCheck,
+  Eye,
+  EyeOff,
+  ArrowLeft,
+  Sparkles,
+  Zap,
+  Tag,
+  Search,
+  Package,
+  Sliders,
+  CheckCircle2,
+  Clock,
+  Layers
+} from 'lucide-react';
+import { Product, CATEGORIES } from '@/data/products';
+
+interface SpecRow {
+  key: string;
+  value: string;
+}
+
+interface ImageState {
+  file: File | null;
+  previewUrl: string | null;
+  blob: Blob | null;
+}
+
+function GithubIcon({ className = 'w-5 h-5' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+      />
+    </svg>
+  );
+}
+
+export default function AdminPortalPage() {
+  // Tabs
+  const [activeTab, setActiveTab] = useState<'add' | 'manage' | 'settings'>('add');
+
+  // GitHub Configuration (stored in localStorage)
+  const [githubToken, setGithubToken] = useState('');
+  const [githubRepo, setGithubRepo] = useState('ItsMrAhmad/AllTechByte');
+  const [githubBranch, setGithubBranch] = useState('add-products-batch-1');
+  const [showToken, setShowToken] = useState(false);
+  const [connStatus, setConnStatus] = useState<'idle' | 'testing' | 'success' | 'error'>('idle');
+  const [connMessage, setConnMessage] = useState('');
+
+  // Product Form State
+  const [title, setTitle] = useState('');
+  const [price, setPrice] = useState<string>('');
+  const [comparePrice, setComparePrice] = useState<string>('');
+  const [category, setCategory] = useState<string>('Microcontrollers & Boards');
+  const [description, setDescription] = useState('');
+  const [sku, setSku] = useState('');
+  const [isFlashSale, setIsFlashSale] = useState(false);
+  const [inStock, setInStock] = useState(true);
+
+  // Technical Specifications Key-Value rows
+  const [specs, setSpecs] = useState<SpecRow[]>([
+    { key: 'Operating Voltage', value: '' },
+    { key: 'Package Includes', value: '' }
+  ]);
+
+  // Image Upload States
+  const [primaryImage, setPrimaryImage] = useState<ImageState>({ file: null, previewUrl: null, blob: null });
+  const [galleryImage, setGalleryImage] = useState<ImageState>({ file: null, previewUrl: null, blob: null });
+  const [isProcessingImage, setIsProcessingImage] = useState(false);
+
+  // Publishing State
+  const [isPublishing, setIsPublishing] = useState(false);
+  const [publishStep, setPublishStep] = useState<string>('');
+  const [publishProgress, setPublishProgress] = useState<number>(0);
+  const [publishError, setPublishError] = useState<string | null>(null);
+  const [publishSuccess, setPublishSuccess] = useState<{ commitUrl: string; productTitle: string } | null>(null);
+
+  // Catalog Browser State
+  const [catalogProducts, setCatalogProducts] = useState<Product[]>([]);
+  const [catalogSearch, setCatalogSearch] = useState('');
+  const [catalogCategory, setCatalogCategory] = useState('all');
+  const [loadingCatalog, setLoadingCatalog] = useState(false);
+
+  // Load GitHub Settings on Mount
+  useEffect(() => {
+    const savedToken = localStorage.getItem('atb_github_token') || '';
+    const savedRepo = localStorage.getItem('atb_github_repo') || 'ItsMrAhmad/AllTechByte';
+    const savedBranch = localStorage.getItem('atb_github_branch') || 'add-products-batch-1';
+
+    setGithubToken(savedToken);
+    setGithubRepo(savedRepo);
+    setGithubBranch(savedBranch);
+
+    if (!savedToken) {
+      setActiveTab('settings');
+    }
+  }, []);
+
+  // Auto-generate SKU based on Category and Title
+  useEffect(() => {
+    if (!title.trim()) return;
+    const catPrefixMap: Record<string, string> = {
+      'Microcontrollers & Boards': 'MCU',
+      'Sensors & Displays': 'SNS',
+      'Robotics & Motors': 'MOT',
+      'Power & Converters': 'PWR',
+      'Electronic Components & ICs': 'CMP',
+      'Tools, Cables & Wires': 'TLS'
+    };
+    const prefix = catPrefixMap[category] || 'GEN';
+    const cleanWord = title
+      .replace(/[^a-zA-Z0-9]/g, ' ')
+      .trim()
+      .split(/\s+/)
+      .slice(0, 3)
+      .join('-')
+      .toUpperCase();
+    setSku(`ATB-${prefix}-${cleanWord}`);
+  }, [title, category]);
+
+  // Test GitHub Connection
+  const testGitHubConnection = async () => {
+    if (!githubToken.trim()) {
+      setConnStatus('error');
+      setConnMessage('Please enter your GitHub Personal Access Token.');
+      return;
+    }
+
+    setConnStatus('testing');
+    setConnMessage('Connecting to GitHub repository...');
+
+    try {
+      const res = await fetch(`https://api.github.com/repos/${githubRepo.trim()}`, {
+        headers: {
+          Authorization: `Bearer ${githubToken.trim()}`,
+          Accept: 'application/vnd.github.v3+json'
+        }
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.message || `HTTP ${res.status}: Repository access denied`);
+      }
+
+      const data = await res.json();
+      setConnStatus('success');
+      setConnMessage(`Successfully connected to ${data.full_name} (${data.default_branch} branch)`);
+
+      // Save to localStorage
+      localStorage.setItem('atb_github_token', githubToken.trim());
+      localStorage.setItem('atb_github_repo', githubRepo.trim());
+      localStorage.setItem('atb_github_branch', githubBranch.trim());
+    } catch (err: any) {
+      setConnStatus('error');
+      setConnMessage(err.message || 'Connection failed. Verify your token permissions.');
+    }
+  };
+
+  // Convert uploaded image to 900x900 studio WebP with pure white background
+  const processImageToWebp = async (file: File): Promise<{ blob: Blob; previewUrl: string }> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new window.Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          canvas.width = 900;
+          canvas.height = 900;
+          const ctx = canvas.getContext('2d');
+          if (!ctx) return reject(new Error('Canvas context unavailable'));
+
+          // 1. Fill clean white canvas background
+          ctx.fillStyle = '#FFFFFF';
+          ctx.fillRect(0, 0, 900, 900);
+
+          // 2. Scale image with 8% padding to maintain aspect ratio
+          const maxW = 900 * 0.84;
+          const maxH = 900 * 0.84;
+          const scale = Math.min(maxW / img.width, maxH / img.height);
+          const drawW = img.width * scale;
+          const drawH = img.height * scale;
+          const drawX = (900 - drawW) / 2;
+          const drawY = (900 - drawH) / 2;
+
+          ctx.drawImage(img, drawX, drawY, drawW, drawH);
+
+          // 3. Export as high-quality WebP
+          canvas.toBlob(
+            (blob) => {
+              if (!blob) return reject(new Error('WebP encoding failed'));
+              const previewUrl = canvas.toDataURL('image/webp', 0.9);
+              resolve({ blob, previewUrl });
+            },
+            'image/webp',
+            0.9
+          );
+        };
+        img.onerror = () => reject(new Error('Failed to load image file'));
+        img.src = e.target?.result as string;
+      };
+      reader.onerror = () => reject(new Error('Failed to read file'));
+      reader.readAsDataURL(file);
+    });
+  };
+
+  // Handle Primary Image Selection
+  const handlePrimaryImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setIsProcessingImage(true);
+    try {
+      const { blob, previewUrl } = await processImageToWebp(file);
+      setPrimaryImage({ file, previewUrl, blob });
+    } catch (err: any) {
+      alert(`Image processing error: ${err.message}`);
+    } finally {
+      setIsProcessingImage(false);
+    }
+  };
+
+  // Handle Secondary Image Selection
+  const handleGalleryImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setIsProcessingImage(true);
+    try {
+      const { blob, previewUrl } = await processImageToWebp(file);
+      setGalleryImage({ file, previewUrl, blob });
+    } catch (err: any) {
+      alert(`Gallery image processing error: ${err.message}`);
+    } finally {
+      setIsProcessingImage(false);
+    }
+  };
+
+  // Add Spec Row
+  const handleAddSpec = () => {
+    setSpecs([...specs, { key: '', value: '' }]);
+  };
+
+  // Update Spec Row
+  const handleUpdateSpec = (index: number, field: 'key' | 'value', val: string) => {
+    const updated = [...specs];
+    updated[index][field] = val;
+    setSpecs(updated);
+  };
+
+  // Remove Spec Row
+  const handleRemoveSpec = (index: number) => {
+    setSpecs(specs.filter((_, i) => i !== index));
+  };
+
+  // Convert Blob to Base64 string for GitHub API
+  const blobToBase64 = (blob: Blob): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const dataUrl = reader.result as string;
+        const base64 = dataUrl.split(',')[1];
+        resolve(base64);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
+  };
+
+  // Upload a file to GitHub via Contents API
+  const uploadFileToGitHub = async (
+    path: string,
+    contentBase64: string,
+    commitMessage: string,
+    existingSha?: string
+  ) => {
+    const body: Record<string, any> = {
+      message: commitMessage,
+      content: contentBase64,
+      branch: githubBranch.trim()
+    };
+    if (existingSha) {
+      body.sha = existingSha;
+    }
+
+    const res = await fetch(
+      `https://api.github.com/repos/${githubRepo.trim()}/contents/${path}`,
+      {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${githubToken.trim()}`,
+          Accept: 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+      }
+    );
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.message || `Failed to commit ${path} (HTTP ${res.status})`);
+    }
+
+    return await res.json();
+  };
+
+  // Fetch current data/products.json from GitHub
+  const fetchProductsJsonFromGitHub = async () => {
+    const res = await fetch(
+      `https://api.github.com/repos/${githubRepo.trim()}/contents/data/products.json?ref=${githubBranch.trim()}`,
+      {
+        headers: {
+          Authorization: `Bearer ${githubToken.trim()}`,
+          Accept: 'application/vnd.github.v3+json'
+        }
+      }
+    );
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.message || `Failed to fetch data/products.json (HTTP ${res.status})`);
+    }
+
+    const data = await res.json();
+    const rawContent = decodeURIComponent(
+      escape(atob(data.content.replace(/\n/g, '')))
+    );
+    const products: Product[] = JSON.parse(rawContent);
+    return { products, sha: data.sha };
+  };
+
+  // Publish New Product
+  const handlePublishProduct = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!githubToken.trim()) {
+      setActiveTab('settings');
+      alert('Please configure your GitHub Personal Access Token first.');
+      return;
+    }
+
+    if (!title.trim() || !price || isNaN(Number(price))) {
+      alert('Please enter a valid product title and price.');
+      return;
+    }
+
+    if (!primaryImage.blob) {
+      alert('Please upload a product photo.');
+      return;
+    }
+
+    setIsPublishing(true);
+    setPublishError(null);
+    setPublishSuccess(null);
+    setPublishProgress(10);
+    setPublishStep('Connecting to GitHub repository...');
+
+    try {
+      // 1. Fetch current products database to determine next ID
+      setPublishProgress(25);
+      setPublishStep('Fetching current products catalog from GitHub...');
+      const { products, sha: productsSha } = await fetchProductsJsonFromGitHub();
+
+      // Determine next product ID
+      const numericIds = products
+        .map((p) => parseInt(p.id, 10))
+        .filter((n) => !isNaN(n));
+      const maxId = numericIds.length > 0 ? Math.max(...numericIds) : 15469000000157;
+      const newProductId = (maxId + 1).toString();
+      const secondaryId = (maxId + 2).toString();
+
+      // 2. Upload Primary Image to public/products/product-[id].webp
+      setPublishProgress(45);
+      setPublishStep(`Uploading optimized WebP image for ${title}...`);
+      const primaryBase64 = await blobToBase64(primaryImage.blob);
+      const primaryImagePath = `public/products/product-${newProductId}.webp`;
+
+      await uploadFileToGitHub(
+        primaryImagePath,
+        primaryBase64,
+        `feat(assets): upload primary image for ${title} (SKU: ${sku})`
+      );
+
+      // 3. Upload Secondary Image if provided
+      let galleryPaths: string[] | undefined = undefined;
+      if (galleryImage.blob) {
+        setPublishProgress(60);
+        setPublishStep('Uploading secondary pinout/gallery image...');
+        const galleryBase64 = await blobToBase64(galleryImage.blob);
+        const galleryImagePath = `public/products/product-${secondaryId}.webp`;
+
+        await uploadFileToGitHub(
+          galleryImagePath,
+          galleryBase64,
+          `feat(assets): upload gallery image for ${title}`
+        );
+
+        galleryPaths = [
+          `/products/product-${newProductId}.webp`,
+          `/products/product-${secondaryId}.webp`
+        ];
+      }
+
+      // 4. Construct New Product Object
+      setPublishProgress(75);
+      setPublishStep('Adding product to catalog database...');
+
+      const validSpecs: Record<string, string> = {};
+      specs.forEach((s) => {
+        if (s.key.trim() && s.value.trim()) {
+          validSpecs[s.key.trim()] = s.value.trim();
+        }
+      });
+
+      const handleSlug = title
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+
+      const parsedPrice = parseInt(price, 10);
+      const parsedCompare = comparePrice ? parseInt(comparePrice, 10) : null;
+
+      const newProduct: Product = {
+        id: newProductId,
+        title: title.trim(),
+        handle: handleSlug,
+        price: parsedPrice,
+        comparePrice: parsedCompare,
+        category: category,
+        tags: [
+          category.split(' ')[0],
+          ...title.split(/\s+/).slice(0, 4)
+        ],
+        image: `/products/product-${newProductId}.webp`,
+        gallery: galleryPaths,
+        description: description.trim() || `${title} engineered for robotics, embedded electronics, and maker workbench applications.`,
+        inStock: inStock,
+        rating: '5.0',
+        reviewsCount: 0,
+        sku: sku.trim() || undefined,
+        specs: Object.keys(validSpecs).length > 0 ? validSpecs : undefined
+      };
+
+      // 5. Insert Product into Catalog
+      let updatedProducts: Product[];
+      if (isFlashSale) {
+        // Place in top 4 (positions 2 or 3 below top priority core items)
+        updatedProducts = [
+          products[0],
+          products[1],
+          newProduct,
+          ...products.slice(2)
+        ];
+      } else {
+        // Normal addition right after the 4 flash sale items
+        updatedProducts = [
+          ...products.slice(0, 4),
+          newProduct,
+          ...products.slice(4)
+        ];
+      }
+
+      // 6. Commit updated data/products.json to GitHub
+      setPublishProgress(90);
+      setPublishStep('Committing updated catalog to GitHub...');
+
+      const updatedJsonString = JSON.stringify(updatedProducts, null, 2);
+      const encodedJsonBase64 = btoa(unescape(encodeURIComponent(updatedJsonString)));
+
+      const commitResult = await uploadFileToGitHub(
+        'data/products.json',
+        encodedJsonBase64,
+        `feat(catalog): publish product "${title}" (Rs ${parsedPrice}) via Admin Portal`,
+        productsSha
+      );
+
+      setPublishProgress(100);
+      setPublishStep('Product successfully published!');
+      setPublishSuccess({
+        commitUrl: commitResult.commit?.html_url || `https://github.com/${githubRepo}/commits/${githubBranch}`,
+        productTitle: title
+      });
+
+      // Reset form
+      setTitle('');
+      setPrice('');
+      setComparePrice('');
+      setDescription('');
+      setPrimaryImage({ file: null, previewUrl: null, blob: null });
+      setGalleryImage({ file: null, previewUrl: null, blob: null });
+    } catch (err: any) {
+      setPublishError(err.message || 'An error occurred while publishing to GitHub.');
+    } finally {
+      setIsPublishing(false);
+    }
+  };
+
+  // Load Catalog for Catalog Management Tab
+  const loadCatalogFromGitHub = async () => {
+    if (!githubToken.trim()) return;
+    setLoadingCatalog(true);
+    try {
+      const { products } = await fetchProductsJsonFromGitHub();
+      setCatalogProducts(products);
+    } catch (err: any) {
+      alert(`Failed to load catalog: ${err.message}`);
+    } finally {
+      setLoadingCatalog(false);
+    }
+  };
+
+  // Toggle in-stock status directly from Manage Catalog Tab
+  const handleToggleStock = async (productToToggle: Product) => {
+    if (!confirm(`Are you sure you want to mark "${productToToggle.title}" as ${productToToggle.inStock ? 'Out of Stock' : 'In Stock'}?`)) {
+      return;
+    }
+
+    try {
+      const { products, sha } = await fetchProductsJsonFromGitHub();
+      const updated = products.map((p) => {
+        if (p.id === productToToggle.id) {
+          return { ...p, inStock: !p.inStock };
+        }
+        return p;
+      });
+
+      const updatedJsonString = JSON.stringify(updated, null, 2);
+      const encodedJsonBase64 = btoa(unescape(encodeURIComponent(updatedJsonString)));
+
+      await uploadFileToGitHub(
+        'data/products.json',
+        encodedJsonBase64,
+        `chore(inventory): toggle stock status for ${productToToggle.title} (${!productToToggle.inStock ? 'In Stock' : 'Out of Stock'})`,
+        sha
+      );
+
+      setCatalogProducts(updated);
+      alert('Stock status updated and committed to GitHub successfully!');
+    } catch (err: any) {
+      alert(`Failed to update stock: ${err.message}`);
+    }
+  };
+
+  // Calculate live preview discount
+  const previewDiscount =
+    comparePrice && Number(comparePrice) > Number(price) && Number(price) > 0
+      ? Math.round(((Number(comparePrice) - Number(price)) / Number(comparePrice)) * 100)
+      : null;
+
+  return (
+    <div className="min-h-screen bg-slate-100 flex flex-col">
+      {/* Top Admin Header */}
+      <header className="bg-[#0B1E48] text-white border-b border-blue-950 sticky top-0 z-40 shadow-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 text-slate-300 hover:text-white text-xs font-bold transition-colors bg-white/10 px-3 py-1.5 rounded-lg"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>Back to Store</span>
+            </Link>
+            <div className="h-4 w-px bg-slate-700 hidden sm:block"></div>
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <h1 className="text-base sm:text-lg font-black tracking-tight text-white">
+                All Tech Byte <span className="text-blue-400 font-semibold text-xs ml-1">Admin Portal</span>
+              </h1>
+            </div>
+          </div>
+
+          {/* Navigation Tabs */}
+          <nav className="flex items-center gap-1 sm:gap-2">
+            <button
+              onClick={() => setActiveTab('add')}
+              className={`px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+                activeTab === 'add'
+                  ? 'bg-blue-600 text-white shadow-sm'
+                  : 'text-slate-300 hover:text-white hover:bg-white/10'
+              }`}
+            >
+              <Plus className="w-3.5 h-3.5" />
+              <span>Add Product</span>
+            </button>
+            <button
+              onClick={() => {
+                setActiveTab('manage');
+                loadCatalogFromGitHub();
+              }}
+              className={`px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+                activeTab === 'manage'
+                  ? 'bg-blue-600 text-white shadow-sm'
+                  : 'text-slate-300 hover:text-white hover:bg-white/10'
+              }`}
+            >
+              <Layers className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Manage Catalog</span>
+              <span className="sm:hidden">Catalog</span>
+            </button>
+            <button
+              onClick={() => setActiveTab('settings')}
+              className={`px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+                activeTab === 'settings'
+                  ? 'bg-blue-600 text-white shadow-sm'
+                  : 'text-slate-300 hover:text-white hover:bg-white/10'
+              }`}
+            >
+              <Settings className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">GitHub Setup</span>
+              <span className="sm:hidden">Setup</span>
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      {/* Main Content Area */}
+      <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+        {/* ================= TAB 1: ADD PRODUCT ================= */}
+        {activeTab === 'add' && (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            {/* Left Column: Input Form (7 cols) */}
+            <div className="lg:col-span-7 bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+              <div className="border-b border-slate-100 pb-4">
+                <div className="inline-flex items-center gap-1.5 bg-blue-50 text-[#0066CC] px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
+                  <Sparkles className="w-3 h-3" />
+                  <span>Instant GitHub Publisher</span>
+                </div>
+                <h2 className="text-xl sm:text-2xl font-black text-slate-900">Add New Product to Store</h2>
+                <p className="text-xs text-slate-500 mt-1">
+                  Upload an image, fill details, and hit publish. The photo is automatically squared and compressed to WebP, and committed directly to GitHub.
+                </p>
+              </div>
+
+              {/* Success Notification Banner */}
+              {publishSuccess && (
+                <div className="bg-emerald-50 border border-emerald-300 rounded-2xl p-4 text-emerald-900 flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                  <div className="flex-1 text-xs">
+                    <p className="font-bold text-sm">Product Published Successfully!</p>
+                    <p className="mt-1 text-emerald-800">
+                      <strong>&quot;{publishSuccess.productTitle}&quot;</strong> has been committed to GitHub. Your website host will finish building and publishing the update in 1–2 minutes.
+                    </p>
+                    <a
+                      href={publishSuccess.commitUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 font-bold text-emerald-700 underline mt-2 hover:text-emerald-900"
+                    >
+                      <span>View Commit on GitHub</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                </div>
+              )}
+
+              {/* Error Notification Banner */}
+              {publishError && (
+                <div className="bg-rose-50 border border-rose-300 rounded-2xl p-4 text-rose-900 flex items-start gap-3">
+                  <AlertCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
+                  <div className="flex-1 text-xs">
+                    <p className="font-bold text-sm">Failed to Publish</p>
+                    <p className="mt-1 text-rose-800">{publishError}</p>
+                  </div>
+                </div>
+              )}
+
+              <form onSubmit={handlePublishProduct} className="space-y-6">
+                {/* Product Title */}
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                    Product Title / Name <span className="text-rose-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    placeholder="e.g. ESP32 Development Board 38 Pin – WiFi + Bluetooth Dual-Core"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-hidden focus:ring-2 focus:ring-blue-500 font-medium bg-slate-50/50"
+                  />
+                </div>
+
+                {/* Pricing & Category Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  {/* Selling Price */}
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                      Selling Price (PKR) <span className="text-rose-500">*</span>
+                    </label>
+                    <div className="relative">
+                      <span className="absolute left-3 top-3 text-xs font-bold text-slate-500">Rs</span>
+                      <input
+                        type="number"
+                        required
+                        min="1"
+                        value={price}
+                        onChange={(e) => setPrice(e.target.value)}
+                        placeholder="1280"
+                        className="w-full pl-9 pr-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-hidden focus:ring-2 focus:ring-blue-500 font-bold bg-slate-50/50"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Compare Price */}
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                      Original Price (Optional)
+                    </label>
+                    <div className="relative">
+                      <span className="absolute left-3 top-3 text-xs font-bold text-slate-400">Rs</span>
+                      <input
+                        type="number"
+                        min="1"
+                        value={comparePrice}
+                        onChange={(e) => setComparePrice(e.target.value)}
+                        placeholder="1600"
+                        className="w-full pl-9 pr-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-hidden focus:ring-2 focus:ring-blue-500 font-medium bg-slate-50/50"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Category Selector */}
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                      Category <span className="text-rose-500">*</span>
+                    </label>
+                    <select
+                      value={category}
+                      onChange={(e) => setCategory(e.target.value)}
+                      className="w-full px-3 py-3 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-hidden focus:ring-2 focus:ring-blue-500 font-bold bg-slate-50/50"
+                    >
+                      <option value="Microcontrollers & Boards">Microcontrollers & Boards</option>
+                      <option value="Sensors & Displays">Sensors & Displays</option>
+                      <option value="Robotics & Motors">Robotics & Motors</option>
+                      <option value="Power & Converters">Power & Converters</option>
+                      <option value="Electronic Components & ICs">Electronic Components & ICs</option>
+                      <option value="Tools, Cables & Wires">Tools, Cables & Wires</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* SKU and Flash Sale Options */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                  <div>
+                    <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
+                      SKU Code (Auto-Generated)
+                    </label>
+                    <input
+                      type="text"
+                      value={sku}
+                      onChange={(e) => setSku(e.target.value)}
+                      placeholder="ATB-MCU-ESP32"
+                      className="w-full px-3 py-2 rounded-lg border border-slate-200 text-xs font-mono font-bold bg-white"
+                    />
+                  </div>
+
+                  <div className="space-y-2 pt-1 sm:pt-0">
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={isFlashSale}
+                        onChange={(e) => setIsFlashSale(e.target.checked)}
+                        className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500"
+                      />
+                      <span className="text-xs font-bold text-slate-800 flex items-center gap-1">
+                        <Zap className="w-3.5 h-3.5 text-yellow-500 fill-current" />
+                        Feature in Flash Sale (Top 4 on Homepage)
+                      </span>
+                    </label>
+
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={inStock}
+                        onChange={(e) => setInStock(e.target.checked)}
+                        className="w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500"
+                      />
+                      <span className="text-xs font-bold text-slate-800">
+                        In Stock (Instant WhatsApp Orders Available)
+                      </span>
+                    </label>
+                  </div>
+                </div>
+
+                {/* Image Upload Zone */}
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                    Primary Product Photo <span className="text-rose-500">*</span>
+                  </label>
+                  <div className="border-2 border-dashed border-slate-300 hover:border-blue-500 rounded-2xl p-6 text-center bg-slate-50/50 transition-colors relative cursor-pointer group">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handlePrimaryImageChange}
+                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                    />
+                    <div className="flex flex-col items-center justify-center space-y-2">
+                      <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform">
+                        <Upload className="w-5 h-5" />
+                      </div>
+                      <p className="text-xs font-bold text-slate-800">
+                        {primaryImage.file ? primaryImage.file.name : 'Click or Drag & Drop Product Image here'}
+                      </p>
+                      <p className="text-[11px] text-slate-400">
+                        JPG, PNG, WEBP from Mobile or Desktop. Automatically centered on white 900×900 WebP canvas.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Secondary Gallery Image (Optional) */}
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                    Secondary Image (Optional / Back Silkscreen / Pinout)
+                  </label>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleGalleryImageChange}
+                    className="text-xs text-slate-600 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer"
+                  />
+                  {galleryImage.file && (
+                    <span className="text-xs text-emerald-600 font-bold block mt-1">
+                      ✓ Secondary image loaded: {galleryImage.file.name}
+                    </span>
+                  )}
+                </div>
+
+                {/* Description */}
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                    Product Description
+                  </label>
+                  <textarea
+                    rows={3}
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    placeholder="Provide a clear, factual overview of the board, controller, sensor, or module..."
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-hidden focus:ring-2 focus:ring-blue-500 bg-slate-50/50"
+                  />
+                </div>
+
+                {/* Technical Specifications Key-Value Builder */}
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                      Technical Specifications
+                    </label>
+                    <button
+                      type="button"
+                      onClick={handleAddSpec}
+                      className="inline-flex items-center gap-1 text-xs font-bold text-[#0066CC] hover:text-blue-800"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                      <span>Add Spec Row</span>
+                    </button>
+                  </div>
+
+                  <div className="space-y-2">
+                    {specs.map((row, idx) => (
+                      <div key={idx} className="flex items-center gap-2">
+                        <input
+                          type="text"
+                          value={row.key}
+                          onChange={(e) => handleUpdateSpec(idx, 'key', e.target.value)}
+                          placeholder="Spec Name (e.g. Operating Voltage)"
+                          className="w-1/2 px-3 py-2 rounded-lg border border-slate-200 text-xs font-bold bg-slate-50/50"
+                        />
+                        <input
+                          type="text"
+                          value={row.value}
+                          onChange={(e) => handleUpdateSpec(idx, 'value', e.target.value)}
+                          placeholder="Value (e.g. 3.3V DC)"
+                          className="w-1/2 px-3 py-2 rounded-lg border border-slate-200 text-xs bg-slate-50/50"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveSpec(idx)}
+                          className="p-2 text-slate-400 hover:text-rose-600 rounded-lg hover:bg-rose-50"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Publish Button */}
+                <div className="pt-4 border-t border-slate-100">
+                  <button
+                    type="submit"
+                    disabled={isPublishing || isProcessingImage}
+                    className="w-full py-4 rounded-2xl bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-800 text-white font-black text-sm sm:text-base shadow-lg shadow-blue-500/25 hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isPublishing ? (
+                      <>
+                        <RefreshCw className="w-5 h-5 animate-spin" />
+                        <span>Publishing to GitHub ({publishProgress}%)...</span>
+                      </>
+                    ) : (
+                      <>
+                        <GithubIcon className="w-5 h-5" />
+                        <span>Publish Product to GitHub</span>
+                      </>
+                    )}
+                  </button>
+                  {isPublishing && (
+                    <p className="text-xs text-slate-500 text-center mt-2 animate-pulse font-medium">
+                      {publishStep}
+                    </p>
+                  )}
+                </div>
+              </form>
+            </div>
+
+            {/* Right Column: Live Storefront Card Preview (5 cols) */}
+            <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-24">
+              <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6">
+                <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700">Live Preview</h3>
+                  </div>
+                  <span className="text-[11px] text-slate-400 font-mono">Store Card</span>
+                </div>
+
+                {/* Product Card as it appears on Storefront */}
+                <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-md max-w-sm mx-auto relative">
+                  {/* Badges container */}
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10 pointer-events-none">
+                    {previewDiscount ? (
+                      <span className="bg-rose-600 text-white text-[11px] font-black px-2.5 py-0.5 rounded-full shadow-sm">
+                        SAVE {previewDiscount}%
+                      </span>
+                    ) : (
+                      <span className="bg-slate-900/80 backdrop-blur-xs text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-sm">
+                        New Arrival
+                      </span>
+                    )}
+                    <span className="bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-2xs">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                      {inStock ? 'In Stock' : 'Out of Stock'}
+                    </span>
+                  </div>
+
+                  {/* Image Container */}
+                  <div className="relative h-56 w-full bg-slate-50 flex items-center justify-center p-4 border-b border-slate-100 overflow-hidden">
+                    {primaryImage.previewUrl ? (
+                      <img
+                        src={primaryImage.previewUrl}
+                        alt="Preview"
+                        className="object-contain w-full h-full p-2"
+                      />
+                    ) : (
+                      <div className="flex flex-col items-center justify-center text-slate-300">
+                        <Package className="w-12 h-12 stroke-[1.2]" />
+                        <span className="text-xs mt-2 font-medium">Image Preview</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Card Details */}
+                  <div className="p-4 space-y-3">
+                    <div>
+                      <span className="text-[11px] font-bold text-[#0066CC] uppercase tracking-wider block">
+                        {category}
+                      </span>
+                      <h4 className="font-bold text-slate-900 text-sm leading-snug line-clamp-2 mt-1">
+                        {title.trim() || 'Product Name Example Title'}
+                      </h4>
+                    </div>
+
+                    {/* Price */}
+                    <div>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-xl font-black text-slate-900">
+                          Rs {price ? Number(price).toLocaleString() : '0'}
+                        </span>
+                        {comparePrice && Number(comparePrice) > 0 && (
+                          <span className="text-xs text-slate-500 line-through">
+                            Rs {Number(comparePrice).toLocaleString()}
+                          </span>
+                        )}
+                      </div>
+                      <span className="text-[10px] text-slate-500 block mt-0.5">
+                        Prices include GST / Cash on Delivery
+                      </span>
+                    </div>
+
+                    {/* WhatsApp Button Preview */}
+                    <div className="pt-2 border-t border-slate-100">
+                      <div className="w-full py-2.5 rounded-xl bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2">
+                        <span>Order on WhatsApp</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Specs Preview List */}
+                <div className="mt-6 pt-4 border-t border-slate-100 text-xs">
+                  <span className="font-bold text-slate-700 block mb-2 uppercase text-[10px] tracking-wider">
+                    Specs Attached:
+                  </span>
+                  <div className="space-y-1">
+                    {specs.filter((s) => s.key && s.value).length > 0 ? (
+                      specs
+                        .filter((s) => s.key && s.value)
+                        .map((s, i) => (
+                          <div key={i} className="flex justify-between text-slate-600 bg-slate-50 px-2 py-1 rounded">
+                            <span className="font-medium text-slate-500">{s.key}:</span>
+                            <span className="font-bold text-slate-800">{s.value}</span>
+                          </div>
+                        ))
+                    ) : (
+                      <p className="text-slate-400 italic">No specs added yet.</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ================= TAB 2: MANAGE CATALOG ================= */}
+        {activeTab === 'manage' && (
+          <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+              <div>
+                <h2 className="text-xl font-black text-slate-900">Manage Store Catalog</h2>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  View existing products, search by SKU or title, and toggle stock availability.
+                </p>
+              </div>
+              <button
+                onClick={loadCatalogFromGitHub}
+                disabled={loadingCatalog}
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-800 transition-colors"
+              >
+                <RefreshCw className={`w-3.5 h-3.5 ${loadingCatalog ? 'animate-spin' : ''}`} />
+                <span>Refresh from GitHub</span>
+              </button>
+            </div>
+
+            {/* Filter and Search Bar */}
+            <div className="flex flex-col sm:flex-row gap-3">
+              <div className="relative flex-1">
+                <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                <input
+                  type="text"
+                  value={catalogSearch}
+                  onChange={(e) => setCatalogSearch(e.target.value)}
+                  placeholder="Search products by title, SKU, or keyword..."
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm bg-slate-50/50"
+                />
+              </div>
+              <select
+                value={catalogCategory}
+                onChange={(e) => setCatalogCategory(e.target.value)}
+                className="px-3 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm font-bold bg-slate-50/50"
+              >
+                <option value="all">All Categories</option>
+                <option value="Microcontrollers & Boards">Microcontrollers & Boards</option>
+                <option value="Sensors & Displays">Sensors & Displays</option>
+                <option value="Robotics & Motors">Robotics & Motors</option>
+                <option value="Power & Converters">Power & Converters</option>
+                <option value="Electronic Components & ICs">Electronic Components & ICs</option>
+                <option value="Tools, Cables & Wires">Tools, Cables & Wires</option>
+              </select>
+            </div>
+
+            {/* Products Table */}
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr className="border-b border-slate-200 bg-slate-50 text-slate-500 uppercase tracking-wider font-bold">
+                    <th className="py-3 px-3">Item</th>
+                    <th className="py-3 px-3">Category</th>
+                    <th className="py-3 px-3">Price</th>
+                    <th className="py-3 px-3">Stock Status</th>
+                    <th className="py-3 px-3 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {catalogProducts
+                    .filter((p) => {
+                      const matchesText =
+                        !catalogSearch ||
+                        p.title.toLowerCase().includes(catalogSearch.toLowerCase()) ||
+                        (p.sku && p.sku.toLowerCase().includes(catalogSearch.toLowerCase()));
+                      const matchesCat =
+                        catalogCategory === 'all' ||
+                        p.category.toLowerCase() === catalogCategory.toLowerCase();
+                      return matchesText && matchesCat;
+                    })
+                    .slice(0, 50)
+                    .map((product) => (
+                      <tr key={product.id} className="hover:bg-slate-50/80 transition-colors">
+                        <td className="py-3 px-3 flex items-center gap-3">
+                          <div className="relative w-10 h-10 rounded-lg bg-slate-100 border border-slate-200 overflow-hidden shrink-0">
+                            <Image
+                              src={product.image}
+                              alt={product.title}
+                              fill
+                              className="object-contain p-1"
+                            />
+                          </div>
+                          <div>
+                            <span className="font-bold text-slate-900 block line-clamp-1 max-w-xs sm:max-w-md">
+                              {product.title}
+                            </span>
+                            <span className="text-[10px] text-slate-400 font-mono">
+                              ID: {product.id} {product.sku ? `• SKU: ${product.sku}` : ''}
+                            </span>
+                          </div>
+                        </td>
+                        <td className="py-3 px-3 font-medium text-slate-600">
+                          {product.category}
+                        </td>
+                        <td className="py-3 px-3 font-bold text-slate-900">
+                          Rs {product.price.toLocaleString()}
+                        </td>
+                        <td className="py-3 px-3">
+                          <span
+                            className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
+                              product.inStock
+                                ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                                : 'bg-rose-50 text-rose-700 border border-rose-200'
+                            }`}
+                          >
+                            <span
+                              className={`w-1.5 h-1.5 rounded-full ${
+                                product.inStock ? 'bg-emerald-500' : 'bg-rose-500'
+                              }`}
+                            ></span>
+                            {product.inStock ? 'In Stock' : 'Out of Stock'}
+                          </span>
+                        </td>
+                        <td className="py-3 px-3 text-right">
+                          <button
+                            onClick={() => handleToggleStock(product)}
+                            className="px-2.5 py-1 rounded-lg text-[11px] font-bold border border-slate-200 hover:bg-slate-100 transition-colors cursor-pointer"
+                          >
+                            Toggle Stock
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+
+              {catalogProducts.length === 0 && !loadingCatalog && (
+                <div className="text-center py-12 text-slate-400 text-xs">
+                  Click &quot;Refresh from GitHub&quot; to fetch your current catalog.
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* ================= TAB 3: GITHUB SETUP ================= */}
+        {activeTab === 'settings' && (
+          <div className="max-w-2xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+            <div className="border-b border-slate-100 pb-4">
+              <div className="inline-flex items-center gap-1.5 bg-blue-50 text-[#0066CC] px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
+                <Key className="w-3 h-3" />
+                <span>Direct GitHub Integration</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-black text-slate-900">GitHub Access Settings</h2>
+              <p className="text-xs text-slate-500 mt-1">
+                This token is stored only in your private browser storage. It authorizes your browser to commit new product images and catalog entries directly into your GitHub repository.
+              </p>
+            </div>
+
+            {/* Connection Test Status */}
+            {connStatus !== 'idle' && (
+              <div
+                className={`p-4 rounded-2xl text-xs flex items-start gap-3 border ${
+                  connStatus === 'success'
+                    ? 'bg-emerald-50 border-emerald-200 text-emerald-900'
+                    : connStatus === 'error'
+                    ? 'bg-rose-50 border-rose-200 text-rose-900'
+                    : 'bg-blue-50 border-blue-200 text-blue-900'
+                }`}
+              >
+                {connStatus === 'success' && <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0" />}
+                {connStatus === 'error' && <AlertCircle className="w-5 h-5 text-rose-600 shrink-0" />}
+                {connStatus === 'testing' && <RefreshCw className="w-5 h-5 text-blue-600 animate-spin shrink-0" />}
+                <div>
+                  <p className="font-bold text-sm">
+                    {connStatus === 'success' ? 'Connected Successfully' : connStatus === 'error' ? 'Connection Error' : 'Testing Connection...'}
+                  </p>
+                  <p className="mt-0.5">{connMessage}</p>
+                </div>
+              </div>
+            )}
+
+            <div className="space-y-4">
+              {/* Token Input */}
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                  GitHub Personal Access Token (PAT)
+                </label>
+                <div className="relative">
+                  <input
+                    type={showToken ? 'text' : 'password'}
+                    value={githubToken}
+                    onChange={(e) => setGithubToken(e.target.value)}
+                    placeholder="github_pat_... or ghp_..."
+                    className="w-full pl-4 pr-10 py-3 rounded-xl border border-slate-200 text-xs sm:text-sm font-mono bg-slate-50/50 focus:ring-2 focus:ring-blue-500"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowToken(!showToken)}
+                    className="absolute right-3 top-3 text-slate-400 hover:text-slate-600"
+                  >
+                    {showToken ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  </button>
+                </div>
+                <p className="text-[11px] text-slate-400 mt-1">
+                  Required permission: <strong>Contents: Read and write</strong>
+                </p>
+              </div>
+
+              {/* Target Repository */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                    GitHub Repository
+                  </label>
+                  <input
+                    type="text"
+                    value={githubRepo}
+                    onChange={(e) => setGithubRepo(e.target.value)}
+                    placeholder="ItsMrAhmad/AllTechByte"
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm font-mono bg-slate-50/50"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                    Target Branch
+                  </label>
+                  <input
+                    type="text"
+                    value={githubBranch}
+                    onChange={(e) => setGithubBranch(e.target.value)}
+                    placeholder="add-products-batch-1 or main"
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm font-mono bg-slate-50/50"
+                  />
+                </div>
+              </div>
+
+              {/* Test and Save Button */}
+              <div className="pt-2">
+                <button
+                  type="button"
+                  onClick={testGitHubConnection}
+                  disabled={connStatus === 'testing'}
+                  className="w-full py-3.5 rounded-2xl bg-[#0B1E48] hover:bg-blue-900 text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <ShieldCheck className="w-4 h-4" />
+                  <span>Save Settings &amp; Test Connection</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Quick 1-Minute Token Guide */}
+            <div className="bg-slate-50 rounded-2xl p-5 border border-slate-200 text-xs space-y-2 text-slate-600">
+              <span className="font-bold text-slate-800 block text-sm">
+                How to create a free GitHub Token in 1 minute:
+              </span>
+              <ol className="list-decimal pl-4 space-y-1 text-slate-600">
+                <li>
+                  Open{' '}
+                  <a
+                    href="https://github.com/settings/tokens?type=beta"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#0066CC] font-bold underline inline-flex items-center gap-0.5"
+                  >
+                    GitHub Fine-Grained Tokens
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </li>
+                <li>Click <strong>&quot;Generate new token&quot;</strong>.</li>
+                <li>Set Token Name: <code>AllTechByte Admin Portal</code>.</li>
+                <li>Under <strong>Repository access</strong>, choose <code>Only select repositories</code> and select <strong>AllTechByte</strong>.</li>
+                <li>Under <strong>Repository permissions</strong>, find <strong>Contents</strong> and set it to <strong>Read and write</strong>.</li>
+                <li>Click <strong>Generate token</strong>, copy the key, and paste it into the box above!</li>
+              </ol>
+            </div>
+          </div>
+        )}
+      </main>
+    </div>
+  );
+}
