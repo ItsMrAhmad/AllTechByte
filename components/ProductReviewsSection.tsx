@@ -42,7 +42,7 @@ export default function ProductReviewsSection({ product }: ProductReviewsProps) 
 
     window.addEventListener('atb-wishlist-change', handleWishlistSync);
 
-    // Initial default realistic reviews based on product category & real maker use cases
+    // Load genuine customer submitted reviews from localStorage
     const storageKey = `atb_reviews_${product.id}`;
     const saved = localStorage.getItem(storageKey);
     let initialList: ReviewItem[] = [];
@@ -52,70 +52,6 @@ export default function ProductReviewsSection({ product }: ProductReviewsProps) 
         initialList = JSON.parse(saved);
       } catch {
         initialList = [];
-      }
-    }
-
-    if (initialList.length === 0) {
-      // Seed default authentic maker reviews tailored to the component
-      if (product.category.includes('Boards') || product.title.includes('ESP32') || product.title.includes('Arduino') || product.title.includes('LoRa')) {
-        initialList = [
-          {
-            id: 'rev-1',
-            author: 'Engr. Haris Tariq',
-            location: 'FAST NUCES, Lahore',
-            rating: 5,
-            date: '3 days ago',
-            projectTitle: 'IoT Telemetry & Smart Gateway Project',
-            content: `Original quality hardware! Connected effortlessly and pins are straight with zero flux residue. Delivered to Lahore doorstep in less than 24 hours via courier.`,
-            verified: true
-          },
-          {
-            id: 'rev-2',
-            author: 'Hamza Shabbir',
-            location: 'UET Taxila',
-            rating: 5,
-            date: '1 week ago',
-            projectTitle: 'Wireless Sensor Node',
-            content: `Works exactly as specified in the datasheet. Price in Pakistan is very fair compared to Hall Road shops that charge extra. WhatsApp support answered my pinout question quickly.`,
-            verified: true
-          }
-        ];
-      } else if (product.category.includes('Robotics') || product.title.includes('Motor') || product.title.includes('PWM')) {
-        initialList = [
-          {
-            id: 'rev-1',
-            author: 'Saad Ur Rehman',
-            location: 'GIKI Robotics Club',
-            rating: 5,
-            date: '4 days ago',
-            projectTitle: 'Line Follower & Obstacle Robot',
-            content: `Solid metal gears and excellent torque for our club competition chassis. Tested on our regulated power supply with full PWM control, runs smooth and quiet.`,
-            verified: true
-          },
-          {
-            id: 'rev-2',
-            author: 'Zain Ali',
-            location: 'Lahore',
-            rating: 5,
-            date: '2 weeks ago',
-            projectTitle: 'DIY Science Model',
-            content: `Received in secure bubble wrap packaging. Everything worked out of the box with quick Cash on Delivery.`,
-            verified: true
-          }
-        ];
-      } else {
-        initialList = [
-          {
-            id: 'rev-1',
-            author: 'Ali Raza',
-            location: 'Islamabad',
-            rating: 5,
-            date: '5 days ago',
-            projectTitle: 'Workbench Assembly',
-            content: `High grade genuine component. Measured voltages matched the specs perfectly. Very reliable supplier in Pakistan!`,
-            verified: true
-          }
-        ];
       }
     }
 
@@ -206,65 +142,89 @@ export default function ProductReviewsSection({ product }: ProductReviewsProps) 
         </div>
       </div>
 
-      {/* Review Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {reviews.map((rev) => (
-          <div
-            key={rev.id}
-            className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-2xs flex flex-col justify-between space-y-3"
+      {/* Review Cards Grid or Empty State */}
+      {reviews.length === 0 ? (
+        <div className="bg-white rounded-2xl border border-slate-200/90 p-8 text-center space-y-3 shadow-2xs">
+          <div className="w-12 h-12 rounded-2xl bg-slate-100 text-slate-400 mx-auto flex items-center justify-center border border-slate-200">
+            <Star className="w-6 h-6 stroke-slate-300" />
+          </div>
+          <div>
+            <h3 className="text-sm font-bold text-slate-900">No customer reviews yet</h3>
+            <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto leading-relaxed">
+              Have you tested this component? Be the first to share your rating and review with other makers!
+            </p>
+          </div>
+          <button
+            onClick={() => {
+              setIsSubmitted(false);
+              setIsModalOpen(true);
+            }}
+            className="inline-flex items-center gap-1.5 bg-[#0066CC] hover:bg-[#0052a3] text-white text-xs font-bold px-4 py-2 rounded-xl transition-all shadow-xs"
           >
-            <div>
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`w-3.5 h-3.5 ${
-                        i < rev.rating
-                          ? 'fill-amber-400 text-amber-400'
-                          : 'fill-slate-100 text-slate-200'
-                      }`}
-                    />
-                  ))}
-                  <span className="text-xs font-bold text-slate-700 ml-1.5">
-                    {rev.rating}.0
+            <Plus className="w-3.5 h-3.5" />
+            <span>Write the First Review</span>
+          </button>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {reviews.map((rev) => (
+            <div
+              key={rev.id}
+              className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-2xs flex flex-col justify-between space-y-3"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`w-3.5 h-3.5 ${
+                          i < rev.rating
+                            ? 'fill-amber-400 text-amber-400'
+                            : 'fill-slate-100 text-slate-200'
+                        }`}
+                      />
+                    ))}
+                    <span className="text-xs font-bold text-slate-700 ml-1.5">
+                      {rev.rating}.0
+                    </span>
+                  </div>
+
+                  <span className="text-[11px] text-slate-400">
+                    {rev.date}
                   </span>
                 </div>
 
-                <span className="text-[11px] text-slate-400">
-                  {rev.date}
-                </span>
+                {rev.projectTitle && (
+                  <div className="text-xs font-bold text-[#0066CC] mb-1.5 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0066CC]"></span>
+                    <span>Project: {rev.projectTitle}</span>
+                  </div>
+                )}
+
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                  &ldquo;{rev.content}&rdquo;
+                </p>
               </div>
 
-              {rev.projectTitle && (
-                <div className="text-xs font-bold text-[#0066CC] mb-1.5 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0066CC]"></span>
-                  <span>Project: {rev.projectTitle}</span>
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                <div className="flex items-center gap-1.5">
+                  <span className="font-bold text-slate-900">{rev.author}</span>
+                  <span className="text-slate-400">&bull;</span>
+                  <span className="text-slate-500 text-[11px]">{rev.location}</span>
                 </div>
-              )}
 
-              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                &ldquo;{rev.content}&rdquo;
-              </p>
-            </div>
-
-            <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-              <div className="flex items-center gap-1.5">
-                <span className="font-bold text-slate-900">{rev.author}</span>
-                <span className="text-slate-400">&bull;</span>
-                <span className="text-slate-500 text-[11px]">{rev.location}</span>
+                {rev.verified && (
+                  <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
+                    <CheckCircle className="w-3 h-3 text-emerald-600" />
+                    <span>Verified Purchase</span>
+                  </span>
+                )}
               </div>
-
-              {rev.verified && (
-                <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
-                  <CheckCircle className="w-3 h-3 text-emerald-600" />
-                  <span>Verified Purchase</span>
-                </span>
-              )}
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
 
       {/* Review Submission Modal */}
       {isModalOpen && (

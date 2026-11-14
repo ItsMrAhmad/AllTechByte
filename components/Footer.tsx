@@ -209,7 +209,7 @@ export default function Footer() {
 
           <div className="text-center md:text-right space-y-1">
             <p>
-              © 2026 <strong className="text-white">{BRAND_INFO.name}</strong> ({BRAND_INFO.domain}). All rights reserved.
+              © 2026 <strong className="text-white">{BRAND_INFO.name}</strong>. All rights reserved.
             </p>
             <p className="text-xs text-slate-400">
               Built by{' '}
