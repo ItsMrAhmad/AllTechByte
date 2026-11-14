@@ -16,6 +16,8 @@ export interface Product {
   sku?: string;
   specs?: Record<string, string>;
   isDraft?: boolean;
+  isFlashSale?: boolean;
+  isFeatured?: boolean;
 }
 
 export const CATEGORIES = [

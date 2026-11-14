@@ -29,7 +29,13 @@ import {
   Sliders,
   CheckCircle2,
   Clock,
-  Layers
+  Layers,
+  Edit3,
+  Save,
+  ArrowUp,
+  ArrowDown,
+  Flame,
+  X
 } from 'lucide-react';
 import { Product, CATEGORIES, PRODUCTS } from '@/data/products';
 
@@ -65,7 +71,28 @@ export default function AdminPortalPage() {
   const [newAdminPassword, setNewAdminPassword] = useState('');
 
   // Tabs
-  const [activeTab, setActiveTab] = useState<'add' | 'manage' | 'settings'>('add');
+  const [activeTab, setActiveTab] = useState<'add' | 'manage' | 'flash' | 'settings'>('add');
+
+  // Edit Product Modal State
+  const [editingProduct, setEditingProduct] = useState<Product | null>(null);
+  const [editTitle, setEditTitle] = useState('');
+  const [editPrice, setEditPrice] = useState('');
+  const [editComparePrice, setEditComparePrice] = useState('');
+  const [editCategory, setEditCategory] = useState('');
+  const [editDescription, setEditDescription] = useState('');
+  const [editSku, setEditSku] = useState('');
+  const [editInStock, setEditInStock] = useState(true);
+  const [editSpecs, setEditSpecs] = useState<SpecRow[]>([]);
+  const [editImage, setEditImage] = useState<ImageState>({ file: null, previewUrl: null, blob: null });
+  const [isSavingEdit, setIsSavingEdit] = useState(false);
+  const [editError, setEditError] = useState<string | null>(null);
+  const [editSuccess, setEditSuccess] = useState<string | null>(null);
+
+  // Flash Sale Manager State
+  const [flashSelectedIds, setFlashSelectedIds] = useState<string[]>([]);
+  const [flashSearch, setFlashSearch] = useState('');
+  const [isSavingFlash, setIsSavingFlash] = useState(false);
+  const [flashMessage, setFlashMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
   // GitHub Configuration (stored in localStorage)
   const [githubToken, setGithubToken] = useState('');
@@ -129,6 +156,16 @@ export default function AdminPortalPage() {
       setActiveTab('settings');
     }
   }, []);
+
+  // Sync Flash Sale Selected IDs from catalog
+  useEffect(() => {
+    const flashFromCatalog = catalogProducts.filter((p) => p.isFlashSale).map((p) => p.id);
+    if (flashFromCatalog.length > 0) {
+      setFlashSelectedIds(flashFromCatalog);
+    } else {
+      setFlashSelectedIds(catalogProducts.slice(0, 4).map((p) => p.id));
+    }
+  }, [catalogProducts]);
 
   // Admin Portal Login
   const handleLogin = (e: React.FormEvent) => {
@@ -653,6 +690,239 @@ export default function AdminPortalPage() {
     }
   };
 
+  // Open Product Edit Modal
+  const handleStartEditProduct = (p: Product) => {
+    setEditingProduct(p);
+    setEditTitle(p.title);
+    setEditPrice(p.price.toString());
+    setEditComparePrice(p.comparePrice ? p.comparePrice.toString() : '');
+    setEditCategory(p.category);
+    setEditDescription(p.description || '');
+    setEditSku(p.sku || '');
+    setEditInStock(p.inStock);
+    setEditSpecs(
+      p.specs && Object.keys(p.specs).length > 0
+        ? Object.entries(p.specs).map(([key, value]) => ({ key, value }))
+        : [
+            { key: 'Operating Voltage', value: '' },
+            { key: 'Package Includes', value: '' }
+          ]
+    );
+    setEditImage({ file: null, previewUrl: p.image, blob: null });
+    setEditError(null);
+    setEditSuccess(null);
+  };
+
+  // Handle Edit Image Upload
+  const handleEditImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    try {
+      const { blob, previewUrl } = await processImageToWebp(file);
+      setEditImage({ file, previewUrl, blob });
+    } catch (err: any) {
+      alert(`Image processing error: ${err.message}`);
+    }
+  };
+
+  // Add/Remove/Update Edit Specs
+  const handleAddEditSpec = () => {
+    setEditSpecs([...editSpecs, { key: '', value: '' }]);
+  };
+  const handleUpdateEditSpec = (index: number, field: 'key' | 'value', val: string) => {
+    const updated = [...editSpecs];
+    updated[index][field] = val;
+    setEditSpecs(updated);
+  };
+  const handleRemoveEditSpec = (index: number) => {
+    setEditSpecs(editSpecs.filter((_, i) => i !== index));
+  };
+
+  // Save Product Edits & Commit to GitHub
+  const handleSaveEditProduct = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editingProduct) return;
+
+    if (!githubToken.trim()) {
+      setActiveTab('settings');
+      alert('Please configure your GitHub Personal Access Token in the GitHub Setup tab first.');
+      return;
+    }
+
+    if (!editTitle.trim() || !editPrice.trim() || Number(editPrice) <= 0) {
+      setEditError('Valid product title and price are required.');
+      return;
+    }
+
+    setIsSavingEdit(true);
+    setEditError(null);
+    setEditSuccess(null);
+
+    try {
+      // 1. If replacement image provided, upload it to GitHub
+      let imagePath = editingProduct.image;
+      if (editImage.blob) {
+        const imageBase64 = await blobToBase64(editImage.blob);
+        const githubImgPath = `public/products/product-${editingProduct.id}.webp`;
+        await uploadFileToGitHub(
+          githubImgPath,
+          imageBase64,
+          `feat(assets): update image for product ${editingProduct.id} via Admin Portal`
+        );
+        imagePath = `/products/product-${editingProduct.id}.webp`;
+      }
+
+      // 2. Fetch current catalog JSON from GitHub
+      const { products, sha } = await fetchProductsJsonFromGitHub();
+
+      // 3. Build valid specs dictionary
+      const validSpecs: Record<string, string> = {};
+      editSpecs.forEach((s) => {
+        if (s.key.trim() && s.value.trim()) {
+          validSpecs[s.key.trim()] = s.value.trim();
+        }
+      });
+
+      const parsedPrice = parseInt(editPrice, 10);
+      const parsedCompare = editComparePrice ? parseInt(editComparePrice, 10) : null;
+
+      // 4. Update the target product in the catalog
+      const updatedProducts = products.map((p) => {
+        if (p.id === editingProduct.id) {
+          return {
+            ...p,
+            title: editTitle.trim(),
+            handle: editTitle.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''),
+            price: parsedPrice,
+            comparePrice: parsedCompare,
+            category: editCategory,
+            sku: editSku.trim() || undefined,
+            inStock: editInStock,
+            description: editDescription.trim() || p.description,
+            image: imagePath,
+            specs: Object.keys(validSpecs).length > 0 ? validSpecs : undefined
+          };
+        }
+        return p;
+      });
+
+      // 5. Commit updated JSON to GitHub
+      const updatedJsonString = JSON.stringify(updatedProducts, null, 2);
+      const encodedJsonBase64 = btoa(unescape(encodeURIComponent(updatedJsonString)));
+
+      await uploadFileToGitHub(
+        'data/products.json',
+        encodedJsonBase64,
+        `feat(catalog): update product "${editTitle.trim()}" (Rs ${parsedPrice}) via Admin Portal`,
+        sha
+      );
+
+      setCatalogProducts(updatedProducts);
+      setEditSuccess(`Product "${editTitle.trim()}" updated and committed to GitHub successfully!`);
+      setTimeout(() => {
+        setEditingProduct(null);
+        setEditSuccess(null);
+      }, 1200);
+    } catch (err: any) {
+      setEditError(err.message || 'Failed to update product on GitHub.');
+    } finally {
+      setIsSavingEdit(false);
+    }
+  };
+
+  // Flash Sale Manager Reorder & Toggle Handlers
+  const handleMoveFlashItem = (index: number, direction: 'up' | 'down') => {
+    const updated = [...flashSelectedIds];
+    const targetIdx = direction === 'up' ? index - 1 : index + 1;
+    if (targetIdx < 0 || targetIdx >= updated.length) return;
+    const temp = updated[index];
+    updated[index] = updated[targetIdx];
+    updated[targetIdx] = temp;
+    setFlashSelectedIds(updated);
+  };
+
+  const handleRemoveFlashItem = (productId: string) => {
+    if (flashSelectedIds.length <= 1) {
+      alert('You must have at least 1 product in the Flash Sale.');
+      return;
+    }
+    setFlashSelectedIds(flashSelectedIds.filter((id) => id !== productId));
+  };
+
+  const handleAddFlashItem = (productId: string) => {
+    if (flashSelectedIds.includes(productId)) return;
+    if (flashSelectedIds.length >= 8) {
+      alert('Maximum 8 products recommended for the Flash Sale banner.');
+      return;
+    }
+    setFlashSelectedIds([...flashSelectedIds, productId]);
+  };
+
+  // Save Flash Sale lineup to GitHub
+  const handleSaveFlashSale = async () => {
+    if (!githubToken.trim()) {
+      setActiveTab('settings');
+      alert('Please configure your GitHub Personal Access Token in the GitHub Setup tab first.');
+      return;
+    }
+
+    setIsSavingFlash(true);
+    setFlashMessage(null);
+
+    try {
+      const { products, sha } = await fetchProductsJsonFromGitHub();
+
+      // 1. Separate flash items and regular items
+      const flashMap = new Map(products.map((p) => [p.id, p]));
+      const selectedFlashItems: Product[] = [];
+
+      flashSelectedIds.forEach((id) => {
+        const item = flashMap.get(id);
+        if (item) {
+          selectedFlashItems.push({
+            ...item,
+            isFlashSale: true
+          });
+        }
+      });
+
+      // 2. Remaining products (clear isFlashSale)
+      const remainingItems = products
+        .filter((p) => !flashSelectedIds.includes(p.id))
+        .map((p) => ({
+          ...p,
+          isFlashSale: false
+        }));
+
+      // 3. Put flash sale items at the top so both index order and flag match
+      const updatedCatalog = [...selectedFlashItems, ...remainingItems];
+
+      const updatedJsonString = JSON.stringify(updatedCatalog, null, 2);
+      const encodedJsonBase64 = btoa(unescape(encodeURIComponent(updatedJsonString)));
+
+      await uploadFileToGitHub(
+        'data/products.json',
+        encodedJsonBase64,
+        `feat(flash-sale): update active Flash Sale products (${selectedFlashItems.length} items) via Admin Portal`,
+        sha
+      );
+
+      setCatalogProducts(updatedCatalog);
+      setFlashMessage({
+        type: 'success',
+        text: `Flash Sale updated with ${selectedFlashItems.length} products and committed to GitHub successfully!`
+      });
+    } catch (err: any) {
+      setFlashMessage({
+        type: 'error',
+        text: err.message || 'Failed to update Flash Sale on GitHub.'
+      });
+    } finally {
+      setIsSavingFlash(false);
+    }
+  };
+
   // Calculate live preview discount
   const previewDiscount =
     comparePrice && Number(comparePrice) > Number(price) && Number(price) > 0
@@ -783,6 +1053,21 @@ export default function AdminPortalPage() {
               <Layers className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Manage Catalog</span>
               <span className="sm:hidden">Catalog</span>
+            </button>
+            <button
+              onClick={() => {
+                setActiveTab('flash');
+                loadCatalogFromGitHub();
+              }}
+              className={`px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+                activeTab === 'flash'
+                  ? 'bg-rose-600 text-white shadow-sm'
+                  : 'text-slate-300 hover:text-white hover:bg-white/10'
+              }`}
+            >
+              <Zap className="w-3.5 h-3.5 fill-current text-yellow-300" />
+              <span className="hidden sm:inline">Flash Sale &amp; Deals</span>
+              <span className="sm:hidden">Flash Sale</span>
             </button>
             <button
               onClick={() => setActiveTab('settings')}
@@ -1374,6 +1659,15 @@ export default function AdminPortalPage() {
                           <div className="flex items-center justify-end gap-1.5">
                             <button
                               type="button"
+                              onClick={() => handleStartEditProduct(product)}
+                              className="px-2.5 py-1.5 rounded-lg text-[11px] font-bold text-[#0066CC] border border-blue-200 hover:bg-blue-50 transition-colors cursor-pointer flex items-center gap-1 shadow-2xs"
+                              title={`Edit ${product.title}`}
+                            >
+                              <Edit3 className="w-3.5 h-3.5" />
+                              <span>Edit</span>
+                            </button>
+                            <button
+                              type="button"
                               onClick={() => handleToggleStock(product)}
                               disabled={actionInProgressId === product.id}
                               className="px-2.5 py-1.5 rounded-lg text-[11px] font-bold border border-slate-200 hover:bg-slate-100 transition-colors cursor-pointer disabled:opacity-50"
@@ -1410,7 +1704,218 @@ export default function AdminPortalPage() {
           </div>
         )}
 
-        {/* ================= TAB 3: GITHUB SETUP ================= */}
+        {/* ================= TAB 3: FLASH SALE & HOMEPAGE MANAGER ================= */}
+        {activeTab === 'flash' && (
+          <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+              <div>
+                <div className="inline-flex items-center gap-1.5 bg-rose-50 text-rose-600 px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-1">
+                  <Zap className="w-3.5 h-3.5 fill-current text-rose-600" />
+                  <span>Homepage Promotional Manager</span>
+                </div>
+                <h2 className="text-xl font-black text-slate-900">Flash Sale &amp; Hot Deals Lineup</h2>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Choose the products that appear in the &quot;Our Flash Sale Is On!&quot; banner on the homepage. Reorder them or add new items.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={handleSaveFlashSale}
+                disabled={isSavingFlash}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-xs font-bold text-white transition-all shadow-md active:scale-95 disabled:opacity-50 cursor-pointer"
+              >
+                <Save className="w-3.5 h-3.5" />
+                <span>{isSavingFlash ? 'Saving to GitHub...' : 'Publish Flash Sale to GitHub'}</span>
+              </button>
+            </div>
+
+            {flashMessage && (
+              <div
+                className={`p-4 rounded-2xl text-xs flex items-start gap-2.5 border ${
+                  flashMessage.type === 'success'
+                    ? 'bg-emerald-50 border-emerald-200 text-emerald-900'
+                    : 'bg-rose-50 border-rose-200 text-rose-900'
+                }`}
+              >
+                {flashMessage.type === 'success' ? (
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                ) : (
+                  <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+                )}
+                <span className="font-medium">{flashMessage.text}</span>
+              </div>
+            )}
+
+            {/* Current Flash Sale Lineup (Ordered Cards) */}
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                  <span>Active Flash Sale Items</span>
+                  <span className="bg-rose-100 text-rose-700 text-[10px] font-black px-2 py-0.5 rounded-full">
+                    {flashSelectedIds.length} Products
+                  </span>
+                </h3>
+                <span className="text-xs text-slate-400">
+                  Top 4 appear prominently in the homepage carousel
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {flashSelectedIds.map((id, index) => {
+                  const prod = catalogProducts.find((p) => p.id === id);
+                  if (!prod) return null;
+
+                  return (
+                    <div
+                      key={id}
+                      className="bg-white rounded-2xl border-2 border-rose-200 p-3.5 flex flex-col justify-between shadow-xs relative group"
+                    >
+                      {/* Priority Badge */}
+                      <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1">
+                        <span className="bg-rose-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-2xs">
+                          Slot #{index + 1}
+                        </span>
+                        {index < 4 && (
+                          <span className="bg-yellow-400 text-slate-900 text-[9px] font-black px-1.5 py-0.5 rounded-full">
+                            ★ Home
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="relative h-32 w-full bg-slate-50 rounded-xl overflow-hidden flex items-center justify-center p-2 mb-2 border border-slate-100">
+                        <Image
+                          src={prod.image}
+                          alt={prod.title}
+                          fill
+                          className="object-contain p-1"
+                        />
+                      </div>
+
+                      <div className="space-y-1">
+                        <span className="text-[10px] font-bold text-[#0066CC] uppercase truncate block">
+                          {prod.category}
+                        </span>
+                        <h4 className="text-xs font-bold text-slate-900 line-clamp-2 leading-tight">
+                          {prod.title}
+                        </h4>
+                        <div className="flex items-baseline gap-2 pt-1">
+                          <span className="text-sm font-black text-slate-900">
+                            Rs {prod.price.toLocaleString()}
+                          </span>
+                          {prod.comparePrice && (
+                            <span className="text-[11px] text-slate-400 line-through">
+                              Rs {prod.comparePrice.toLocaleString()}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Reorder and Remove Actions */}
+                      <div className="pt-3 border-t border-slate-100 flex items-center justify-between mt-2">
+                        <div className="flex items-center gap-1">
+                          <button
+                            type="button"
+                            disabled={index === 0}
+                            onClick={() => handleMoveFlashItem(index, 'up')}
+                            className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                            title="Move Left / Earlier"
+                          >
+                            <ArrowUp className="w-3.5 h-3.5 rotate-[-90deg]" />
+                          </button>
+                          <button
+                            type="button"
+                            disabled={index === flashSelectedIds.length - 1}
+                            onClick={() => handleMoveFlashItem(index, 'down')}
+                            className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                            title="Move Right / Later"
+                          >
+                            <ArrowDown className="w-3.5 h-3.5 rotate-[-90deg]" />
+                          </button>
+                        </div>
+
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveFlashItem(id)}
+                          className="text-[11px] font-bold text-rose-600 hover:text-rose-800 hover:bg-rose-50 px-2 py-1 rounded transition-colors"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Add More Items to Flash Sale */}
+            <div className="pt-6 border-t border-slate-200 space-y-3">
+              <h3 className="text-sm font-bold text-slate-900">
+                Add More Products from Catalog to Flash Sale
+              </h3>
+
+              <div className="relative">
+                <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                <input
+                  type="text"
+                  value={flashSearch}
+                  onChange={(e) => setFlashSearch(e.target.value)}
+                  placeholder="Search catalog to add to flash sale..."
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm bg-slate-50/50"
+                />
+              </div>
+
+              <div className="max-h-60 overflow-y-auto border border-slate-200 rounded-xl divide-y divide-slate-100 bg-white">
+                {catalogProducts
+                  .filter((p) => !flashSelectedIds.includes(p.id))
+                  .filter(
+                    (p) =>
+                      !flashSearch ||
+                      p.title.toLowerCase().includes(flashSearch.toLowerCase()) ||
+                      p.category.toLowerCase().includes(flashSearch.toLowerCase())
+                  )
+                  .slice(0, 15)
+                  .map((product) => (
+                    <div
+                      key={product.id}
+                      className="p-3 flex items-center justify-between hover:bg-slate-50 transition-colors"
+                    >
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div className="relative w-9 h-9 rounded-lg bg-slate-100 border border-slate-200 overflow-hidden shrink-0">
+                          <Image
+                            src={product.image}
+                            alt={product.title}
+                            fill
+                            className="object-contain p-1"
+                          />
+                        </div>
+                        <div className="min-w-0">
+                          <span className="text-xs font-bold text-slate-900 block truncate">
+                            {product.title}
+                          </span>
+                          <span className="text-[10px] text-slate-400">
+                            {product.category} &bull; Rs {product.price.toLocaleString()}
+                          </span>
+                        </div>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => handleAddFlashItem(product.id)}
+                        className="inline-flex items-center gap-1 text-xs font-bold text-rose-600 bg-rose-50 hover:bg-rose-100 border border-rose-200 px-3 py-1.5 rounded-lg transition-colors shrink-0 ml-3 cursor-pointer"
+                      >
+                        <Plus className="w-3.5 h-3.5" />
+                        <span>Add to Flash Sale</span>
+                      </button>
+                    </div>
+                  ))}
+              </div>
+            </div>
+
+          </div>
+        )}
+
+        {/* ================= TAB 4: GITHUB SETUP ================= */}
         {activeTab === 'settings' && (
           <div className="max-w-2xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
             <div className="border-b border-slate-100 pb-4">
@@ -1568,6 +2073,239 @@ export default function AdminPortalPage() {
                 >
                   Save New Password
                 </button>
+              </form>
+            </div>
+          </div>
+        )}
+
+        {/* ================= EDIT PRODUCT MODAL ================= */}
+        {editingProduct && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs overflow-y-auto">
+            <div className="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 my-8 space-y-6 animate-in fade-in zoom-in-95 duration-150">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+                <div>
+                  <span className="text-[10px] font-bold text-[#0066CC] uppercase tracking-wider block">
+                    Editing Product ID: {editingProduct.id}
+                  </span>
+                  <h3 className="text-xl font-black text-slate-900">
+                    Edit Product Details
+                  </h3>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setEditingProduct(null)}
+                  className="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {editError && (
+                <div className="bg-rose-50 border border-rose-300 rounded-2xl p-4 text-rose-900 text-xs flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+                  <span>{editError}</span>
+                </div>
+              )}
+
+              {editSuccess && (
+                <div className="bg-emerald-50 border border-emerald-300 rounded-2xl p-4 text-emerald-900 text-xs flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>{editSuccess}</span>
+                </div>
+              )}
+
+              <form onSubmit={handleSaveEditProduct} className="space-y-5">
+                {/* Title */}
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                    Product Title *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={editTitle}
+                    onChange={(e) => setEditTitle(e.target.value)}
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm font-bold bg-slate-50 focus:bg-white focus:border-[#0066CC] outline-none"
+                  />
+                </div>
+
+                {/* Price, Compare Price, Category, SKU Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                      Selling Price (Rs) *
+                    </label>
+                    <input
+                      type="number"
+                      required
+                      min="1"
+                      value={editPrice}
+                      onChange={(e) => setEditPrice(e.target.value)}
+                      className="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-sm font-bold bg-slate-50 focus:bg-white focus:border-[#0066CC] outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                      Original Price (Rs)
+                    </label>
+                    <input
+                      type="number"
+                      value={editComparePrice}
+                      onChange={(e) => setEditComparePrice(e.target.value)}
+                      placeholder="Optional"
+                      className="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-sm bg-slate-50 focus:bg-white focus:border-[#0066CC] outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                      Category *
+                    </label>
+                    <select
+                      value={editCategory}
+                      onChange={(e) => setEditCategory(e.target.value)}
+                      className="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-xs font-bold bg-slate-50 focus:bg-white focus:border-[#0066CC] outline-none"
+                    >
+                      <option value="Microcontrollers & Boards">Microcontrollers & Boards</option>
+                      <option value="Sensors & Displays">Sensors & Displays</option>
+                      <option value="Robotics & Motors">Robotics & Motors</option>
+                      <option value="Power & Converters">Power & Converters</option>
+                      <option value="Electronic Components & ICs">Electronic Components & ICs</option>
+                      <option value="Tools, Cables & Wires">Tools, Cables & Wires</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                      SKU Code
+                    </label>
+                    <input
+                      type="text"
+                      value={editSku}
+                      onChange={(e) => setEditSku(e.target.value)}
+                      placeholder="e.g. ATB-MCU-01"
+                      className="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-xs font-mono bg-slate-50 focus:bg-white focus:border-[#0066CC] outline-none"
+                    />
+                  </div>
+                </div>
+
+                {/* Stock Status Toggle */}
+                <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200">
+                  <input
+                    type="checkbox"
+                    id="editStockCheck"
+                    checked={editInStock}
+                    onChange={(e) => setEditInStock(e.target.checked)}
+                    className="w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+                  />
+                  <label htmlFor="editStockCheck" className="text-xs font-bold text-slate-800 cursor-pointer">
+                    In Stock (Available for Instant Order / Pickup)
+                  </label>
+                </div>
+
+                {/* Image Replacement */}
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                    Product Image (Keep current or upload new replacement)
+                  </label>
+                  <div className="flex items-center gap-4">
+                    <div className="relative w-16 h-16 rounded-xl bg-slate-100 border border-slate-200 overflow-hidden shrink-0">
+                      <Image
+                        src={editImage.previewUrl || editingProduct.image}
+                        alt={editTitle}
+                        fill
+                        className="object-contain p-1"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleEditImageChange}
+                        className="text-xs text-slate-600 file:mr-3 file:py-2 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer"
+                      />
+                      <span className="text-[11px] text-slate-400 block mt-1">
+                        Uploaded replacement photos will be automatically converted to 900×900 studio WebP.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                    Product Description
+                  </label>
+                  <textarea
+                    rows={3}
+                    value={editDescription}
+                    onChange={(e) => setEditDescription(e.target.value)}
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm bg-slate-50 focus:bg-white focus:border-[#0066CC] outline-none"
+                  />
+                </div>
+
+                {/* Specifications */}
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                      Specifications
+                    </label>
+                    <button
+                      type="button"
+                      onClick={handleAddEditSpec}
+                      className="text-xs font-bold text-[#0066CC] hover:underline cursor-pointer"
+                    >
+                      + Add Spec
+                    </button>
+                  </div>
+                  <div className="space-y-2 max-h-40 overflow-y-auto">
+                    {editSpecs.map((s, idx) => (
+                      <div key={idx} className="flex gap-2">
+                        <input
+                          type="text"
+                          placeholder="Feature (e.g. Operating Voltage)"
+                          value={s.key}
+                          onChange={(e) => handleUpdateEditSpec(idx, 'key', e.target.value)}
+                          className="w-1/2 text-xs p-2 rounded-lg border border-slate-200 bg-slate-50"
+                        />
+                        <input
+                          type="text"
+                          placeholder="Value (e.g. 3.3V - 5V DC)"
+                          value={s.value}
+                          onChange={(e) => handleUpdateEditSpec(idx, 'value', e.target.value)}
+                          className="w-1/2 text-xs p-2 rounded-lg border border-slate-200 bg-slate-50"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveEditSpec(idx)}
+                          className="p-2 text-slate-400 hover:text-rose-600 cursor-pointer"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="pt-4 border-t border-slate-100 flex items-center justify-end gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setEditingProduct(null)}
+                    className="px-5 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 hover:bg-slate-100 cursor-pointer"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={isSavingEdit}
+                    className="px-6 py-2.5 rounded-xl bg-[#0066CC] hover:bg-[#0052a3] text-white text-xs font-bold flex items-center gap-1.5 shadow-md active:scale-95 disabled:opacity-50 cursor-pointer"
+                  >
+                    <Save className="w-4 h-4" />
+                    <span>{isSavingEdit ? 'Saving & Committing...' : 'Save & Commit to GitHub'}</span>
+                  </button>
+                </div>
               </form>
             </div>
           </div>

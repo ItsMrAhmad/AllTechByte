@@ -1,17 +1,30 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Sparkles, MessageCircle, Zap, Clock } from 'lucide-react';
+import { Sparkles, MessageCircle, Zap, Clock, Heart } from 'lucide-react';
 import { PRODUCTS, Product, createProductOrderUrl } from '@/data/products';
+import { getWishlistIds, toggleWishlistItem } from '@/lib/wishlist';
 
 interface FlashSaleProps {
   onQuickOrder: (product: Product) => void;
 }
 
 export default function FlashSaleSection({ onQuickOrder }: FlashSaleProps) {
-  // Select top 4 active featured/flash-sale products
-  const flashProducts = PRODUCTS.filter((p) => !p.isDraft).slice(0, 4);
+  const [wishlistIds, setWishlistIds] = useState<string[]>([]);
+
+  useEffect(() => {
+    setWishlistIds(getWishlistIds());
+    const handleSync = () => setWishlistIds(getWishlistIds());
+    window.addEventListener('atb-wishlist-change', handleSync);
+    return () => window.removeEventListener('atb-wishlist-change', handleSync);
+  }, []);
+
+  // Select active featured/flash-sale products (prefers isFlashSale flag if set, else top 4)
+  const explicitFlash = PRODUCTS.filter((p) => !p.isDraft && p.isFlashSale);
+  const flashProducts = explicitFlash.length > 0
+    ? explicitFlash.slice(0, 4)
+    : PRODUCTS.filter((p) => !p.isDraft).slice(0, 4);
 
   return (
     <section id="flash-sale" className="py-12 bg-white border-b border-slate-200">
@@ -59,21 +72,47 @@ export default function FlashSaleSection({ onQuickOrder }: FlashSaleProps) {
                 onClick={() => onQuickOrder(product)}
                 className="flex flex-col bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl hover:border-blue-400 transition-all duration-200 group relative cursor-pointer"
               >
-                {/* Badges container */}
-                <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10 pointer-events-none">
-                  {discountPct ? (
-                    <span className="bg-rose-600 text-white text-[11px] font-black px-2.5 py-0.5 rounded-full shadow-sm">
-                      SAVE {discountPct}%
+                {/* Badges & Wishlist container */}
+                <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
+                  <div className="pointer-events-none">
+                    {discountPct ? (
+                      <span className="bg-rose-600 text-white text-[11px] font-black px-2.5 py-0.5 rounded-full shadow-sm">
+                        SAVE {discountPct}%
+                      </span>
+                    ) : (
+                      <span className="bg-slate-900/80 backdrop-blur-xs text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-sm">
+                        New Arrival
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="flex items-center gap-1.5">
+                    <span className="bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-2xs pointer-events-none">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                      In Stock
                     </span>
-                  ) : (
-                    <span className="bg-slate-900/80 backdrop-blur-xs text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-sm">
-                      New Arrival
-                    </span>
-                  )}
-                  <span className="bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-2xs">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                    In Stock
-                  </span>
+
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleWishlistItem(product.id);
+                      }}
+                      className={`w-7 h-7 rounded-full flex items-center justify-center transition-all shadow-xs ${
+                        wishlistIds.includes(product.id)
+                          ? 'bg-rose-50 text-rose-600 border border-rose-200'
+                          : 'bg-white/90 hover:bg-white text-slate-400 hover:text-rose-600 border border-slate-200'
+                      }`}
+                      title={wishlistIds.includes(product.id) ? 'Remove from Wishlist' : 'Add to Wishlist'}
+                      aria-label="Toggle Wishlist"
+                    >
+                      <Heart
+                        className={`w-3.5 h-3.5 transition-transform active:scale-125 ${
+                          wishlistIds.includes(product.id) ? 'fill-rose-600 text-rose-600' : ''
+                        }`}
+                      />
+                    </button>
+                  </div>
                 </div>
 
                 {/* Image */}

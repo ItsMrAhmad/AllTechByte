@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -10,9 +10,12 @@ import {
   ChevronDown,
   Sparkles,
   MapPin,
-  X
+  X,
+  Heart
 } from 'lucide-react';
 import { BRAND_INFO, CATEGORIES, createGeneralInquiryUrl } from '@/data/products';
+import { getWishlistIds } from '@/lib/wishlist';
+import WishlistDrawer from '@/components/WishlistDrawer';
 
 interface HeaderProps {
   onSearchChange?: (query: string) => void;
@@ -30,6 +33,26 @@ export default function Header({
   onOpenMobileMenu = () => {}
 }: HeaderProps) {
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
+  const [isWishlistOpen, setIsWishlistOpen] = useState(false);
+  const [wishlistCount, setWishlistCount] = useState(0);
+
+  useEffect(() => {
+    // Initial load
+    setWishlistCount(getWishlistIds().length);
+
+    const handleWishlistChange = (e: any) => {
+      if (e.detail?.count !== undefined) {
+        setWishlistCount(e.detail.count);
+      } else {
+        setWishlistCount(getWishlistIds().length);
+      }
+    };
+
+    window.addEventListener('atb-wishlist-change', handleWishlistChange);
+    return () => {
+      window.removeEventListener('atb-wishlist-change', handleWishlistChange);
+    };
+  }, []);
 
   const navMenuItems = [
     {
@@ -171,8 +194,24 @@ export default function Header({
             </div>
           </div>
 
-          {/* Right Action buttons: WhatsApp Direct Ordering & Store Locations */}
-          <div className="flex items-center gap-3">
+          {/* Right Action buttons: Wishlist, WhatsApp Direct Ordering & Store Locations */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Wishlist Button */}
+            <button
+              onClick={() => setIsWishlistOpen(true)}
+              className="relative p-2 sm:px-3 sm:py-2 rounded-xl text-slate-700 hover:text-rose-600 hover:bg-rose-50 border border-slate-200/90 transition-all flex items-center gap-1.5 shadow-2xs group"
+              aria-label="View Wishlist"
+              title="My Wishlist / Project BOM"
+            >
+              <Heart className={`w-4 h-4 sm:w-4.5 sm:h-4.5 transition-transform group-hover:scale-110 ${wishlistCount > 0 ? 'fill-rose-500 text-rose-500' : 'text-slate-600'}`} />
+              <span className="hidden sm:inline text-xs font-bold text-slate-700">Wishlist</span>
+              {wishlistCount > 0 && (
+                <span className="bg-rose-600 text-white text-[10px] font-black min-w-[18px] h-[18px] px-1 rounded-full flex items-center justify-center -ml-0.5 shadow-2xs">
+                  {wishlistCount}
+                </span>
+              )}
+            </button>
+
             {/* Store Locations Shortcut */}
             <a
               href="#locations-section"
@@ -318,6 +357,12 @@ export default function Header({
           </ul>
         </div>
       </nav>
+
+      {/* Customer Wishlist Drawer */}
+      <WishlistDrawer
+        isOpen={isWishlistOpen}
+        onClose={() => setIsWishlistOpen(false)}
+      />
     </header>
   );
 }

@@ -7,6 +7,7 @@ import { PRODUCTS, Product, BRAND_INFO, createProductOrderUrl, getCategorySlugFo
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
+import ProductReviewsSection from '@/components/ProductReviewsSection';
 import { MessageCircle, ShieldCheck, ArrowLeft, Truck, MapPin } from 'lucide-react';
 
 interface ProductPageProps {
@@ -286,6 +287,9 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
             </div>
           </div>
+
+          {/* Customer Reviews & Project Showcase */}
+          <ProductReviewsSection product={product} />
 
         </div>
       </main>

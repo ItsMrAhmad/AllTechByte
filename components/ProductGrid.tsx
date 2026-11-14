@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -8,9 +8,11 @@ import {
   SlidersHorizontal,
   CheckCircle,
   X,
-  Search
+  Search,
+  Heart
 } from 'lucide-react';
 import { Product, CATEGORIES, createProductOrderUrl, matchesCategory } from '@/data/products';
+import { getWishlistIds, toggleWishlistItem } from '@/lib/wishlist';
 
 interface ProductGridProps {
   products: Product[];
@@ -39,6 +41,14 @@ export default function ProductGrid({
   const INITIAL_BATCH_SIZE = 24;
   const BATCH_INCREMENT = 24;
   const [visibleCount, setVisibleCount] = useState<number>(INITIAL_BATCH_SIZE);
+  const [wishlistIds, setWishlistIds] = useState<string[]>([]);
+
+  useEffect(() => {
+    setWishlistIds(getWishlistIds());
+    const handleSync = () => setWishlistIds(getWishlistIds());
+    window.addEventListener('atb-wishlist-change', handleSync);
+    return () => window.removeEventListener('atb-wishlist-change', handleSync);
+  }, []);
 
   // Reset pagination when category or search changes
   React.useEffect(() => {
@@ -175,22 +185,47 @@ export default function ProductGrid({
                     onClick={() => onQuickOrder(product)}
                     className="flex flex-col bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-2xs hover:shadow-xl hover:border-[#0066CC]/50 transition-all duration-200 group relative cursor-pointer"
                   >
-                    {/* Top Badges */}
-                    <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between z-10 pointer-events-none">
-                      {discountPct ? (
-                        <span className="bg-rose-600 text-white text-[10px] sm:text-[11px] font-black px-2 py-0.5 rounded-full shadow-xs">
-                          -{discountPct}%
-                        </span>
-                      ) : (
-                        <span className="bg-slate-900/80 backdrop-blur-xs text-white text-[9px] font-bold px-2 py-0.5 rounded-full">
-                          Genuine
-                        </span>
-                      )}
+                    {/* Top Badges & Wishlist Action */}
+                    <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between z-10">
+                      <div className="pointer-events-none">
+                        {discountPct ? (
+                          <span className="bg-rose-600 text-white text-[10px] sm:text-[11px] font-black px-2 py-0.5 rounded-full shadow-xs">
+                            -{discountPct}%
+                          </span>
+                        ) : (
+                          <span className="bg-slate-900/80 backdrop-blur-xs text-white text-[9px] font-bold px-2 py-0.5 rounded-full">
+                            Genuine
+                          </span>
+                        )}
+                      </div>
 
-                      <span className="bg-white/95 text-emerald-700 border border-emerald-200 text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-2xs">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                        In Stock
-                      </span>
+                      <div className="flex items-center gap-1.5">
+                        <span className="bg-white/95 text-emerald-700 border border-emerald-200 text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-2xs pointer-events-none">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                          In Stock
+                        </span>
+
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            toggleWishlistItem(product.id);
+                          }}
+                          className={`w-7 h-7 rounded-full flex items-center justify-center transition-all shadow-xs ${
+                            wishlistIds.includes(product.id)
+                              ? 'bg-rose-50 text-rose-600 border border-rose-200'
+                              : 'bg-white/90 hover:bg-white text-slate-400 hover:text-rose-600 border border-slate-200'
+                          }`}
+                          title={wishlistIds.includes(product.id) ? 'Remove from Wishlist' : 'Add to Wishlist'}
+                          aria-label="Toggle Wishlist"
+                        >
+                          <Heart
+                            className={`w-3.5 h-3.5 transition-transform active:scale-125 ${
+                              wishlistIds.includes(product.id) ? 'fill-rose-600 text-rose-600' : ''
+                            }`}
+                          />
+                        </button>
+                      </div>
                     </div>
 
                     {/* Image Container */}
