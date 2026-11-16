@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import {
   MessageCircle,
   ArrowRight,
@@ -49,14 +48,17 @@ export default function HeroBanner({ onQuickOrder, onSelectCategory }: HeroBanne
       <div className="relative bg-[#07132D] text-white overflow-hidden lg:min-h-[calc(100vh-118px)] flex items-center">
         {/* Seamless Full-Bleed Dark Studio Hardware Visual (Desktop Right) */}
         <div className="hidden lg:block absolute inset-y-0 right-0 w-[68%] z-0 pointer-events-none select-none">
-          <Image
-            src="/hero-navy.webp"
-            alt="All Tech Byte — Raspberry Pi 5, Arduino UNO, ESP32, N20 Motor & Sensors"
-            fill
-            priority
-            sizes="(max-width: 1024px) 100vw, 70vw"
-            className="object-cover object-center"
-          />
+          <picture>
+            <source media="(min-width: 1024px)" srcSet="/hero-navy.webp" type="image/webp" />
+            <img
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E"
+              alt="All Tech Byte — Raspberry Pi 5, Arduino UNO, ESP32, N20 Motor & Sensors"
+              decoding="async"
+              width={1376}
+              height={768}
+              className="w-full h-full object-cover object-center"
+            />
+          </picture>
           {/* Seamless left & vertical melt into #07132D */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#07132D] via-[#07132D]/85 via-25% to-transparent"></div>
           <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-[#07132D]/60 to-transparent"></div>
@@ -134,13 +136,14 @@ export default function HeroBanner({ onQuickOrder, onSelectCategory }: HeroBanne
           {/* Mobile Showcase Visual (visible cleanly < lg) */}
           <div className="lg:hidden mt-8">
             <div className="relative aspect-[1376/768] w-full rounded-2xl overflow-hidden border border-blue-800/60 shadow-xl">
-              <Image
+              <img
                 src="/hero-navy-mobile.webp"
                 alt="All Tech Byte — Raspberry Pi 5, Arduino UNO, ESP32, N20 Motor & Sensors"
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 1024px"
-                className="object-cover"
+                fetchPriority="high"
+                decoding="async"
+                width={680}
+                height={380}
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
@@ -175,13 +178,14 @@ export default function HeroBanner({ onQuickOrder, onSelectCategory }: HeroBanne
                 className="p-3 rounded-2xl shadow-xs transition-all duration-200 flex items-center justify-between gap-3 cursor-pointer group bg-white border border-slate-200/90 hover:border-[#0066CC] hover:shadow-md text-slate-900"
               >
                 <div className="relative w-12 h-12 rounded-xl shrink-0 overflow-hidden flex items-center justify-center p-1 bg-white border border-slate-100">
-                  <Image
-                    src={item.image}
+                  <img
+                    src={`/products/thumb-${item.id}.webp`}
                     alt={`${item.title} - All Tech Byte`}
-                    fill
-                    sizes="48px"
+                    width={48}
+                    height={48}
                     loading="lazy"
-                    className="object-contain p-0.5 group-hover:scale-108 transition-transform"
+                    decoding="async"
+                    className="w-full h-full object-contain p-0.5 group-hover:scale-108 transition-transform"
                   />
                 </div>
 

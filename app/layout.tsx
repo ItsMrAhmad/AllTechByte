@@ -110,6 +110,7 @@ export default function RootLayout({
           href="/hero-navy-mobile.webp"
           type="image/webp"
           media="(max-width: 1023px)"
+          fetchPriority="high"
         />
         <link
           rel="preload"
@@ -117,12 +118,6 @@ export default function RootLayout({
           href="/hero-navy.webp"
           type="image/webp"
           media="(min-width: 1024px)"
-        />
-        <link
-          rel="preload"
-          as="image"
-          href="/robot-character.webp"
-          type="image/webp"
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png" />

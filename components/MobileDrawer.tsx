@@ -41,7 +41,7 @@ export default function MobileDrawer({
           <div className="flex items-center gap-2.5">
             <div className="relative w-11 h-11 rounded-xl overflow-hidden bg-white border border-white/20 p-1 flex items-center justify-center shrink-0">
               <Image
-                src="/robot-character.png"
+                src="/robot-character.webp"
                 alt="All Tech Byte Robot"
                 fill
                 sizes="44px"

@@ -76,6 +76,7 @@ export default function NewsSection() {
                   alt={art.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
+                  loading="lazy"
                   className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
                 />
                 <span className="absolute bottom-3 left-3 bg-[#0B1E48]/90 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-md backdrop-blur-xs">
