@@ -122,6 +122,7 @@ export default function FlashSaleSection({ onQuickOrder }: FlashSaleProps) {
                     alt={`${product.title} - AllTechByte`}
                     fill
                     sizes="(max-width: 768px) 100vw, 300px"
+                    loading="lazy"
                     className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>

@@ -28,7 +28,7 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <div className="relative w-13 h-13 rounded-2xl overflow-hidden bg-white border border-white/20 p-1 shadow-sm flex items-center justify-center shrink-0">
                 <Image
-                  src="/robot-character.png"
+                  src="/robot-character.webp"
                   alt="All Tech Byte Robot"
                   fill
                   sizes="52px"

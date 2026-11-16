@@ -135,7 +135,7 @@ export default function HeroBanner({ onQuickOrder, onSelectCategory }: HeroBanne
           <div className="lg:hidden mt-8">
             <div className="relative aspect-[1376/768] w-full rounded-2xl overflow-hidden border border-blue-800/60 shadow-xl">
               <Image
-                src="/hero-navy.webp"
+                src="/hero-navy-mobile.webp"
                 alt="All Tech Byte — Raspberry Pi 5, Arduino UNO, ESP32, N20 Motor & Sensors"
                 fill
                 priority
@@ -180,6 +180,7 @@ export default function HeroBanner({ onQuickOrder, onSelectCategory }: HeroBanne
                     alt={`${item.title} - All Tech Byte`}
                     fill
                     sizes="48px"
+                    loading="lazy"
                     className="object-contain p-0.5 group-hover:scale-108 transition-transform"
                   />
                 </div>

@@ -235,6 +235,7 @@ export default function ProductGrid({
                         alt={`${product.title} - AllTechByte`}
                         fill
                         sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                        loading="lazy"
                         className="object-contain p-2 group-hover:scale-108 transition-transform duration-300"
                       />
                     </div>

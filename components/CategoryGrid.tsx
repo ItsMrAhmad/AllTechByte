@@ -121,6 +121,7 @@ export default function CategoryGrid({ onSelectCategory, selectedCategory }: Cat
                     alt={cat.title}
                     fill
                     sizes="(max-width: 768px) 50vw, 200px"
+                    loading="lazy"
                     className="object-contain p-2 group-hover:scale-110 transition-transform duration-300"
                   />
                   {/* Category icon badge */}

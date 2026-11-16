@@ -104,7 +104,26 @@ export default function RootLayout({
     <html lang="en" className={`${inter.className} ${brandFont.variable}`}>
       <head>
         <StructuredData />
-        <link rel="preload" as="image" href="/hero-navy.webp" type="image/webp" />
+        <link
+          rel="preload"
+          as="image"
+          href="/hero-navy-mobile.webp"
+          type="image/webp"
+          media="(max-width: 1023px)"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/hero-navy.webp"
+          type="image/webp"
+          media="(min-width: 1024px)"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/robot-character.webp"
+          type="image/webp"
+        />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png" />
         <link rel="icon" type="image/png" sizes="192x192" href="/icon-192x192.png" />

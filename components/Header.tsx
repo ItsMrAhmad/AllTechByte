@@ -137,7 +137,7 @@ export default function Header({
           <Link href="/" className="flex items-center gap-2.5 sm:gap-3 shrink-0 group">
             <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-2xl overflow-hidden bg-white border border-slate-200/90 shadow-xs flex items-center justify-center p-1 group-hover:border-[#0084FF]/50 transition-colors">
               <Image
-                src="/robot-character.png"
+                src="/robot-character.webp"
                 alt="All Tech Byte Robot"
                 fill
                 sizes="(max-width: 768px) 48px, 56px"
